@@ -21,12 +21,17 @@ function loadTasks() {
 }
 /* ADD TASKS TO THE RIGHT LIST */
 function addTaskToRightList(task) {
-    const itemList = document.createElement('li'); // Cria um novo elemento li
+    const itemList = document.createElement('li');
+    itemList.setAttribute('data-task-id', task.id); // Cria um novo elemento li
     const itemTitle = document.createElement('h3');
+    itemTitle.textContent = task.title;
     const itemDescription = document.createElement('p');
+    itemDescription.textContent = task.description;
     const nextButton = document.createElement('button');
     createNextBtnListener(nextButton, task);
-    itemList.textContent = task.title + ': ' + task.description; // Adiciona o texto à tarefa 
+    itemList.appendChild(itemTitle);
+    itemList.appendChild(nextButton);
+    itemList.appendChild(itemDescription);
     document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
 
@@ -41,13 +46,35 @@ function createNextBtnListener(nextButton, task) {
         else if (task.status === 'done') {
             nextStatus = 'todo';
         }
-        saveTask(task, nextStatus);
+        moveTask(task, nextStatus);
     });
 }
-function saveTask(task, nextStatus) {
-    const updateTask ={...task, status: nextStatus};
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks = tasks.map(t => t.id === task.id ? updatedTask : t);
+function moveTask(task, nextStatus) {
+    const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
+    if (oldTaskElement) {
+        oldTaskElement.remove();
+    }
+
+    // Cria uma nova tarefa atualizada
+    const updatedTask = {...task, status: nextStatus};
+    addTaskToRightList(updatedTask);
+
+    // Salva a tarefa
+    saveTasks();
+}
+function saveTask() {
+    const tasks = [];
+    ['todo', 'doing', 'done'].forEach(status => {
+        document.querySelectorAll('#' + status + '-tasks li').forEach(taskElement => {
+            const taskParts = taskElement.textContent.split(': ');
+            tasks.push({ 
+                title: taskParts[0], 
+                description: taskParts[1], 
+                status: status,
+                id: taskElement.dataset.taskId // Supondo que cada tarefa tem um data-task-id
+            });
+        });
+    });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
