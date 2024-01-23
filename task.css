@@ -19,8 +19,8 @@ header {
     top: 0;
     left: 0;
 }
-/* BUTON OF OPTIONS */
-.btn-OptNE {
+/* BUTON OF SAVE */
+.btn-SaveNE {
     position: absolute;
     width: 10%;
     height: 10%;
