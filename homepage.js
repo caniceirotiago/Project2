@@ -33,15 +33,21 @@ function addTaskToRightList(task) {
     nextButton.textContent = '>';
 
     const delButton = document.createElement('button');
-    delButton.innerHTML = 'del me';
+    delButton.innerHTML = 'del';
+
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '<';
 
     createNextBtnListener(nextButton, task);
     createDelBtnListener(delButton, task);
+    createPrevBtnListener(prevButton, task);
 
     itemList.appendChild(itemTitle);
     itemList.appendChild(itemDescription);
     itemList.appendChild(nextButton);
     itemList.appendChild(delButton);
+    itemList.appendChild(prevButton);
+    
     document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
 
@@ -54,7 +60,7 @@ function createNextBtnListener(nextButton, task) {
             nextStatus = 'done';
         }
         else if (task.status === 'done') {
-            nextStatus = 'todo';
+            nextStatus = 'done';
         }
         moveTask(task, nextStatus);
     });
@@ -64,6 +70,21 @@ function createNextBtnListener(nextButton, task) {
 function createDelBtnListener(delButton, task) {
     delButton.addEventListener('click', function() {
         delTask(task);
+    });
+}
+
+function createPrevBtnListener(nextButton, task) {
+    nextButton.addEventListener('click', function() {
+        let nextStatus ="";
+        if (task.status === 'doing') {
+            nextStatus = 'todo';
+        } else if (task.status === 'done') {
+            nextStatus = 'doing';
+        }
+        else if (task.status === 'todo') {
+            nextStatus = 'todo';
+        }
+        moveTask(task, nextStatus);
     });
 }
 
