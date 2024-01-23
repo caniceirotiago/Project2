@@ -50,6 +50,11 @@ btn-BackSE.addEventListener("click", function() {
     location.href = "homepage.html";
 });
 
+/* DEL BUTTON LISTENER  */
+btn-DelSE.addEventListener("click", function() {
+    
+    location.href = "homepage.html";
+});
 
 
 

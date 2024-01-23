@@ -28,12 +28,20 @@ function addTaskToRightList(task) {
     itemTitle.textContent = task.title;
     const itemDescription = document.createElement('p');
     itemDescription.textContent = task.description;
+
     const nextButton = document.createElement('button');
     nextButton.textContent = '>';
+
+    const delButton = document.createElement('button');
+    delButton.innerHTML = 'del me';
+
     createNextBtnListener(nextButton, task);
-    itemList.appendChild(nextButton);
+    createDelBtnListener(delButton, task);
+
     itemList.appendChild(itemTitle);
     itemList.appendChild(itemDescription);
+    itemList.appendChild(nextButton);
+    itemList.appendChild(delButton);
     document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
 
@@ -51,6 +59,26 @@ function createNextBtnListener(nextButton, task) {
         moveTask(task, nextStatus);
     });
 }
+
+
+function createDelBtnListener(delButton, task) {
+    delButton.addEventListener('click', function() {
+        delTask(task);
+    });
+}
+
+function delTask(task) {
+    const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
+    if (oldTaskElement) {
+        oldTaskElement.remove();
+    }
+    // Salva a tarefa
+    saveTasks();
+}
+
+
+
+
 function moveTask(task, nextStatus) {
     const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
     if (oldTaskElement) {
