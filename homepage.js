@@ -23,13 +23,14 @@ function loadTasks() {
 function addTaskToRightList(task) {
     const itemList = document.createElement('li');
     itemList.setAttribute('data-task-id', task.id); // Cria um novo elemento li
+    itemList.classList.add('task-item');
     const itemTitle = document.createElement('h3');
     itemTitle.textContent = task.title;
     const itemDescription = document.createElement('p');
     itemDescription.textContent = task.description;
 
     const nextButton = document.createElement('button');
-    nextButton.innerHTML = 'move me';
+    nextButton.textContent = '>';
 
     const delButton = document.createElement('button');
     delButton.innerHTML = 'del me';

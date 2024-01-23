@@ -140,5 +140,31 @@ COLUMNS DIV ELEMENTS
 .tableList-Task { /* Each single item */
     border: 1px solid black;
 }
+.task-item {
+    list-style-type: none; /* Remove o ponto padrão */
+    border: 1px solid #aaa; /* Adiciona uma borda */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+    overflow: hidden; /* Previne que o conteúdo ultrapasse os limites */
+}
+
+.task-item h3, .task-item p {
+    margin: 5px 0; /* Espaçamento entre título, descrição e botão */
+    word-wrap: break-word; /* Quebra palavras longas para não ultrapassar a largura */
+}
+
+.task-item button {
+    float: right; /* Posiciona o botão à direita */
+    margin-left: 10px; /* Espaço à esquerda do botão */
+    padding: 5px 10px; /* Espaçamento interno do botão */
+    background-color: #f0f0f0; /* Cor de fundo do botão */
+    border: 1px solid #ddd; /* Borda do botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.task-item button:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+}
 
 
