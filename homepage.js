@@ -92,16 +92,18 @@ function moveTask(task, nextStatus) {
     // Salva a tarefa
     saveTasks();
 }
-function saveTask() {
+function saveTasks() {
     const tasks = [];
     ['todo', 'doing', 'done'].forEach(status => {
-        document.querySelectorAll('#' + status + '-tasks li').forEach(taskElement => {
-            const taskParts = taskElement.textContent.split(': ');
+        document.querySelectorAll('#' + status + ' .task-item').forEach(taskElement => {
+            const taskTitle = taskElement.querySelector('h3').textContent;
+            const taskDescription = taskElement.querySelector('p').textContent;
+            const taskId = taskElement.dataset.taskId;
             tasks.push({ 
-                title: taskParts[0], 
-                description: taskParts[1], 
-                status: status,
-                id: taskElement.dataset.taskId // Supondo que cada tarefa tem um data-task-id
+                id: taskId, 
+                title: taskTitle, 
+                description: taskDescription, 
+                status: status
             });
         });
     });
