@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* EXIT BUTTON LISTENER  */
 
 btn-ExitSW.addEventListener("click", function() {
-    localStorage.clear();
     location.href = "index.html";
-  });
+});
 
