@@ -1,7 +1,7 @@
 /* JavaScript File - all the code in the world  */
 /* Switch to strict mode to get more useful errors
  when you make mistakes. */
- 'use strict';
+'use strict';
 
 
 /* TASK SUBMISSION*/
