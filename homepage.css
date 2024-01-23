@@ -148,6 +148,9 @@ COLUMNS DIV ELEMENTS
     margin-bottom: 10px; /* Espaçamento entre os itens da lista */
     overflow: hidden; /* Previne que o conteúdo ultrapasse os limites */
 }
+.task-item:hover button {
+    opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */
+}
 
 .task-item h3, .task-item p {
     margin: 5px 0; /* Espaçamento entre título, descrição e botão */
@@ -155,6 +158,8 @@ COLUMNS DIV ELEMENTS
 }
 
 .task-item button {
+    opacity: 0; /* Torna o botão totalmente transparente (invisível) por padrão */
+    transition: opacity 0.3s; /* Adiciona uma transição suave para a opacidade */
     float: right; /* Posiciona o botão à direita */
     margin-left: 10px; /* Espaço à esquerda do botão */
     padding: 5px 10px; /* Espaçamento interno do botão */
