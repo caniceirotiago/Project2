@@ -74,4 +74,27 @@ footer {
     display: table;
     clear: both;
 }
-/* COLUNAS DOS elementos DIV */
+/* GRID FOR TASKS */
+.ul {
+    list-style-type: none;
+}
+.h1 {
+    text-align: center;
+    margin:auto;
+    line-height:51px;
+    vertical-align:middle;
+    text-align: center;
+    width: 100%;
+}
+.tableList { /* The larger box */
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    column-gap: 5px;
+    row-gap: 5px;
+    border: 1px solid black;
+}
+.tableList-Task { /* Each single item */
+    border: 1px solid black;
+}
+
+
