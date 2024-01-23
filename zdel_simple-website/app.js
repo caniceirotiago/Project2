@@ -1,6 +1,5 @@
 /* Source: https://learn.microsoft.com/en-us/training/modules/get-started-with-web-development/5-javascript-basics
 */
-
 /* Switch to strict mode to get more useful errors
  when you make mistakes. */
 'use strict';
