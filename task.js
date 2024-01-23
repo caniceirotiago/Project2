@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('description', description); // gravar no localStorage a descrição
         form.submit(); // faz o submit do formulario (ativa a ação do form)
         /* falta aqui o código/metodo de tratamento e criacao de uma task, no TODO:default*/
+        document.
     });
 });
 
+
+
+
 /* SET USERNAME INTO HEADER  */
 document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username'); //
+    var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }

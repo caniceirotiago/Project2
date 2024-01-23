@@ -9,19 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
-});
+}); /* don't forget Semicolons! lesson learned */
+
+
 
 
 
 
 /* EXIT BUTTON LISTENER  */
 btn-RetroNW.addEventListener("click", function() {
-    location.href = "index.html";
+    location.href = "retrospective.html";
 });
 
-/* EXIT BUTTON LISTENER  */
+/* OPTION BUTTON LISTENER  */
 btn-ExitSW.addEventListener("click", function() {
-    location.href = "index.html";
+    location.href = "options.html";
 });
 
 /* Exit button on South-West BUTTON LISTENER  */
