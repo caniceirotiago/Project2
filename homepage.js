@@ -9,11 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
-}); /* don't forget Semicolons! lesson learned */
-
-
-
-
+    loadTasks();
+});
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.forEach(task => {
+        addTaskToRightList(task.title, task.description, task.status);
+    });
+}
+function addTaskToRightList(title, description, status) {
+    const itemList = document.createElement('li');
+    itemList.textContent = title + ': ' + description;
+    document.getElementById(status).appendChild(itemList);
+}
 
 
 /* EXIT BUTTON LISTENER  */
