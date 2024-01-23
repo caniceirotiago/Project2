@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,46 +12,47 @@
 
 <body>
     <!-- Header in top center -->
-<header>
-    <!-- Button in top left -->
-    <button class="btn-RetroNW">
-        Retrospective BTN
-    </button>
-    HEADER : Username
-    <!-- Button in the top right  -->
-    <button class="btn-OptNE">
-        Options BTN
-    </button>
-</header>
+    <header>
+        <!-- Button in top left -->
+        <button class="btn-RetroNW">
+            Retrospective BTN
+        </button>
+        <h1><span id="usernameDisplay">Username</span></h1>
+        <!-- Button in the top right  -->
+        <button class="btn-OptNE">
+            Options BTN
+        </button>
+    </header>
 
-<main>
-    <div class="row">
-        <div class="col-menu">
-            <h2>MENU</h2>
+    <main>
+        <div class="row">
+            <div class="col-menu">
+                <h2>MENU</h2>
+            </div>
+            <div class="col-todo">
+                <h2>TODO</h2>
+                <ul class="todo">
+                </ul>
+            </div>
+            <div class="col-doing">
+                <h2>DOING</h2><br>
+                <ul class="doing"></ul>
+            </div>
+            <div class="col-done">
+                <h2>DONE</h2><br>
+                <ul class="done"></ul>
+            </div>
         </div>
-        <div class="col-todo">
-            <h2>TODO</h2>
-            <ul class="todo">
-            </ul> 
-        </div>
-        <div class="col-doing">
-            <h2>DOING</h2><br>
-            <ul class="doing"></ul>
-        </div>
-        <div class="col-done">
-            <h2>DONE</h2><br>
-            <ul class="done"></ul>
-        </div>
-    </div>
 
-</main>
+    </main>
 
-<footer>
-    FOOTER : About
-    <button class="btn-CopySE">
-        Copyright BTN
-    </button>
-</footer>
+    <footer>
+        FOOTER : About
+        <button class="btn-CopySE">
+            Copyright BTN
+        </button>
+    </footer>
+    <script src="app.js"></script>
 </body>
 
 
