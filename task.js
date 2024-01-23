@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }    
     });
 });
+/* TASK CREATION*/
 function addTask(title, description) { // adiciona uma task com o titulo e a descrição
             var task = { // cria um objeto task
                 title: title,
