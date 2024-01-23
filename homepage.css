@@ -1,3 +1,5 @@
+/* HOMEPAGE. CSS */
+
 /* HEADER */
 header {
     text-align: center;
@@ -27,7 +29,13 @@ footer {
     height: 10%;
     background-color: lightgrey;
 }
-/* BUTON OF OPTIONS */
+/* BUTON OF Exit */
+.btn-ExitSW {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* BUTON OF Copyright */
 .btn-CopySE {
     position: absolute;
     bottom: 0;
@@ -37,6 +45,7 @@ footer {
 
 
 /* COLUNAS DOS elementos DIV */
+/* Parte relativa ao MENU LATERAL */
 .col-menu {
     float: left;
     width: 10%;
@@ -45,6 +54,12 @@ footer {
 }
 
 
+
+.btn-add {
+    width: 100%;
+}
+
+/* Parte relativa à coluna TODO*/
 .col-todo {
     float: left;
     width: 30%;
@@ -53,6 +68,7 @@ footer {
     background-color: green
 }
 
+/* Parte relativa à coluna DOING */
 .col-doing {
     float: left;
     width: 30%;
@@ -61,6 +77,7 @@ footer {
     background-color:blue
 }
 
+/* Parte relativa à coluna DONE */
 .col-done {
     float: left;
     width: 30%;
@@ -69,11 +86,14 @@ footer {
     background-color: blueviolet
 }
 
+/* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
 .row::after {
     content: "";
     display: table;
     clear: both;
 }
+
+
 /* GRID FOR TASKS */
 .ul {
     list-style-type: none;
