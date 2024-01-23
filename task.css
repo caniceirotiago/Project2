@@ -1,0 +1,120 @@
+/* HOMEPAGE. CSS */
+
+/* HEADER */
+header {
+    text-align: center;
+    float: left;
+    width: 100%;
+    height: 10%;
+    background-color: lightgrey;
+}
+/* BUTON OF RETROSPECTIVE */
+.btn-RetroNW {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* BUTON OF OPTIONS */
+.btn-OptNE {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    float: right;
+    width: 100%;
+    height: 10%;
+    background-color: lightgrey;
+}
+/* BUTON OF Exit */
+.btn-ExitSW {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+/* BUTON OF Copyright */
+.btn-CopySE {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+/* COLUNAS DOS elementos DIV */
+/* Parte relativa ao MENU LATERAL */
+.col-menu {
+    float: left;
+    width: 10%;
+    height: 80%;
+    min-height: 600px;
+}
+
+
+
+.btn-add {
+    width: 100%;
+}
+
+/* Parte relativa à coluna TODO*/
+.col-todo {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color: green
+}
+
+/* Parte relativa à coluna DOING */
+.col-doing {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color:blue
+}
+
+/* Parte relativa à coluna DONE */
+.col-done {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color: blueviolet
+}
+
+/* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* GRID FOR TASKS */
+.ul {
+    list-style-type: none;
+}
+.h1 {
+    text-align: center;
+    margin:auto;
+    line-height:51px;
+    vertical-align:middle;
+    text-align: center;
+    width: 100%;
+}
+.tableList { /* The larger box */
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    column-gap: 5px;
+    row-gap: 5px;
+    border: 1px solid black;
+}
+.tableList-Task { /* Each single item */
+    border: 1px solid black;
+}
+
+
