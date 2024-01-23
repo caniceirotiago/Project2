@@ -22,8 +22,33 @@ function loadTasks() {
 /* ADD TASKS TO THE RIGHT LIST */
 function addTaskToRightList(task) {
     const itemList = document.createElement('li'); // Cria um novo elemento li
+    const itemTitle = document.createElement('h3');
+    const itemDescription = document.createElement('p');
+    const nextButton = document.createElement('button');
+    createNextBtnListener(nextButton, task);
     itemList.textContent = task.title + ': ' + task.description; // Adiciona o texto à tarefa 
     document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
+}
+
+function createNextBtnListener(nextButton, task) {
+    nextButton.addEventListener('click', function() {
+        let nextStatus ="";
+        if (task.status === 'todo') {
+            nextStatus = 'doing';
+        } else if (task.status === 'doing') {
+            nextStatus = 'done';
+        }
+        else if (task.status === 'done') {
+            nextStatus = 'todo';
+        }
+        saveTask(task, nextStatus);
+    });
+}
+function saveTask(task, nextStatus) {
+    const updateTask ={...task, status: nextStatus};
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks = tasks.map(t => t.id === task.id ? updatedTask : t);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
