@@ -31,8 +31,8 @@ function addTaskToRightList(task) {
     const nextButton = document.createElement('button');
     nextButton.textContent = '>';
     createNextBtnListener(nextButton, task);
-    itemList.appendChild(itemTitle);
     itemList.appendChild(nextButton);
+    itemList.appendChild(itemTitle);
     itemList.appendChild(itemDescription);
     document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
