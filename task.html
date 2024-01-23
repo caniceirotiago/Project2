@@ -12,24 +12,27 @@
 
 <body>
     <!-- Header in top center -->
-<header>
-    <!-- Button in top left -->
-    <button class="btn-RetroNW">
-        Retrospective BTN
-    </button>
+    <header>
+        <!-- Edit Button in top left -->
+        <form>
+            <button class="btn-EditNW">
+                Edit BTN
+            </button>
+        </form>
 
-    <!-- Header Content -->
-    <h1><span id="usernameDisplay">Username</span></h1>
+        <!-- Header Content -->
+        <h1><span id="usernameDisplay">Username</span></h1>
 
-    <!-- Button in the top right  -->
-    <button class="btn-OptNE">
-        Options BTN
-    </button>
-</header>
+        <!-- Save in the top right  -->
+        <button class="btn-SaveNE">
+            Save BTN
+        </button>
+    </header>
 
     <main>
-        <div class="task">
-            <div class="col-add-task">
+        <div class="col-add-task">
+            <!-- Task contents -->
+            <div class="task">
             <h2>Add Task</h2>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
                 <label for="title">Title</label>
@@ -38,23 +41,23 @@
                 <input type="text" name="description" id="description" placeholder="Insert Task Description">
                 <input type="submit" value="save">
             </form>
-
-
         </div>
 
     </main>
 
     <footer>
-        <!-- Button in bottom left -->
-    <button class="btn-ExitSW">
-        Exit BTN
-    </button>
-    <!-- Footer Content -->
-    FOOTER : About
-        <!-- Button in bottom right -->
-    <button class="btn-CopySE">
-            Copyright BTN
-        </button>
+        <!-- Back Button in bottow left -->
+        <form>
+            <button class="btn-BackSE">
+                Back BTN
+            </button>
+        </form>
+        <!-- Del Button in bottom right -->
+        <form>
+            <button class="btn-DelSE">
+                Del BTN
+            </button>
+        </form>
     </footer>
     <script src="task.js"></script>
 </body>
