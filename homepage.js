@@ -12,9 +12,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/* EXIT BUTTON LISTENER  */
 
+
+/* EXIT BUTTON LISTENER  */
+btn-RetroNW.addEventListener("click", function() {
+    location.href = "index.html";
+});
+
+/* EXIT BUTTON LISTENER  */
 btn-ExitSW.addEventListener("click", function() {
     location.href = "index.html";
 });
+
+/* Exit button on South-West BUTTON LISTENER  */
+btn-ExitSW.addEventListener("click", function() {
+    location.href = "index.html";
+});
+/* Copyright button on South-East BUTTON LISTENER  */
+btn-CopySE.addEventListener("click", function() {
+    location.href = "copyright.html";
+});
+
 
