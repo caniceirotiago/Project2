@@ -8,15 +8,22 @@ header {
     height: 10%;
     background-color: lightgrey;
 }
-/* BUTON OF RETROSPECTIVE */
-.btn-RetroNW {
+
+
+/* Buttons */
+/* BUTON OF Edit */
+.btn-EditNW {
     position: absolute;
+    width: 10%;
+    height: 10%;
     top: 0;
     left: 0;
 }
 /* BUTON OF OPTIONS */
 .btn-OptNE {
     position: absolute;
+    width: 10%;
+    height: 10%;
     top: 0;
     right: 0;
 }
@@ -29,15 +36,19 @@ footer {
     height: 10%;
     background-color: lightgrey;
 }
-/* BUTON OF Exit */
-.btn-ExitSW {
+/* BUTON OF Back */
+.btn-BackSE {
     position: absolute;
+    width: 10%;
+    height: 10%;
     bottom: 0;
     left: 0;
 }
 /* BUTON OF Copyright */
-.btn-CopySE {
+.btn-DelSE {
     position: absolute;
+    width: 10%;
+    height: 10%;
     bottom: 0;
     right: 0;
 }
