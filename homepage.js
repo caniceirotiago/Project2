@@ -29,12 +29,12 @@ function addTaskToRightList(title, description, status) {
 
 /* EXIT BUTTON LISTENER  */
 btn-RetroNW.addEventListener("click", function() {
-    location.href = "index.html";
+    location.href = "retrospective.html";
 });
 
-/* EXIT BUTTON LISTENER  */
+/* OPTION BUTTON LISTENER  */
 btn-ExitSW.addEventListener("click", function() {
-    location.href = "index.html";
+    location.href = "options.html";
 });
 
 /* Exit button on South-West BUTTON LISTENER  */

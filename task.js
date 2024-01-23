@@ -1,7 +1,7 @@
 /* JavaScript File - all the code in the world  */
 /* Switch to strict mode to get more useful errors
  when you make mistakes. */
- 'use strict';
+'use strict';
 
 
 /* TASK SUBMISSION*/
@@ -30,7 +30,7 @@ function addTask(title, description) { // adiciona uma task com o titulo e a des
         }
 /* SET USERNAME INTO HEADER  */
 document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username'); //
+    var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
