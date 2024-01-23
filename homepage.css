@@ -1,6 +1,72 @@
-.col-todo,.col-doing,.cold-done {
+/* HEADER */
+header {
+    text-align: center;
     float: left;
-    width: 33.33%;
+    width: 100%;
+    height: 10%;
+    background-color: lightgrey;
+}
+/* BUTON OF RETROSPECTIVE */
+.btn-RetroNW {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* BUTON OF OPTIONS */
+.btn-OptNE {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    float: right;
+    width: 100%;
+    height: 10%;
+    background-color: lightgrey;
+}
+/* BUTON OF OPTIONS */
+.btn-CopySE {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+/* COLUNAS DOS elementos DIV */
+.col-menu {
+    float: left;
+    width: 10%;
+    height: 80%;
+    min-height: 600px;
+}
+
+
+.col-todo {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color: green
+}
+
+.col-doing {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color:blue
+}
+
+.col-done {
+    float: left;
+    width: 30%;
+    height: 80%;
+    min-height: 600px;
+    background-color: blueviolet
 }
 
 .row::after {
@@ -8,3 +74,4 @@
     display: table;
     clear: both;
 }
+/* COLUNAS DOS elementos DIV */
