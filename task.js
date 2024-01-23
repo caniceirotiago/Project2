@@ -11,13 +11,22 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // previne que o formulário seja enviado da forma default
         var title = document.getElementById('title').value; //obtem o titulo da task
         var description = document.getElementById('description').value; //obtem a descrição da task
-        localStorage.setItem('title', title); // gravar no localStorage o titulo
-        localStorage.setItem('description', description); // gravar no localStorage a descrição
-        form.submit(); // faz o submit do formulario (ativa a ação do form)
-        /* falta aqui o código/metodo de tratamento e criacao de uma task, no TODO:default*/
+        if(title && description) { // se o titulo e a descrição não estiverem vazios    
+            addTask(title, description); // adiciona uma task com o titulo e a descrição
+            window.location.href = 'homepage.html'; // redireciona para a página principal
+        }    
     });
 });
-
+function addTask(title, description) { // adiciona uma task com o titulo e a descrição
+            var task = { // cria um objeto task
+                title: title,
+                description: description,
+                status : "todo",
+            };
+            var tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
+            tasks.push(task); // adiciona a task ao array de tasks
+            localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
+        }
 /* SET USERNAME INTO HEADER  */
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username'); //
