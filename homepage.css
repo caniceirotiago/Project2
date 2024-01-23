@@ -1,0 +1,10 @@
+.col-todo,.col-doing,.cold-done {
+    float: left;
+    width: 33.33%;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
