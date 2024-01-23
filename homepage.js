@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function() {
 btn-ExitSW.addEventListener("click", function() {
     localStorage.clear();
     location.href = "index.html";
-  });
+});
 
