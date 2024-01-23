@@ -3,7 +3,7 @@
  when you make mistakes. */
 'use strict';
 
-/* SET USERNAME INTO HEADER  */
+/* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
@@ -11,16 +11,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadTasks();
 });
+
+/* LOAD ALL TASKS */
 function loadTasks() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];// vai buscar as tarefas gravadas anteriormente
     tasks.forEach(task => {
-        addTaskToRightList(task.title, task.description, task.status);
+        addTaskToRightList(task.title, task.description, task.status); // para cada terefa chama ométodo para a adicionar à lista correta
     });
 }
+/* ADD TASKS TO THE RIGHT LIST */
 function addTaskToRightList(title, description, status) {
-    const itemList = document.createElement('li');
-    itemList.textContent = title + ': ' + description;
-    document.getElementById(status).appendChild(itemList);
+    const itemList = document.createElement('li'); // Cria um novo elemento li
+    itemList.textContent = title + ': ' + description; // Adiciona o texto à tarefa 
+    document.getElementById(status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
 
 
