@@ -87,10 +87,10 @@ footer {
 }
 
 /* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
+.mainBoard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 
