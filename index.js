@@ -9,12 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
         form.submit(); // faz o submit do formulario (ativa a ação do form)
     });
 });
-document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = storedUsername;
-    }
-});
 
 
 
