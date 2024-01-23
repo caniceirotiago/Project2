@@ -1,21 +1,37 @@
 /* HOMEPAGE. CSS */
 
+/******************************************
+HEADER && FOOTER
+******************************************/
 /* HEADER */
 header {
     text-align: center;
     float: left;
     width: 100%;
     height: 10%;
+    min-height: 100px;
+    background-color: lightgrey;
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    float: right;
+    width: 100%;
+    height: 10%;
+    min-height: 100px;
     background-color: lightgrey;
 }
 
 
-/* Buttons */
+/******************************************
+BUTTONS 
+******************************************/
 /* BUTON OF Edit */
 .btn-EditNW {
     position: absolute;
     width: 10%;
     height: 10%;
+    min-height: 100px;
     top: 0;
     left: 0;
 }
@@ -24,23 +40,18 @@ header {
     position: absolute;
     width: 10%;
     height: 10%;
+    min-height: 100px;
     top: 0;
     right: 0;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    float: right;
-    width: 100%;
-    height: 10%;
-    background-color: lightgrey;
-}
+
 /* BUTON OF Back */
 .btn-BackSE {
     position: absolute;
     width: 10%;
     height: 10%;
+    min-height: 100px;
     bottom: 0;
     left: 0;
 }
@@ -49,83 +60,75 @@ footer {
     position: absolute;
     width: 10%;
     height: 10%;
+    min-height: 100px;
     bottom: 0;
     right: 0;
 }
 
 
 
-/* COLUNAS DOS elementos DIV */
-/* Parte relativa ao MENU LATERAL */
-.col-menu {
-    float: left;
-    width: 10%;
-    height: 80%;
-    min-height: 600px;
+/******************************************
+ROWS DIV ELEMENTS
+******************************************/
+/* Necessário para organizar o Formulário de Task em linhas de uma tabela*/
+.mainBoard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
-
-
-
-.btn-add {
-    width: 100%;
-}
-
-/* Parte relativa à coluna TODO*/
-.col-todo {
-    float: left;
-    width: 30%;
-    height: 80%;
-    min-height: 600px;
-    background-color: green
-}
-
-/* Parte relativa à coluna DOING */
-.col-doing {
-    float: left;
-    width: 30%;
-    height: 80%;
-    min-height: 600px;
-    background-color:blue
-}
-
-/* Parte relativa à coluna DONE */
-.col-done {
-    float: left;
-    width: 30%;
-    height: 80%;
-    min-height: 600px;
-    background-color: blueviolet
-}
-
-/* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
-.row::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-
-/* GRID FOR TASKS */
-.ul {
-    list-style-type: none;
-}
-.h1 {
+/* Parte relativa ao row no topo Add Task */
+.row-task {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
     text-align: center;
-    margin:auto;
-    line-height:51px;
-    vertical-align:middle;
-    text-align: center;
+    float: top;
     width: 100%;
+    height: 20%;
+    min-height: 175px;
 }
-.tableList { /* The larger box */
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
-    column-gap: 5px;
-    row-gap: 5px;
-    border: 1px solid black;
+/* Parte relativa ao row title */
+.row-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
 }
-.tableList-Task { /* Each single item */
-    border: 1px solid black;
+/* Parte relativa ao row description */
+.row-description {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
 }
+/* Parte relativa ao row submit */
+.row-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
+}
+
+
+
+
+
+
 
 
