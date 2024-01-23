@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];// vai buscar as tarefas gravadas anteriormente
     tasks.forEach(task => {
-        addTaskToRightList(task.title, task.description, task.status); // para cada terefa chama ométodo para a adicionar à lista correta
+        addTaskToRightList(task); // para cada terefa chama ométodo para a adicionar à lista correta
     });
 }
 /* ADD TASKS TO THE RIGHT LIST */
-function addTaskToRightList(title, description, status) {
+function addTaskToRightList(task) {
     const itemList = document.createElement('li'); // Cria um novo elemento li
-    itemList.textContent = title + ': ' + description; // Adiciona o texto à tarefa 
-    document.getElementById(status).appendChild(itemList); // Adiciona a tarefa à lista correta
+    itemList.textContent = task.title + ': ' + task.description; // Adiciona o texto à tarefa 
+    document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
 }
 
 
