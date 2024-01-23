@@ -30,16 +30,23 @@
     </header>
 
     <main>
-        <div class="col-add-task">
+        <div class="mainBoard">
             <!-- Task contents -->
-            <div class="task">
-            <h2>Add Task</h2>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
-                <label for="title">Title</label>
+            <div class="row-task">
+                <h2>Add Task</h2>
+            </div>
+            <div class="row-title">
+                <label for="title">Title </label>
                 <input type="text" name="title" id="title" placeholder="Insert Title">
-                <label for="description">Description</label>
+            </div>
+            <div class="row-description">
+                <label for="description">Description </label>
                 <input type="text" name="description" id="description" placeholder="Insert Task Description">
-                <input type="submit" value="save">
+            </div>
+            <div class="row-submit">
+                <input type="submit" value="save">''
+            </div>
             </form>
         </div>
 
@@ -47,11 +54,13 @@
 
     <footer>
         <!-- Back Button in bottow left -->
-        <form>
+        <form action="homepage.html">
             <button class="btn-BackSE">
                 Back BTN
             </button>
         </form>
+        <!-- Footer Content -->
+        Footer : About
         <!-- Del Button in bottom right -->
         <form>
             <button class="btn-DelSE">
@@ -64,3 +73,5 @@
 
 
 </html>
+
+
