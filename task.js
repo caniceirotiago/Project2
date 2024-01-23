@@ -19,15 +19,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 /* TASK CREATION*/
 function addTask(title, description) { // adiciona uma task com o titulo e a descrição
-            var task = { // cria um objeto task
-                title: title,
-                description: description,
-                status : "todo",
-            };
-            var tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
-            tasks.push(task); // adiciona a task ao array de tasks
-            localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
-        }
+    var task = { // cria um objeto task
+        id: getNextTaskId(),
+        title: title,
+        description: description,
+        status : "todo",
+    };
+    var tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
+    tasks.push(task); // adiciona a task ao array de tasks
+    localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
+}
+
+function getNextTaskId() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const maxId = tasks.reduce((max, task) => Math.max(max, task.id || 0), 0);
+    return maxId + 1;
+}
+
+
 /* SET USERNAME INTO HEADER  */
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
