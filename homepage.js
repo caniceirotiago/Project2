@@ -16,14 +16,66 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];// vai buscar as tarefas gravadas anteriormente
     tasks.forEach(task => {
-        addTaskToRightList(task.title, task.description, task.status); // para cada terefa chama ométodo para a adicionar à lista correta
+        addTaskToRightList(task); // para cada terefa chama ométodo para a adicionar à lista correta
     });
 }
 /* ADD TASKS TO THE RIGHT LIST */
-function addTaskToRightList(title, description, status) {
-    const itemList = document.createElement('li'); // Cria um novo elemento li
-    itemList.textContent = title + ': ' + description; // Adiciona o texto à tarefa 
-    document.getElementById(status).appendChild(itemList); // Adiciona a tarefa à lista correta
+function addTaskToRightList(task) {
+    const itemList = document.createElement('li');
+    itemList.setAttribute('data-task-id', task.id); // Cria um novo elemento li
+    const itemTitle = document.createElement('h3');
+    itemTitle.textContent = task.title;
+    const itemDescription = document.createElement('p');
+    itemDescription.textContent = task.description;
+    const nextButton = document.createElement('button');
+    createNextBtnListener(nextButton, task);
+    itemList.appendChild(itemTitle);
+    itemList.appendChild(nextButton);
+    itemList.appendChild(itemDescription);
+    document.getElementById(task.status).appendChild(itemList); // Adiciona a tarefa à lista correta
+}
+
+function createNextBtnListener(nextButton, task) {
+    nextButton.addEventListener('click', function() {
+        let nextStatus ="";
+        if (task.status === 'todo') {
+            nextStatus = 'doing';
+        } else if (task.status === 'doing') {
+            nextStatus = 'done';
+        }
+        else if (task.status === 'done') {
+            nextStatus = 'todo';
+        }
+        moveTask(task, nextStatus);
+    });
+}
+function moveTask(task, nextStatus) {
+    const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
+    if (oldTaskElement) {
+        oldTaskElement.remove();
+    }
+
+    // Cria uma nova tarefa atualizada
+    const updatedTask = {...task, status: nextStatus};
+    addTaskToRightList(updatedTask);
+
+    // Salva a tarefa
+    saveTasks();
+}
+function saveTask() {
+    const tasks = [];
+    ['todo', 'doing', 'done'].forEach(status => {
+        document.querySelectorAll('#' + status + '-tasks li').forEach(taskElement => {
+            const taskParts = taskElement.textContent.split(': ');
+            tasks.push({ 
+                title: taskParts[0], 
+                description: taskParts[1], 
+                status: status,
+                id: taskElement.dataset.taskId // Supondo que cada tarefa tem um data-task-id
+            });
+        });
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 
