@@ -107,7 +107,7 @@ COLUMNS DIV ELEMENTS
 ******************************************/
 /* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
 .mainBoard {
-    display: flex;
+    display: block;
     justify-content: space-around;
     padding: 20px;
 }
