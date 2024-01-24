@@ -13,65 +13,39 @@
 <body>
     <!-- Header in top center -->
     <header>
-        <!-- Edit Button in top left -->
-        <form>
-            <button class="btn-EditNW">
-                Edit BTN
-            </button>
-        </form>
-
         <!-- Header Content -->
         <h1><span id="usernameDisplay">Username</span></h1>
-
-        <!-- Save in the top right  -->
-        <button class="btn-SaveNE">
-            Save BTN
-        </button>
     </header>
 
     <main>
         <div class="mainBoard">
             <!-- Task contents -->
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
-            <div class="row-task">
-                <h2>Add Task</h2>
-            </div>
-            <div class="row-title">
-                <label for="title">Title </label>
-                <input type="text" name="title" id="title" placeholder="Insert Title">
-            </div>
-            <div class="row-description">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" placeholder="Insert Task Description"></textarea>
-            </div>
-            <div class="row-submit">
-                <input type="submit" value="Save Task">
-            </div>
+                <div class="row-task">
+                    <h2>Edit Task</h2>
+                </div>
+                <div class="row-title">
+                    <label for="title">Title </label>
+                    <input type="text" name="title" id="title" placeholder="Insert Title">
+                </div>
+                <div class="row-description">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" placeholder="Insert Task Description"></textarea>
+                </div>
+                <div class="row-submit">
+                    <input type="submit" value="Save Task">
+                </div>
             </form>
         </div>
 
     </main>
 
     <footer>
-        <!-- Back Button in bottow left -->
-        <form action="homepage.html">
-            <button class="btn-BackSE">
-                Back BTN
-            </button>
-        </form>
         <!-- Footer Content -->
         Footer : About
         <!-- Del Button in bottom right -->
-        <form>
-            <button class="btn-DelSE">
-                Del BTN
-            </button>
-        </form>
     </footer>
     <script src="task.js"></script>
 </body>
 
-
 </html>
-
-
