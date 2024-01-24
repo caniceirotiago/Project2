@@ -65,7 +65,7 @@ function addTaskToRightList(task) {
 document.addEventListener('DOMContentLoaded', function() {
     const tasksContainer = document.querySelector('.mainBoard.tasks-container');
 
-    tasksContainer.addEventListener('dblclick', function(event) {
+    tasksContainer.addEventListener('click', function(event) {
         // Verificar se o clique foi diretamente em um botão
         if (event.target.tagName === 'BUTTON') {
             return; // Não faz nada se um botão foi clicado, permitindo que o evento do botão seja processado

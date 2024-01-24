@@ -139,6 +139,7 @@ ul {
     width: 90%; /* Largura ajustável */
 }
 .task-item:hover {
+    cursor: pointer;
     transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
 }
 .task-item:hover button {
