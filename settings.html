@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="homepage.css">
-    <script defer src="homepage.js"></script>
-    <title>Homepage - Scrum</title>
+    <link rel="stylesheet" href="settings.css">
+    <script defer src="settings.js"></script>
+    <title>Settings Page - Scrum</title>
 </head>
 
 <!-- HTML File - contains the interactive content that is displayed -->
@@ -17,10 +17,10 @@
         <h1><span id="usernameDisplay">Username</span></h1>
         <!------------------ Navigation Menu ------------------------------------>
         <div class="topnav">
-        <a class="active" href="#home">Homepage</a>
-        <a class="btn-add" onclick="location.href='task.html';">Add Task</a>
+        <a href="homepage.html">Homepage</a>
+        <a onclick="location.href='task.html';">Add Task</a>
         <a href="retrospective.html">Retrospective</a>
-        <a href="settings.html">Settings</a>
+        <a class="active" href="#home">Settings</a>
         <a href="copyright.html">Copyright</a>
         <a href="index.html">Exit</a>
         </div>
@@ -32,20 +32,8 @@
         <div class="mainBoard">
         <div class="mainBoard tasks-container">
             <div class="col-leftMenu">
-                <h2>LEFT MENU</h2>
-            </div>
-            <div class="col-todo">
-                <h2>TODO</h2>
-                <ul id="todo">
-                </ul>
-            </div>
-            <div class="col-doing">
-                <h2>DOING</h2><br>
-                <ul id="doing"></ul>
-            </div>
-            <div class="col-done">
-                <h2>DONE</h2><br>
-                <ul id="done"></ul>
+                <a class="btn-theme">Theme</a>
+                <a class="btn-language">Language</a>
             </div>
         </div>
 

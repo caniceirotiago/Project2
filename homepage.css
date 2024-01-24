@@ -13,6 +13,10 @@ body {
     
     background-position: top center;
     background-repeat: no-repeat;
+
+
+
+
 }
 /******************************************
 HEADER && FOOTER
@@ -71,11 +75,12 @@ COLUMNS DIV ELEMENTS
 /* Parte relativa ao MENU LATERAL */
 .col-leftMenu {
     text-align: center;
+    color: #f2f2f2;
     float: left;
     width: 10%;
     min-height: 600px;
     max-height: 600px;
-    background-color: grey
+    background-color: #333;
 }
 
 /* Parte relativa à coluna TODO*/
@@ -159,6 +164,7 @@ COLUMNS DIV ELEMENTS
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
+
 
 
 
