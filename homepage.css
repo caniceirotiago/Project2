@@ -122,6 +122,7 @@ COLUMNS DIV ELEMENTS
 .ul {
     list-style-type: none;
 }
+
 .h1 {
     text-align: center;
     margin:auto;
@@ -171,5 +172,8 @@ COLUMNS DIV ELEMENTS
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
+
+
+
 
 
