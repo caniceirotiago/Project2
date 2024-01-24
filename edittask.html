@@ -20,20 +20,21 @@
     <main>
         <div class="mainBoard">
             <!-- Task contents -->
+            <button id="edit-btn">Edit</button>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
                 <div class="row-task">
                     <h2>Edit Task</h2>
                 </div>
                 <div class="row-title">
                     <label for="title">Title </label>
-                    <input type="text" name="title" id="title" placeholder="Insert Title">
+                    <input type="text" name="title" id="title" disabled>
                 </div>
                 <div class="row-description">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" placeholder="Insert Task Description"></textarea>
+                    <textarea name="description" id="description" disabled></textarea>
                 </div>
                 <div class="row-submit">
-                    <input type="submit" value="Save Task">
+                    <input type="submit" value="Save Task" disabled>
                 </div>
             </form>
         </div>
@@ -45,7 +46,7 @@
         Footer : About
         <!-- Del Button in bottom right -->
     </footer>
-    <script src="task.js"></script>
+    <script src="edittask.js"></script>
 </body>
 
 </html>

@@ -3,62 +3,64 @@
  when you make mistakes. */
 'use strict';
 
-
-/* TASK SUBMISSION*/
 document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('taskForm'); // obtem o forumulário de criação de uma task!
-    form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
-        event.preventDefault(); // previne que o formulário seja enviado da forma default
-        var title = document.getElementById('title').value; //obtem o titulo da task
-        var description = document.getElementById('description').value; //obtem a descrição da task
-        if(title && description) { // se o titulo e a descrição não estiverem vazios    
-            addTask(title, description); // adiciona uma task com o titulo e a descrição
-            window.location.href = 'homepage.html'; // redireciona para a página principal
-        }    
-    });
-});
-/* TASK CREATION*/
-function addTask(title, description) { // adiciona uma task com o titulo e a descrição
-    var task = { // cria um objeto task
-        id: getNextTaskId(),
-        title: title,
-        description: description,
-        status : "todo",
-    };
-    var tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
-    tasks.push(task); // adiciona a task ao array de tasks
-    localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
-}
+    const urlParams = new URLSearchParams(window.location.search);
+    const taskId = urlParams.get('taskId');
 
-function getNextTaskId() {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    const maxId = tasks.reduce((max, task) => Math.max(max, task.id || 0), 0);
-    return maxId + 1;
-}
+    if (taskId) {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const taskToEdit = tasks.find(task => task.id === taskId);
 
-
-/* SET USERNAME INTO HEADER  */
-document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = storedUsername;
+        if (taskToEdit) {
+            // Aqui você pode preencher os campos de edição com os dados da tarefa
+            document.getElementById('title').value = taskToEdit.title;
+            document.getElementById('description').value = taskToEdit.description;
+            // ... outros campos conforme necessário
+        }
     }
 });
 
-/* BACK BUTTON LISTENER  */
-btn-BackSE.addEventListener("click", function() {
-    location.href = "homepage.html";
+document.addEventListener('DOMContentLoaded', function() {
+    const editButton = document.getElementById('edit-btn');
+    const inputs = document.querySelectorAll('#taskForm input, #taskForm textarea');
+
+    editButton.addEventListener('click', function() {
+        inputs.forEach(function(input) {
+            input.disabled = false;
+        });
+        this.disabled = true; // Opcional: desabilita o botão Edit após o clique
+    });
 });
 
-/* DEL BUTTON LISTENER  */
-btn-DelSE.addEventListener("click", function() {
-    
-    location.href = "homepage.html";
+document.addEventListener('DOMContentLoaded', function() {
+    const taskForm = document.getElementById('taskForm');
+
+    taskForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Previne o comportamento padrão de submissão do formulário
+        saveTask();
+        window.location.href = 'homepage.html';
+    });
 });
 
+// Função para salvar a tarefa editada
+function saveTask() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const taskId = urlParams.get('taskId');
 
+    if (taskId) {
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const taskToEdit = tasks.find(task => task.id === taskId);
 
+        if (taskToEdit) {
+            // Aqui você pode preencher os campos de edição com os dados da tarefa
+            taskToEdit.title = document.getElementById('title').value;
+            taskToEdit.description = document.getElementById('description').value;
+            // ... outros campos conforme necessário
+        }
 
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+}
 
 
 
