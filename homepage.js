@@ -58,6 +58,30 @@ function addTaskToRightList(task) {
     document.getElementById(task.status).appendChild(itemList);
 }
 
+/* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
+document.addEventListener('DOMContentLoaded', function() {
+    const tasksContainer = document.querySelector('.mainBoard.tasks-container');
+
+    tasksContainer.addEventListener('dblclick', function(event) {
+        // Verificar se o clique foi diretamente em um botão
+        if (event.target.tagName === 'BUTTON') {
+            return; // Não faz nada se um botão foi clicado, permitindo que o evento do botão seja processado
+        }
+
+        let targetElement = event.target;
+
+        // Subir na árvore do DOM até encontrar um task-item
+        while (targetElement != null && !targetElement.classList.contains('task-item')) {
+            targetElement = targetElement.parentElement;
+        }
+
+        // Se um task-item foi clicado
+        if (targetElement && targetElement.classList.contains('task-item')) {
+            const taskId = targetElement.getAttribute('data-task-id');
+            window.location.href = `edittask.html?taskId=${taskId}`;
+        }
+    });
+});
 
 
 
@@ -140,6 +164,7 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
 
 
 /* EXIT BUTTON LISTENER  */
