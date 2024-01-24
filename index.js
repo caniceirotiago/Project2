@@ -9,18 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // index.html // <form id="loginForm" action="homepage.html">
     let form = document.getElementById('loginForm'); // obtains the loginForm
 
-    // adds an EventListener to the form, on submission, triggers the function that follows
+    // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
         var username = document.getElementById('username').value; //obtem o username do campo correspondente
         if (username === "") {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
+            //*** code: must add an error message in case of miss, label or popup */
         }
         else {
-            localStorage.setItem('username', username); // gravar no localStorage
-            form.submit(); // faz o submit do formulario (ativa a ação do form)
+            localStorage.setItem('username', username); // saves data into localStorage
+            form.submit(); // submits the form, thus activating the part // action="homepage.html"
         }
     });
 });
+
+
 
 
 
