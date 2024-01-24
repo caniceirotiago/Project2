@@ -11,10 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
-        var username = document.getElementById('username').value; //obtem o username do campo correspondente
-        if (username === "") {
+        const errorElement = document.getElementById('errorLogin');
+        let errorMsg = 'Username is required';
+        let username = document.getElementById('username').value; //obtem o username do campo correspondente
+
+        if (username === "" || username === null) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
-//****** code: must add an error message in case of miss, label or popup */
+            errorElement.innerText = errorMsg;
         }
         else {
             localStorage.setItem('username', username); // saves data into localStorage
@@ -23,9 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // to view it do: right click, inspect, application tab, Storage -> local storage
             form.submit(); // submits the form, thus activating the html bit that states // action="homepage.html"
         }
+
     });
 });
 
+function validateUsername() {
+    
+}
 
 
 

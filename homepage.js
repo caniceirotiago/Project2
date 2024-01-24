@@ -3,12 +3,13 @@
  when you make mistakes. */
 'use strict';
 
-let welcomeMsg = 'Welcome ';
-let delConfirmMsg = 'Do you really want to delete this task?';
+
+
 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username'); //
+    let welcomeMsg = 'Welcome ';
+    let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = welcomeMsg+  storedUsername;
     }
@@ -112,6 +113,7 @@ function createDelBtnListener(delButton, task) {
 
 /* Delete confirmation small box appears - boolean logic return value  */
 function delConfirmation(){
+    let delConfirmMsg = 'Are you sure you want to delete this task?';
     // (alternatives would be: alert ||prompt || modal popup (but those are annoying! please never use those))
     let result = confirm(delConfirmMsg);
     if (result == false) {
