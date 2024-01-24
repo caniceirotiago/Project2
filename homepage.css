@@ -1,41 +1,41 @@
-/* HOMEPAGE. CSS */
+/* HOMEPAGE.CSS */
 
+/******************************************
+BODY
+******************************************/
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(/images/backgroudIndexMain.png);
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    
+    background-position: top center;
+    background-repeat: no-repeat;
+}
 /******************************************
 HEADER && FOOTER
 ******************************************/
-/* HEADER */
 header {
+    background-color: #525456;
+    color: rgb(221, 217, 206);
     text-align: center;
-    float: inline-start;
-    width: 100%;
-    height: 10%;
-    min-height: 100px;
-    background-color: lightgrey;
+    padding: 10px 0;
 }
-/* FOOTER */
 footer {
+    background-color: #525456;
+    color: rgb(221, 217, 206);
     text-align: center;
-    float: inline-end;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 10%;
-    min-height: 100px;
-    background-color: lightgrey;
-}
-
-/* https://www.w3schools.com/css/css_navbar_horizontal.asp */
-.menu-top {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 /******************************************
 TOPNAV -> Menu
 <div class="topnav">
 ******************************************/
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
 .topnav {
     overflow:hidden;
     background-color: #333;
@@ -56,9 +56,6 @@ body {
     background-color: #04AA6D;
     color: white;
 }
-
-
-
 /******************************************
 BUTTONS 
 ******************************************/
@@ -160,14 +157,6 @@ COLUMNS DIV ELEMENTS
     list-style-type: none;
 }
 
-.h1 {
-    text-align: center;
-    margin:auto;
-    line-height:51px;
-    vertical-align:middle;
-    text-align: center;
-    width: 100%;
-}
 .tableList { /* The larger box */
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
