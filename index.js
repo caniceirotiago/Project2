@@ -18,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         else {
             localStorage.setItem('username', username); // saves data into localStorage
-            form.submit(); // submits the form, thus activating the part // action="homepage.html"
+            // so the username variable in localStorage, will contain the username data that we just retrieved
+            // to view it do: right click, inspect, application tab, Storage -> local storage
+            form.submit(); // submits the form, thus activating the html bit that states // action="homepage.html"
         }
     });
 });
