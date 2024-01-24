@@ -138,6 +138,9 @@ COLUMNS DIV ELEMENTS
     margin: 10px auto; /* Margem automática para centralização horizontal */
     width: 90%; /* Largura ajustável */
 }
+.task-item:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+}
 .task-item:hover button {
     opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */
 }
@@ -161,8 +164,3 @@ COLUMNS DIV ELEMENTS
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
-
-
-
-
-
