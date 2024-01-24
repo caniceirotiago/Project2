@@ -3,11 +3,13 @@
  when you make mistakes. */
 'use strict';
 
+let welcomeMsg = 'Welcome ';
+
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = storedUsername;
+        document.getElementById('usernameDisplay').textContent = welcomeMsg+  storedUsername;
     }
     loadTasks();
 });
