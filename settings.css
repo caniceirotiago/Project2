@@ -1,0 +1,137 @@
+/* SETTINGS.CSS */
+
+/******************************************
+BODY
+******************************************/
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(/images/backgroudIndexMain.png);
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    
+    background-position: top center;
+    background-repeat: no-repeat;
+
+}
+/******************************************
+HEADER && FOOTER
+******************************************/
+header {
+    background-color: #525456;
+    color: rgb(221, 217, 206);
+    text-align: center;
+    padding: 10px 0;
+}
+footer {
+    background-color: #525456;
+    color: rgb(221, 217, 206);
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/******************************************
+TOPNAV -> Menu Buttons/Links
+<div class="topnav">
+******************************************/
+.topnav,.col-leftMenu {
+    overflow:hidden;
+    background-color: #333;
+}
+.topnav a,.col-leftMenu a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 17px;
+}
+.topnav a:hover,.btn-theme:hover,.btn-lang:hover {
+    background-color: #ddd;
+    color: black;
+}
+.topnav a.active,.btn-theme.active,.btn-lang.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/******************************************
+COLUMNS DIV ELEMENTS
+******************************************/
+/* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
+.mainBoard {
+    display: block;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+/* Parte relativa ao MENU LATERAL */
+.col-leftMenu {
+    text-align: center;
+    color: #f2f2f2;
+    float: left;
+    width: 100%;
+    min-height: 600px;
+    max-height: 600px;
+    background-color: #333;
+}
+
+
+
+
+/* UNORDERED LIST FOR TASKS */
+.ul {
+    list-style-type: none;
+}
+
+.tableList { /* The larger box */
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    column-gap: 5px;
+    row-gap: 5px;
+    border: 1px solid black;
+}
+.tableList-Task { /* Each single item */
+    border: 1px solid black;
+}
+.task-item {
+    list-style-type: none; /* Remove o ponto padrão */
+    border: 1px solid #aaa; /* Adiciona uma borda */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+    overflow: hidden; /* Previne que o conteúdo ultrapasse os limites */
+}
+.task-item:hover button {
+    opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */
+}
+
+.task-item h3, .task-item p {
+    margin: 5px 0; /* Espaçamento entre título, descrição e botão */
+    word-wrap: break-word; /* Quebra palavras longas para não ultrapassar a largura */
+}
+
+.task-item button {
+    opacity: 0; /* Torna o botão totalmente transparente (invisível) por padrão */
+    transition: opacity 0.3s; /* Adiciona uma transição suave para a opacidade */
+    float: right; /* Posiciona o botão à direita */
+    margin-left: 10px; /* Espaço à esquerda do botão */
+    padding: 5px 10px; /* Espaçamento interno do botão */
+    background-color: #f0f0f0; /* Cor de fundo do botão */
+    border: 1px solid #ddd; /* Borda do botão */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+.task-item button:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+
+
+
