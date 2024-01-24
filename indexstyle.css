@@ -1,3 +1,7 @@
+/* INDEXSTYLE.CSS */
+/******************************************
+BODY
+******************************************/
 body {
     font-family: Arial, sans-serif;
     background-image: url(/images/backgroudIndexMain.png);
@@ -9,20 +13,37 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
 }
-
+/******************************************
+HEADER && FOOTER
+******************************************/
 header {
     background-color: #525456;
     color: rgb(221, 217, 206);
     text-align: center;
     padding: 10px 0;
 }
+footer {
+    background-color: #525456;
+    color: rgb(221, 217, 206);
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
+
+/******************************************
+MAIN
+******************************************/
 main {
     padding: 20px;
     max-width: 600px;
     margin: 20px auto;
 }
-
+/******************************************
+FORM -> 
+******************************************/
 form {
     background: white;
     padding: 20px;
@@ -53,12 +74,3 @@ input[type="submit"]:hover {
 }
 
 
-footer {
-    background-color: #525456;
-    color: rgb(221, 217, 206);
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
