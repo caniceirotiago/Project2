@@ -22,51 +22,6 @@ footer {
     background-color: lightgrey;
 }
 
-
-/******************************************
-BUTTONS 
-******************************************/
-/* BUTON OF Edit */
-.btn-EditNW {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    min-height: 100px;
-    top: 0;
-    left: 0;
-}
-/* BUTON OF SAVE */
-.btn-SaveNE {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    min-height: 100px;
-    top: 0;
-    right: 0;
-}
-
-
-/* BUTON OF Back */
-.btn-BackSE {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    min-height: 100px;
-    bottom: 0;
-    left: 0;
-}
-/* BUTON OF Copyright */
-.btn-DelSE {
-    position: absolute;
-    width: 10%;
-    height: 10%;
-    min-height: 100px;
-    bottom: 0;
-    right: 0;
-}
-
-
-
 /******************************************
 ROWS DIV ELEMENTS
 ******************************************/
