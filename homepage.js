@@ -112,7 +112,7 @@ function createDelBtnListener(delButton, task) {
 
 /* Delete confirmation small box appears - boolean logic return value  */
 function delConfirmation(){
-    // (alternatives would be: alert ||prompt)
+    // (alternatives would be: alert ||prompt || modal popup (but those are annoying! please never use those))
     let result = confirm(delConfirmMsg);
     if (result == false) {
         return false;
@@ -141,9 +141,7 @@ function delTask(task) {
         oldTaskElement.remove();
     }
 
-    // *** confirmação de delete
-    // Salva a tarefa
-    saveTasks();
+    saveTasks(); // Saves Tasks, thus also updating the localStorage
 }
 
 
@@ -179,26 +177,3 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
-
-
-/* EXIT BUTTON LISTENER  */
-btn-RetroNW.addEventListener("click", function() {
-    location.href = "retrospective.html";
-});
-
-/* OPTION BUTTON LISTENER  */
-btn-ExitSW.addEventListener("click", function() {
-    location.href = "options.html";
-});
-
-/* Exit button on South-West BUTTON LISTENER  */
-btn-ExitSW.addEventListener("click", function() {
-    location.href = "index.html";
-});
-/* Copyright button on South-East BUTTON LISTENER  */
-btn-CopySE.addEventListener("click", function() {
-    location.href = "copyright.html";
-});
-
-
