@@ -4,6 +4,7 @@
 'use strict';
 
 let welcomeMsg = 'Welcome ';
+let delConfirmMsg = 'Do you really want to delete this task?';
 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
@@ -103,8 +104,20 @@ function createNextBtnListener(nextButton, task) {
 
 function createDelBtnListener(delButton, task) {
     delButton.addEventListener('click', function() {
-        delTask(task);
+        /* delConfirmation */
+        if (delConfirmation()) { // boolean confirm
+            delTask(task);
+        }
     });
+}
+
+function delConfirmation(){
+    // (alternatives would be: alert ||prompt)
+    let result = confirm(delConfirmMsg);
+    if (result == false) {
+        return false;
+    }
+    return true;
 }
 
 function createPrevBtnListener(nextButton, task) {
