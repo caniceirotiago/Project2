@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var username = document.getElementById('username').value; //obtem o username do campo correspondente
         if (username === "") {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
-            //*** code: must add an error message in case of miss, label or popup */
+//****** code: must add an error message in case of miss, label or popup */
         }
         else {
             localStorage.setItem('username', username); // saves data into localStorage
