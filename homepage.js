@@ -101,16 +101,16 @@ function createNextBtnListener(nextButton, task) {
     });
 }
 
-
+/* Created Del BTN Listener && adds EventListener - deleting the task if pressed + confirmed */
 function createDelBtnListener(delButton, task) {
     delButton.addEventListener('click', function() {
-        /* delConfirmation */
         if (delConfirmation()) { // boolean confirm
             delTask(task);
         }
     });
 }
 
+/* Delete confirmation small box appears - boolean logic return value  */
 function delConfirmation(){
     // (alternatives would be: alert ||prompt)
     let result = confirm(delConfirmMsg);
