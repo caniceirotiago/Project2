@@ -68,6 +68,16 @@ COLUMNS DIV ELEMENTS
     padding: 20px;
 }
 
+/* Parte relativa ao MENU LATERAL */
+.col-leftMenu {
+    text-align: center;
+    float: left;
+    width: 10%;
+    min-height: 600px;
+    max-height: 600px;
+    background-color: grey
+}
+
 /* Parte relativa à coluna TODO*/
 .col-todo {
     overflow-y: scroll;
