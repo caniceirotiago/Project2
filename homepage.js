@@ -103,6 +103,8 @@ function delTask(task) {
     if (oldTaskElement) {
         oldTaskElement.remove();
     }
+
+    // *** confirmação de delete
     // Salva a tarefa
     saveTasks();
 }
