@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('usernameDisplay').textContent = welcomeMsg+  storedUsername;
     }
     loadTasks();
+    saveTasks();
 });
 
 /* LOAD ALL TASKS */
