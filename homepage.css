@@ -117,36 +117,40 @@ COLUMNS DIV ELEMENTS
     float: left;
     width: 10%;
     height: 80%;
-    min-height: 700px;
+    min-height: 600px;
+    max-height: 600px;
 }
 
 /* Parte relativa à coluna TODO*/
 .col-todo {
+    overflow-y: scroll;
     text-align: center;
     float: left;
     width: 30%;
-    height: 80%;
-    min-height: 700px;
+    min-height: 600px;
+    max-height: 600px;
     background-color: palegreen
 }
 
 /* Parte relativa à coluna DOING */
 .col-doing {
+    overflow-y: scroll;
     text-align: center;
     float: left;
     width: 30%;
-    height: 80%;
-    min-height: 700px;
+    min-height: 600px;
+    max-height: 600px;
     background-color: lightskyblue
 }
 
 /* Parte relativa à coluna DONE */
 .col-done {
+    overflow-y: scroll;
     text-align: center;
     float: left;
     width: 30%;
-    height: 80%;
-    min-height: 700px;
+    min-height: 600px;
+    max-height: 600px;
     background-color: violet
 }
 
