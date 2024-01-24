@@ -114,8 +114,8 @@ COLUMNS DIV ELEMENTS
 
 
 /* UNORDERED LIST FOR TASKS */
-.ul {
-    list-style-type: none;
+ul {
+    padding-left: 0px;
 }
 
 .tableList { /* The larger box */
