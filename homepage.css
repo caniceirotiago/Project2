@@ -178,6 +178,8 @@ COLUMNS DIV ELEMENTS
     padding: 10px; /* Espaçamento interno */
     margin-bottom: 10px; /* Espaçamento entre os itens da lista */
     overflow: hidden; /* Previne que o conteúdo ultrapasse os limites */
+    margin: 10px auto; /* Margem automática para centralização horizontal */
+    width: 90%; /* Largura ajustável */
 }
 .task-item:hover button {
     opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */

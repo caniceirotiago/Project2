@@ -37,9 +37,12 @@ footer {
 MAIN
 ******************************************/
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha horizontalmente ao centro */
+    justify-content: center; /* Alinha verticalmente ao centro */
     padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
+    min-height: 80vh;
 }
 /******************************************
 FORM -> 
@@ -53,11 +56,12 @@ form {
 }
 
 input[type="text"], input[type="password"] {
-    width: 100%;
+    width: 90%; /* Define uma largura fixa */
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px auto; /* Margem automática para centralização */
     border: 1px solid #ddd;
     border-radius: 4px;
+    display: block; /* Faz com que cada input ocupe sua própria linha */
 }
 
 input[type="submit"] {
