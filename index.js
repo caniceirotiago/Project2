@@ -5,12 +5,20 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('loginForm'); // obtem o forumulário do login
-    form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submit
-        event.preventDefault(); // previne que o formulário seja enviado da forma defoult
+    // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
+    // index.html // <form id="loginForm" action="homepage.html">
+    let form = document.getElementById('loginForm'); // obtains the loginForm
+
+    // adds an EventListener to the form, on submission, triggers the function that follows
+    form.addEventListener('submit', function(event) { 
         var username = document.getElementById('username').value; //obtem o username do campo correspondente
-        localStorage.setItem('username', username); // gravar no localStorage
-        form.submit(); // faz o submit do formulario (ativa a ação do form)
+        if (username === "") {
+            event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
+        }
+        else {
+            localStorage.setItem('username', username); // gravar no localStorage
+            form.submit(); // faz o submit do formulario (ativa a ação do form)
+        }
     });
 });
 
