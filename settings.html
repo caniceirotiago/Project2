@@ -17,12 +17,12 @@
         <h1><span id="usernameDisplay">Username</span></h1>
         <!------------------ Navigation Menu ------------------------------------>
         <div class="topnav">
-        <a href="homepage.html">Homepage</a>
-        <a onclick="location.href='task.html';">Add Task</a>
-        <a href="retrospective.html">Retrospective</a>
-        <a class="active" href="#home">Settings</a>
-        <a href="copyright.html">Copyright</a>
-        <a href="index.html">Exit</a>
+        <a id="nav-home" href="homepage.html">Homepage</a>
+        <a id="nav-add" onclick="location.href='task.html';">Add Task</a>
+        <a id="nav-retro" href="retrospective.html">Retrospective</a>
+        <a id="nav-sett" class="active" href="#home">Settings</a>
+        <a id="nav-copy" href="copyright.html">Copyright</a>
+        <a id="nav-exit" href="index.html">Exit</a>
         </div>
         <!------------------ Navigation Menu /end ------------------------------------>    
     </header>
@@ -33,24 +33,24 @@
         <div class="mainBoard tasks-container">
             <div class="col-leftMenu">
                 <p>
-                <a>Theme</a>
-                <a class="btn-theme">Dark</a>
-                <a class="btn-theme">Blue</a>
-                <a class="btn-theme">Green</a>
+                <a id="theme">Theme</a>
+                <a id="dark-theme">Dark</a>
+                <a id="white-theme">White</a>
             </p>
                 
             <div class="col-leftMenu">
-                <a>Language</a>
-                <a class="btn-lang">English</a>
-                <a class="btn-lang">Portuguese</a>
-                <a class="btn-lang">French</a>
+                <a id="lang">Language</a>
+                <a id="langEN" onclick = "changeLanguage('en')">English</a>
+                <a id="langPT" onclick = "changeLanguage('pt')">Portuguese</a>
+                </div>
+
 
         </div>
 
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
-        <h3><span>Footer : About</span></h3>
+        <h3 id="footer"><span>About</span></h3>
     </footer>
     <!------------------ Footer /end ------------------------------------>
     

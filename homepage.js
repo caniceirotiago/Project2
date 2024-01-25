@@ -8,10 +8,9 @@
 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
-    let welcomeMsg = 'Welcome ';
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = welcomeMsg+  storedUsername;
+        document.getElementById('usernameDisplay').textContent = storedUsername;
     }
     loadTasks();
     saveTasks();

@@ -50,11 +50,11 @@ TOPNAV -> Menu Buttons/Links
     font-size: 17px;
     margin: 17px;
 }
-.topnav a:hover,.btn-theme:hover,.btn-lang:hover {
+.topnav a:hover,.btn-theme:hover {
     background-color: #ddd;
     color: black;
 }
-.topnav a.active,.btn-theme.active,.btn-lang.active {
+.topnav a.active,.btn-theme.active {
     background-color: #04AA6D;
     color: white;
 }
@@ -130,8 +130,15 @@ COLUMNS DIV ELEMENTS
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
 
+/******************************************
+BUTTONS FOR LANGUAGE
+******************************************/
 
-
+/* THEME changing code--- reverted */
+.btn-langEN:active,.btn-langPT:active {
+    background-color: green;
+    
+}
 
 
 
