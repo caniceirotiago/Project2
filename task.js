@@ -55,29 +55,3 @@ btn-DelSE.addEventListener("click", function() {
     
     location.href = "homepage.html";
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
