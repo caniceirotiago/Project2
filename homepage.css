@@ -1,5 +1,6 @@
 /* HOMEPAGE.CSS */
 
+
 /******************************************
 BODY
 ******************************************/
@@ -73,9 +74,9 @@ COLUMNS DIV ELEMENTS
     text-align: center;
     color: #f2f2f2;
     float: left;
-    width: 10%;
-    min-height: 600px;
-    max-height: 600px;
+    width: 8vw;
+    min-height: 80vh;
+    max-height: 80vh;
     background-color: #333;
 }
 
@@ -83,37 +84,38 @@ COLUMNS DIV ELEMENTS
 .col-todo {
     text-align: center;
     float: left;
-    width: 30%;
-    min-height: 600px;
-    max-height: 600px;
-    background-color: palegreen
+    width: 28vw;
+    min-height: 80vh;
+    max-height: 80vh;
+    background-color: palegreen;
 }
 
 /* Parte relativa à coluna DOING */
 .col-doing {
     text-align: center;
     float: left;
-    width: 30%;
-    min-height: 600px;
-    max-height: 600px;
-    background-color: lightskyblue
+    width: 28vw;
+    min-height: 80vh;
+    max-height: 80vh;
+    background-color: lightskyblue;
 }
 
 /* Parte relativa à coluna DONE */
 .col-done {
-    
     text-align: center;
     float: left;
-    width: 30%;
-    min-height: 600px;
-    max-height: 600px;
-    background-color: violet
+    width: 28vw;
+    min-height: 80vh;
+    max-height: 80vh;
+    background-color: violet;
 }
 .scrolable-ul {
     overflow-y: scroll;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 80vh;
+    max-height: 80vh;
 }
+
+
 
 
 /* UNORDERED LIST FOR TASKS */
