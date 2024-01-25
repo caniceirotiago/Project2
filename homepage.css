@@ -23,6 +23,7 @@ header {
     color: rgb(221, 217, 206);
     text-align: center;
     padding: 10px 0;
+    width: 100vw;
 }
 footer {
     background-color: #525456;
@@ -31,7 +32,7 @@ footer {
     padding: 10px 0;
     position: relative; /* Mudança para relative */
     bottom: 0;
-    width: 100%;
+    width: 100vw;
 }
 /******************************************
 TOPNAV -> Menu Buttons/Links
@@ -75,8 +76,8 @@ COLUMNS DIV ELEMENTS
     color: #f2f2f2;
     float: left;
     width: 8vw;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 75vh;
+    max-height: 75vh;
     background-color: #333;
 }
 
@@ -85,8 +86,8 @@ COLUMNS DIV ELEMENTS
     text-align: center;
     float: left;
     width: 28vw;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 75vh;
+    max-height: 75vh;
     background-color: palegreen;
 }
 
@@ -95,8 +96,8 @@ COLUMNS DIV ELEMENTS
     text-align: center;
     float: left;
     width: 28vw;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 75vh;
+    max-height: 75vh;
     background-color: lightskyblue;
 }
 
@@ -105,14 +106,14 @@ COLUMNS DIV ELEMENTS
     text-align: center;
     float: left;
     width: 28vw;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 75vh;
+    max-height: 75vh;
     background-color: violet;
 }
 .scrolable-ul {
     overflow-y: scroll;
-    min-height: 80vh;
-    max-height: 80vh;
+    min-height: 65vh;
+    max-height: 65vh;
 }
 
 
