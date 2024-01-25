@@ -150,7 +150,7 @@ ul {
 }
 .task-item:hover {
     cursor: pointer;
-    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+    transform: scale(1.02); /* Aumenta ligeiramente ao passar o mouse */
 }
 .task-item:hover button {
     opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */
