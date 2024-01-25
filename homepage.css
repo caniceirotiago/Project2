@@ -26,6 +26,7 @@ header {
     width: 100vw;
 }
 main {
+    align-self: center;
     flex: 1; /* Ocupa o espaço disponível */
 }
 footer {
@@ -88,7 +89,7 @@ COLUMNS DIV ELEMENTS
 .col-todo {
     text-align: center;
     float: left;
-    width: 28vw;
+    width: 25vw;
     min-height: 75vh;
     max-height: 75vh;
     background-color: palegreen;
@@ -98,7 +99,7 @@ COLUMNS DIV ELEMENTS
 .col-doing {
     text-align: center;
     float: left;
-    width: 28vw;
+    width: 25vw;
     min-height: 75vh;
     max-height: 75vh;
     background-color: lightskyblue;
@@ -108,7 +109,7 @@ COLUMNS DIV ELEMENTS
 .col-done {
     text-align: center;
     float: left;
-    width: 28vw;
+    width: 25vw;
     min-height: 75vh;
     max-height: 75vh;
     background-color: violet;
