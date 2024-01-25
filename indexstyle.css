@@ -31,7 +31,23 @@ footer {
     bottom: 0;
     width: 100%;
 }
+/******************************************
+LANGUAGE FLAGS -> 
+******************************************/
+.top-left-flags {
+    position: fixed;
+    top: 20px;
+    right: 0;
+    width: 20vw;
+    height: 20vh;
 
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+.underline {
+    text-decoration: underline;
+}
 
 /******************************************
 MAIN

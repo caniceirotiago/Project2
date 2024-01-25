@@ -7,8 +7,9 @@
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
 function checkLanguage() {
-    if (localStorage.getItem('language')===null) { // if it doesn't exist 
-        let lang='en'; // set it to English
+    let language = localStorage.getItem('language');
+    if (language===null) { // if it doesn't exist 
+        let lang='en'; // defaults to English
         localStorage.setItem('language', lang); // save it
         console.log("Default language was null. Default language is now set to: "+lang);
     }
@@ -16,7 +17,24 @@ function checkLanguage() {
         changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
+    underlineLangFlag();
 };
+/**************************************************************************************************************************************************************************************/ 
+/* underlineLangFlag() = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function underlineLangFlag() {
+    // 
+    if(localStorage.getItem('language')==='en') {
+        document.getElementById("langIndexEN").classList.add("underline");
+        document.getElementById("langIndexPT").classList.remove("underline");
+    }
+    if(localStorage.getItem('language')==='pt') {
+        document.getElementById("langIndexPT").classList.add("underline");
+        document.getElementById("langIndexEN").classList.remove("underline");
+    }
+}
+
+
 /**************************************************************************************************************************************************************************************/ 
 /* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/
@@ -32,10 +50,10 @@ let languageContent = {
     },
     "pt": {
         "username-label": "Nome de utilizador",
-        "username": "Insira nome de utilizador",
+        "username": "Insira o nome de utilizador",
         "errorLogin": "Campo obrigatório",
         "password-label":"Palavra-passe",
-        "password":"Insira a sua palavra-passe",
+        "password":"Insira a palavra-passe",
         "login": "Entrar",
         "footer": "Sobre",
     }
@@ -62,6 +80,8 @@ function changeLanguage(lang) {
         else
             document.getElementById(key).textContent = languageContent[lang][key];
     }
+
+    underlineLangFlag();
 }; 
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN */
