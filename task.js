@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 /* TASK CREATION*/
 function addTask(title, description) { // adiciona uma task com o titulo e a descrição
-    var task = { // cria um objeto task
+    let task = { // cria um objeto task
         id: getNextTaskId(),
         title: title,
         description: description,
         status : "todo",
     };
-    var tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
     tasks.push(task); // adiciona a task ao array de tasks
     localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
 }

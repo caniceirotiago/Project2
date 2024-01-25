@@ -29,7 +29,35 @@
     <!------------------ Header /end ------------------------------------>
     
     <main>
-
+        <div class="historic-retrospectives">
+            <h2>Historic Retrospectives</h2><br>
+            <section class="scrolable-ul">
+                <ul id="historic-retrospectives-list"></ul>
+            </section>
+        </div>
+        <div class="mainBoard">
+            <!-- Task contents -->
+            <form id="retrospectiveForm" action="retrospective.html"> <!-- Loaded page after form fetch okay -->
+            <div class="row-retrospective">
+                <h2>Add Retrospective</h2>
+            </div>
+            <div class="row-date">
+                <label for="date">Date </label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div class="row-present-members">
+                <label for="present-members">Present Members</label>
+                <textarea type="textarea" name="present-members" id="present-members" placeholder="Insert Present Members"></textarea>
+            </div>
+            <div class="row-comments">
+                <label for="comments">Comments</label>
+                <textarea type="textarea" name="comments" id="comments" placeholder="Insert positive aspects, chalanges and suggestions for improvement"></textarea>
+            </div>
+            <div class="row-submit">
+                <input type="submit" value="Save Retrospective">
+            </div>
+            </form>
+        </div>
 
     </main>
     <!------------------ Footer ------------------------------------>
