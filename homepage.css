@@ -81,7 +81,6 @@ COLUMNS DIV ELEMENTS
 
 /* Parte relativa à coluna TODO*/
 .col-todo {
-    overflow-y: scroll;
     text-align: center;
     float: left;
     width: 30%;
@@ -92,7 +91,6 @@ COLUMNS DIV ELEMENTS
 
 /* Parte relativa à coluna DOING */
 .col-doing {
-    overflow-y: scroll;
     text-align: center;
     float: left;
     width: 30%;
