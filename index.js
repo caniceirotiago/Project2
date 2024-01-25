@@ -33,8 +33,6 @@ function underlineLangFlag() {
         document.getElementById("langIndexEN").classList.remove("underline");
     }
 }
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/
@@ -87,7 +85,7 @@ function changeLanguage(lang) {
 /* FORM FOR LOGIN */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
     // index.html // <form id="loginForm" action="homepage.html">
     let form = document.getElementById('loginForm'); // obtains the loginForm

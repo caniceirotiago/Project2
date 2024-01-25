@@ -3,13 +3,11 @@
  when you make mistakes. */
 'use strict';
 
-
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
@@ -92,8 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* function createNextBtnListener - CREATES NEXT BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to NEXT column and saving/updating the display
 /**************************************************************************************************************************************************************************************/
@@ -197,3 +193,66 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+/**************************************************************************************************************************************************************************************/ 
+/* DEFAULT LANGUAGE = ENGLISH */
+/**************************************************************************************************************************************************************************************/
+function checkLanguage() {
+    if (localStorage.getItem('language')===null) { // if it doesn't exist 
+        let lang='en'; // set it to English
+        localStorage.setItem('language', lang); // save it
+        console.log("Default language was null. Default language is now set to: "+lang);
+    }
+    else { // otherwise...
+        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
+ };
+/**************************************************************************************************************************************************************************************/
+ /* LANGUAGE SETTINGS */
+ /* Content switching according to */
+/**************************************************************************************************************************************************************************************/
+let languageContent = {
+    "en": {
+      "nav-home": "Homepage",
+      "nav-add": "Add Task",
+      "nav-retro": "Retrospective",
+      "nav-sett": "Settings",
+      "nav-copy": "Copyright",
+      "nav-exit": "Exit",
+
+      "col-leftMenu-text":"MENU",
+      "col-todo-text":"TO DO",
+      "col-doing-text":"DOING",
+      "col-done-text":"DONE",
+      
+      
+      
+      "footer": "About",
+    },
+    "pt": {
+      "nav-home": "Início",
+      "nav-add": "Adicionar Tarefa",
+      "nav-retro": "Retrospetiva",
+      "nav-sett": "Definições",
+      "nav-copy": "Direitos de autor",
+      "nav-exit": "Sair",
+      
+      "col-leftMenu-text":"MENU",
+      "col-todo-text":"PARA FAZER",
+      "col-doing-text":"EM CURSO",
+      "col-done-text":"FEITO",
+      
+      
+      "footer": "Sobre",
+    }
+};
+ function changeLanguage(lang) {
+     if (lang) {
+         localStorage.setItem('language', lang); // saves data into localStorage
+     }
+    for (let key in languageContent[lang]) {
+       document.getElementById(key).innerHTML = languageContent[lang][key];
+    }
+};
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
