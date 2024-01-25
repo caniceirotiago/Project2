@@ -94,6 +94,8 @@ COLUMNS DIV ELEMENTS
     min-height: 65vh;
     max-height: 65vh;
     background-color: palegreen;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Parte relativa à coluna DOING */
@@ -104,6 +106,8 @@ COLUMNS DIV ELEMENTS
     min-height: 65vh;
     max-height: 65vh;
     background-color: lightskyblue;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Parte relativa à coluna DONE */
@@ -114,11 +118,12 @@ COLUMNS DIV ELEMENTS
     min-height: 65vh;
     max-height: 65vh;
     background-color: violet;
+    display: flex;
+    flex-direction: column;
 }
 .scrolable-ul {
     overflow-y: scroll;
-    min-height: 55vh;
-    max-height: 55vh;
+   height: 100%;
 }
 
 
