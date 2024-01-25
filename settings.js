@@ -5,21 +5,31 @@
 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 document.addEventListener('DOMContentLoaded', function() {
+   checkLanguage(); // checks the language setting
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
 });
 
-
-
-
-
-
-
-/* LANGUAGE SETTINGS
-* Content switching according to 
-*/
+/**************************************************************************************************************************************************************************************/ 
+/* DEFAULT LANGUAGE = ENGLISH */
+/**************************************************************************************************************************************************************************************/
+function checkLanguage() {
+   if (localStorage.getItem('language')===null) { // if it doesn't exist 
+       let lang='en'; // set it to English
+       localStorage.setItem('language', lang); // save it
+       console.log("Default language was null. Default language is now set to: "+lang);
+   }
+   else { // otherwise...
+       changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+       console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+   }
+};
+/**************************************************************************************************************************************************************************************/
+/* LANGUAGE SETTINGS */
+/* Content switching according to */
+/**************************************************************************************************************************************************************************************/
 let languageContent = {
    "en": {
      "nav-home": "Homepage",
@@ -56,15 +66,14 @@ function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
         localStorage.setItem('language', lang); // saves data into localStorage
-        console.log("The language has been set to "+lang+".");
     }
-
-
 
    for (let key in languageContent[lang]) {
       document.getElementById(key).innerHTML = languageContent[lang][key];
    }
 };
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
 
 
 
