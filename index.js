@@ -44,13 +44,13 @@ function changeLanguage(lang) {
      if (lang) {
          // set no local storage.............. gravar lá
          localStorage.setItem('language', lang); // saves data into localStorage
-         console.log("The language has been set to "+lang+".");
      }
-
     for (let key in languageContent[lang]) { // all the normal ones
+        let username = document.getElementById('username').value; //obtem o username do campo correspondente
         // conditional: special case <input> elements
+        if (key==='errorLogin' && username === "" || username === null)
+            break;
         if (document.getElementById(key).tagName.toLowerCase() === 'input') { 
-            console.log(key+' element is an input, changing placeholder text.');
             document.getElementById(key).placeholder = languageContent[lang][key];
         } 
         // conditional: extra special case <input> element for the Login button
@@ -62,7 +62,8 @@ function changeLanguage(lang) {
             document.getElementById(key).textContent = languageContent[lang][key];
         }  
     }
- }; 
+}; 
+
 
 
 /**************************************************************************************************************************************************************************************/ 
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
-        const errorElement = document.getElementById('errorLogin');
+        let errorElement = document.getElementById('errorLogin');
         let errorMsg = 'Mandatory field';
         if (localStorage.getItem('language')==='pt') {
             errorMsg='Campo obrigatório';
@@ -86,11 +87,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (username === "" || username === null) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
-            errorElement.innerText = errorMsg;
+            errorElement.innerText = errorMsg; // sets the error message
         }
         else {
             localStorage.setItem('username', username); // saves data into localStorage
             console.log("The user "+username+" has been added.");
+            errorElement.innerText=""; // clear the error message 
+
             // so the username variable in localStorage, will contain the username data that we just retrieved
             // to view it do: right click, inspect, application tab, Storage -> local storage
             //form.submit(); // submits the form, thus activating the html bit that states // action="homepage.html"
@@ -98,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 });
+
 
 /*
 function validateUsername() {

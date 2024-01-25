@@ -66,7 +66,6 @@ function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
         localStorage.setItem('language', lang); // saves data into localStorage
-        console.log("The language has been set to "+lang+".");
     }
 
    for (let key in languageContent[lang]) {
