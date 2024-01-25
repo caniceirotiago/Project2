@@ -18,7 +18,7 @@ function checkLanguage() {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS
+/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
@@ -40,6 +40,9 @@ let languageContent = {
         "footer": "Sobre",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* FUNCTION changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
      if (lang) {
          // set no local storage.............. gravar lá
@@ -49,23 +52,17 @@ function changeLanguage(lang) {
         let username = document.getElementById('username').value; //obtem o username do campo correspondente
         // conditional: special case <input> elements
         if (key==='errorLogin' && username === "" || username === null)
-            break;
-        if (document.getElementById(key).tagName.toLowerCase() === 'input') { 
+            continue;
+        if (document.getElementById(key).tagName.toLowerCase() === 'input')
             document.getElementById(key).placeholder = languageContent[lang][key];
-        } 
         // conditional: extra special case <input> element for the Login button
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login') {
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login')
             document.getElementById(key).value = languageContent[lang][key];
-        }
         // default : all the remaining elements
-        else { 
+        else
             document.getElementById(key).textContent = languageContent[lang][key];
-        }  
     }
 }; 
-
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN */
 /**************************************************************************************************************************************************************************************/
@@ -77,33 +74,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
-        let errorElement = document.getElementById('errorLogin');
+        let username = document.getElementById('username').value; // obtains username inserted text
+        let errorElement = document.getElementById('errorLogin'); // obtains the error element for later message insertion
         let errorMsg = 'Mandatory field';
-        if (localStorage.getItem('language')==='pt') {
-            errorMsg='Campo obrigatório';
-        }
-        
-        let username = document.getElementById('username').value; //obtem o username do campo correspondente
 
+        if (localStorage.getItem('language')==='pt')
+            errorMsg='Campo obrigatório';    
         if (username === "" || username === null) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
             errorElement.innerText = errorMsg; // sets the error message
-        }
-        else {
+        } else {
             localStorage.setItem('username', username); // saves data into localStorage
             console.log("The user "+username+" has been added.");
             errorElement.innerText=""; // clear the error message 
-
-            // so the username variable in localStorage, will contain the username data that we just retrieved
-            // to view it do: right click, inspect, application tab, Storage -> local storage
-            //form.submit(); // submits the form, thus activating the html bit that states // action="homepage.html"
         }
-
     });
 });
-
-
-/*
+/**************************************************************************************************************************************************************************************/ 
+/* FUNCTION validateUsername() - checks if the username has min 6 length && is alphanumeric (only a-z, A-Z, 0-9 allowed)
+/**************************************************************************************************************************************************************************************/
+/* to implement later
 function validateUsername() {
     ; // insert code here to check for 6 letters min and alphanumeroc    
 }
