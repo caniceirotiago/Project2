@@ -51,7 +51,7 @@ let languageContent = {
       "langPT": "Português",
       "footer": "Sobre",
    }
-}
+};
 function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
@@ -64,7 +64,7 @@ function changeLanguage(lang) {
    for (let key in languageContent[lang]) {
       document.getElementById(key).innerHTML = languageContent[lang][key];
    }
-}
+};
 
 
 
