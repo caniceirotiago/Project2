@@ -25,6 +25,9 @@ header {
     padding: 10px 0;
     width: 100vw;
 }
+main {
+    flex: 1; /* Ocupa o espaço disponível */
+}
 footer {
     background-color: #525456;
     color: rgb(221, 217, 206);
