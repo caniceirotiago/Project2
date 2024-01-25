@@ -32,7 +32,7 @@ let languageContent = {
     },
     "pt": {
         "username-label": "Nome de utilizador",
-        "username": "Insira o seu nome de utilizador",
+        "username": "Insira nome de utilizador",
         "errorLogin": "Campo obrigatório",
         "password-label":"Palavra-passe",
         "password":"Insira a sua palavra-passe",
