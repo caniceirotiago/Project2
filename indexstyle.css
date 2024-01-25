@@ -40,12 +40,12 @@ LANGUAGE FLAGS ->
     right: 0;
     width: 20vw;
     height: 20vh;
-
     font-size: 12px;
     color: white;
-    font-weight: bold;
+    
 }
 .underline {
+    font-weight: bold;
     text-decoration: underline;
 }
 
