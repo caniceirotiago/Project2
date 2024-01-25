@@ -48,15 +48,19 @@ function changeLanguage(lang) {
      }
 
     for (let key in languageContent[lang]) { // all the normal ones
-        if (document.getElementById(key).tagName.toLowerCase() === 'input') {
+        // conditional: special case <input> elements
+        if (document.getElementById(key).tagName.toLowerCase() === 'input') { 
             console.log(key+' element is an input, changing placeholder text.');
             document.getElementById(key).placeholder = languageContent[lang][key];
-        } if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login') {
+        } 
+        // conditional: extra special case <input> element for the Login button
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login') {
             document.getElementById(key).value = languageContent[lang][key];
         }
-         else {
+        // default : all the remaining elements
+        else { 
             document.getElementById(key).textContent = languageContent[lang][key];
-          }  
+        }  
     }
  }; 
 
@@ -65,7 +69,7 @@ function changeLanguage(lang) {
 /* FORM FOR LOGIN */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage();
+    checkLanguage(); // checks the language setting
     // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
     // index.html // <form id="loginForm" action="homepage.html">
     let form = document.getElementById('loginForm'); // obtains the loginForm
