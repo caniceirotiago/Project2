@@ -17,12 +17,12 @@
         <h1><span id="usernameDisplay">Username</span></h1>
         <!------------------ Navigation Menu ------------------------------------>
         <div class="topnav">
-        <a class="active" href="#home">Homepage</a>
-        <a class="btn-add" onclick="location.href='task.html';">Add Task</a>
-        <a href="retrospective.html">Retrospective</a>
-        <a href="settings.html">Settings</a>
-        <a href="copyright.html">Copyright</a>
-        <a href="index.html">Exit</a>
+        <a id="nav-home" class="active" href="#home">Homepage</a>
+        <a id="nav-add" class="btn-add" onclick="location.href='task.html';">Add Task</a>
+        <a id="nav-retro" href="retrospective.html">Retrospective</a>
+        <a id="nav-sett" href="settings.html">Settings</a>
+        <a id="nav-copy" href="copyright.html">Copyright</a>
+        <a id="nav-exit" href="index.html">Exit</a>
         </div>
         <!------------------ Navigation Menu /end ------------------------------------>    
     </header>
@@ -32,22 +32,22 @@
         <div class="mainBoard">
         <div class="mainBoard tasks-container">
             <div class="col-leftMenu">
-                <h2>LEFT MENU</h2>
+                <h2 id="col-leftMenu-text">MENU</h2>
             </div>
             <div class="col-todo">
-                <h2>TO DO</h2>
+                <h2 id="col-todo-text">TO DO</h2>
                 <section class="scrolable-ul">
                     <ul id="todo"></ul>
                 </section>
             </div>
             <div class="col-doing">
-                <h2>DOING</h2>
+                <h2 id="col-doing-text">DOING</h2>
                 <section class="scrolable-ul">
                     <ul id="doing"></ul>
                 </section>
             </div>
             <div class="col-done">
-                <h2>DONE</h2>
+                <h2 id="col-done-text">DONE</h2>
                 <section class="scrolable-ul">
                     <ul id="done"></ul>
                 </section>

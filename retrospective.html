@@ -17,20 +17,20 @@
         <h1><span id="usernameDisplay">Username</span></h1>
         <!------------------ Navigation Menu ------------------------------------>
         <div class="topnav">
-        <a class="active" href="homepage.html">Homepage</a>
-        <a class="btn-add" onclick="location.href='task.html';">Add Task</a>
-        <a href="retrospective.html">Retrospective</a>
-        <a href="settings.html">Settings</a>
-        <a href="copyright.html">Copyright</a>
-        <a href="index.html">Exit</a>
+        <a id="nav-home" class="active" href="homepage.html">Homepage</a>
+        <a id="nav-add" class="btn-add" onclick="location.href='task.html';">Add Task</a>
+        <a id="nav-retro" href="retrospective.html">Retrospective</a>
+        <a id="nav-sett" href="settings.html">Settings</a>
+        <a id="nav-copy" href="copyright.html">Copyright</a>
+        <a id="nav-exit" href="index.html">Exit</a>
         </div>
         <!------------------ Navigation Menu /end ------------------------------------>    
     </header>
     <!------------------ Header /end ------------------------------------>
     
     <main>
-        <div class="historic-retrospectives">
-            <h2>Historic Retrospectives</h2><br>
+        <div  class="historic-retrospectives">
+            <h2 id="hist-retro">Historic Retrospectives</h2><br>
             <section class="scrolable-ul">
                 <ul id="historic-retrospectives-list"></ul>
             </section>
@@ -39,22 +39,22 @@
             <!-- Task contents -->
             <form id="retrospectiveForm" action="retrospective.html"> <!-- Loaded page after form fetch okay -->
             <div class="row-retrospective">
-                <h2>Add Retrospective</h2>
+                <h2 id="add-retro">Add Retrospective</h2>
             </div>
             <div class="row-date">
-                <label for="date">Date </label>
+                <label id="label-date-retro" for="date">Date </label>
                 <input type="date" name="date" id="date">
             </div>
             <div class="row-present-members">
-                <label for="present-members">Present Members</label>
-                <textarea type="textarea" name="present-members" id="present-members" placeholder="Insert Present Members"></textarea>
+                <label id="label-pres-retro" for="present-members">Present Members</label>
+                <textarea id="pres-TA-retro" type="textarea" name="present-members" id="present-members" placeholder="Insert Present Members"></textarea>
             </div>
             <div class="row-comments">
-                <label for="comments">Comments</label>
-                <textarea type="textarea" name="comments" id="comments" placeholder="Insert positive aspects, chalanges and suggestions for improvement"></textarea>
+                <label id="label-comment-retro" for="comments">Comments</label>
+                <textarea id="comment-retro" type="textarea" name="comments" id="comments" placeholder="Insert positive aspects, chalanges and suggestions for improvement"></textarea>
             </div>
             <div class="row-submit">
-                <input type="submit" value="Save Retrospective">
+                <input id="input-save-retro" type="submit" value="Save Retrospective">
             </div>
             </form>
         </div>
@@ -62,7 +62,7 @@
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
-        <h3><span>Footer : About</span></h3>
+        <h3 id="footer"><span>Footer : About</span></h3>
     </footer>
     <!------------------ Footer /end ------------------------------------>
     
