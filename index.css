@@ -63,11 +63,12 @@ preciso de criar um estilo de banner e de content para os divs correspondentes e
 
 /* Estilo do banner */
 .banner {
-    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo ligeiramente diferente */
-    padding: 20px;
+    background-color: rgba(232, 237, 244, 0.95); /* Cor de fundo ligeiramente diferente */
+    padding: 15px;
     text-align: center;
-    border-radius: 10px;
-    margin-bottom: 20px; /* Espaço entre o banner e o content */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px; /* Espaço entre o banner e o content */
 }
 
 #banner img {
@@ -75,12 +76,15 @@ preciso de criar um estilo de banner e de content para os divs correspondentes e
     margin: 10px; /* Espaço ao redor da imagem */
 }
 
+.content {
+    padding: 20px;
+}
 
 /* Estilo do formulário com animação */
 form {
-    background-color: rgba(255, 255, 255, 0.9); /* Transparência */
+    background-color: rgba(255, 255, 255, 1); /* Transparência */
     width: 300px;
-    padding: 40px;
+    padding: 0px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     animation: slide-in 0.5s ease-out;
@@ -106,14 +110,14 @@ input[type="submit"] {
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #007aff;
+    background-color: #9cc1e8;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #d7e2ef;
 }
 
 /* Animações e foco nos inputs */
