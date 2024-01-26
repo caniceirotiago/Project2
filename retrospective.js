@@ -87,14 +87,79 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadRetrospectives();
 });
-
- /* BACK BUTTON LISTENER  */
-btn-BackSE.addEventListener("click", function() {
-location.href = "homepage.html";
-
+/**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
 });
+/**************************************************************************************************************************************************************************************/ 
+/* DEFAULT LANGUAGE = ENGLISH */
+/**************************************************************************************************************************************************************************************/
+function checkLanguage() {
+    if (localStorage.getItem('language')===null) { // if it doesn't exist 
+        let lang='en'; // set it to English
+        localStorage.setItem('language', lang); // save it
+        console.log("Default language was null. Default language is now set to: "+lang);
+    }
+    else { // otherwise...
+        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
+ };
+/**************************************************************************************************************************************************************************************/
+ /* LANGUAGE SETTINGS */
+ /* Content switching according to */
+/**************************************************************************************************************************************************************************************/
+let languageContent = {
+    "en": {
+      "nav-home": "Homepage",
+      "nav-add": "Add Task",
+      "nav-retro": "Retrospective",
+      "nav-sett": "Settings",
+      "nav-copy": "Copyright",
+      "nav-exit": "Exit",
+      "hist-retro":"Historic Retrospectives",
+      "add-retro":"Add Retrospective",
+      "label-date-retro":"Date",
+      "label-pres-retro":"Present Members",
+      "pres-TA-retro":"Insert Present Members",
+      "label-comment-retro":"Comments",
+      "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
+      "input-save-retro":"Save Retrospective",
 
- /* DEL BUTTON LISTENER  */
-btn-DelSE.addEventListener("click", function() {
-    location.href = "homepage.html";
-});
+      "footer": "About",
+    },
+    "pt": {
+      "nav-home": "Início",
+      "nav-add": "Adicionar Tarefa",
+      "nav-retro": "Retrospetiva",
+      "nav-sett": "Definições",
+      "nav-copy": "Direitos de autor",
+      "nav-exit": "Sair",
+      "hist-retro":"Retrospectivas históricas",
+      "add-retro":"Adicionar Retrospetiva",
+      "label-date-retro":"Data",
+      "label-pres-retro":"Membros presentes",
+      "pres-TA-retro":"Inserir membros presentes",
+      "label-comment-retro":"Comentários",
+      "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
+      "input-save-retro":"Guardar Retrospetiva",
+
+      "footer": "Sobre",
+    }
+};
+ function changeLanguage(lang) {
+     if (lang) {
+         localStorage.setItem('language', lang); // saves data into localStorage
+     }
+    for (let key in languageContent[lang]) {
+        // conditional: extra special case <input> element for the Login button
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Retrospective')
+            document.getElementById(key).value = languageContent[lang][key];
+        else
+        document.getElementById(key).innerHTML = languageContent[lang][key];
+    }
+};
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
