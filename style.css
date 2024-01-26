@@ -149,16 +149,18 @@ ul {
 }
 
 .task-item button {
-    opacity: 0; /* Torna o botÃ£o totalmente transparente (invisÃ­vel) por padrÃ£o */
+    opacity: 0;
     transition: opacity 0.3s; /* Adiciona uma transiÃ§Ã£o suave para a opacidade */
-    float: right; /* Posiciona o botÃ£o Ã  direita */
-    margin-left: 10px; /* EspaÃ§o Ã  esquerda do botÃ£o */
-    padding: 5px 10px; /* EspaÃ§amento interno do botÃ£o */
-    background-color: #f0f0f0; /* Cor de fundo do botÃ£o */
-    border: 1px solid #ddd; /* Borda do botÃ£o */
+    float:right; /* Posiciona o botÃ£o Ã  direita */
+    margin-left: 0px; /* EspaÃ§o Ã  esquerda do botÃ£o */
+    padding: 3px 8px; /* EspaÃ§amento interno do botÃ£o */
+    border-radius: 2px;
+    border: none;
+    background-color: #e6e3dc; /* Cor de fundo do botÃ£o */
     cursor: pointer; /* Muda o cursor para indicar que Ã© clicÃ¡vel */
 }
 
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
+

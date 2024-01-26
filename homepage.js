@@ -75,7 +75,7 @@ function addTaskToRightList(task) {
 /**************************************************************************************************************************************************************************************/
 /* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
 document.addEventListener('DOMContentLoaded', function() {
-    const tasksContainer = document.querySelector('.mainBoard.tasks-container');
+    const tasksContainer = document.querySelector('.mainBoard-tasks-container');
 
     tasksContainer.addEventListener('click', function(event) {
         // Verificar se o clique foi diretamente em um botão
@@ -89,9 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
         while (targetElement != null && !targetElement.classList.contains('task-item')) {
             targetElement = targetElement.parentElement;
         }
-
+        console.log("Chega aqui")
         // Se um task-item foi clicado
         if (targetElement && targetElement.classList.contains('task-item')) {
+            
             const taskId = targetElement.getAttribute('data-task-id');
             window.location.href = `edittask.html?taskId=${taskId}`;
         }
