@@ -31,6 +31,21 @@ function checkLanguage() {
        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
    }
+   underlineLangFlag();
+};
+/**************************************************************************************************************************************************************************************/ 
+/* underlineLangFlag() = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function underlineLangFlag() {
+    // 
+    if(localStorage.getItem('language')==='en') {
+        document.getElementById("langEN").classList.add("underline"); // *** mudar para selected em vez de underline
+        document.getElementById("langPT").classList.remove("underline");
+    }
+    if(localStorage.getItem('language')==='pt') {
+        document.getElementById("langPT").classList.add("underline");
+        document.getElementById("langEN").classList.remove("underline");
+    }
 };
 /**************************************************************************************************************************************************************************************/
 /* LANGUAGE SETTINGS */
@@ -62,7 +77,7 @@ let languageContent = {
      "theme":"Tema",
      "dark-theme": "Escuro",
      "white-theme": "Claro",
-     "lang":"Linguagem",
+     "lang":"Língua",
      "langEN": "Inglês",
       "langPT": "Português",
       "footer": "Sobre",
@@ -77,6 +92,7 @@ function changeLanguage(lang) {
    for (let key in languageContent[lang]) {
       document.getElementById(key).innerHTML = languageContent[lang][key];
    }
+   underlineLangFlag();
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

@@ -32,7 +32,7 @@ function underlineLangFlag() {
         document.getElementById("langIndexPT").classList.add("underline");
         document.getElementById("langIndexEN").classList.remove("underline");
     }
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/

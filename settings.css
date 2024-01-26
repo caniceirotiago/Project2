@@ -134,11 +134,10 @@ COLUMNS DIV ELEMENTS
 BUTTONS FOR LANGUAGE
 ******************************************/
 
-/* THEME changing code--- reverted */
-.btn-langEN:active,.btn-langPT:active {
-    background-color: green;
-    
+
+.underline {
+    background-color: #04AA6D;
+    color: white;
+    font-weight: bold;
 }
-
-
 
