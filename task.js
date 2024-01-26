@@ -38,7 +38,6 @@ function getNextTaskId() {
 
 /* SET USERNAME INTO HEADER  */
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
@@ -58,6 +57,12 @@ function checkLanguage() {
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+});
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */

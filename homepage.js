@@ -7,7 +7,6 @@
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
@@ -194,6 +193,12 @@ function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 /**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+});
+/**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
 function checkLanguage() {
@@ -219,14 +224,10 @@ let languageContent = {
       "nav-sett": "Settings",
       "nav-copy": "Copyright",
       "nav-exit": "Exit",
-
       "col-leftMenu-text":"MENU",
       "col-todo-text":"TO DO",
       "col-doing-text":"DOING",
       "col-done-text":"DONE",
-      
-      
-      
       "footer": "About",
     },
     "pt": {
@@ -236,13 +237,10 @@ let languageContent = {
       "nav-sett": "Definições",
       "nav-copy": "Direitos de autor",
       "nav-exit": "Sair",
-      
       "col-leftMenu-text":"MENU",
       "col-todo-text":"PARA FAZER",
       "col-doing-text":"EM CURSO",
       "col-done-text":"FEITO",
-      
-      
       "footer": "Sobre",
     }
 };

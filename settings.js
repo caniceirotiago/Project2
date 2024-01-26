@@ -7,11 +7,16 @@
 /* DISPLAY USERNAME INTO HEADER */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
+});
+/**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
 });
 /**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
