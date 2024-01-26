@@ -62,15 +62,22 @@ footer {
     background-color: rgba(0, 122, 255, 0.6); /* Transparência fosca */
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0px 0px 0px;
     width: 100%;
     position:static;
     bottom: 0;
 }
-/*
-preciso de criar um estilo de banner e de content para os divs correspondentes em form, a ideia é criar um banner com uma cor ligeiramente diferente da cor do content da form e que receba uma pequena imagem
 
-*/
+#text-about{
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: justify;
+    padding: 50px 50px;
+    
+}
+#text-about p {
+    text-indent: 40px; /* Adiciona recuo na primeira linha de cada parágrafo */
+}
 
 /* Estilo do banner */
 .banner {
