@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page - Scrum</title>
-    <link rel="stylesheet" href="indexstyle.css">
+    <link rel="stylesheet" href="index.css">
     <script defer src="index.js"></script>
 </head>
 
@@ -25,13 +25,15 @@
         </div>
         
         <form id="loginForm" action="homepage.html">
-            <label id="username-label" for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Enter your username">
-            <div id="errorLogin"></div>
-            <label id="password-label" for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter your password">
-            <input type="submit" id="login" value="Login">
-
+            <div class="banner">Login</div>
+            <div class="content">
+                <label id="username-label" for="username">Username</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+                <div id="errorLogin"></div>
+                <label id="password-label" for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+                <input type="submit" id="login" value="Login">
+            </div>
         </form>
     </main>
     

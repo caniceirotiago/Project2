@@ -1,0 +1,124 @@
+/* Estilo geral com melhorias */
+/* Estilo geral com melhorias */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-image: url('images/backgroundIndexMain2.png'); /* Substitua pelo caminho correto da imagem */
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adicionando um fundo translúcido */
+    position: fixed;
+    top: 0;
+}
+
+.top-left-flags {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.top-left-flags ul {
+    list-style: none;
+    padding: 0;
+}
+
+.top-left-flags li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.top-left-flags a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+footer {
+    background-color: rgba(0, 122, 255, 0.6); /* Transparência fosca */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+/*
+preciso de criar um estilo de banner e de content para os divs correspondentes em form, a ideia é criar um banner com uma cor ligeiramente diferente da cor do content da form e que receba uma pequena imagem
+
+*/
+
+/* Estilo do banner */
+.banner {
+    background-color: rgba(255, 255, 255, 0.95); /* Cor de fundo ligeiramente diferente */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Espaço entre o banner e o content */
+}
+
+#banner img {
+    max-width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
+    margin: 10px; /* Espaço ao redor da imagem */
+}
+
+
+/* Estilo do formulário com animação */
+form {
+    background-color: rgba(255, 255, 255, 0.9); /* Transparência */
+    width: 300px;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    animation: slide-in 0.5s ease-out;
+    transition: transform 0.3s ease; /* Adicionando transição para transformação */
+}
+
+form:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho do formulário */
+}
+
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px); /* Correção para evitar colagem nas bordas */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007aff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Animações e foco nos inputs */
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 0 8px rgba(0, 122, 255, 0.6);
+}
