@@ -75,6 +75,13 @@ let languageContent = {
         "nav-sett": "Settings",
         "nav-copy": "Copyright",
         "nav-exit": "Exit",
+        "add-task": "Add Task",
+        "label-title":"Title",
+        "title":"Insert Title",
+        "label-description":"Description",
+        "description":"Insert Task Description",
+        "save-task":"Save Task",
+        
         "footer": "About",
     },
     "pt": {
@@ -84,6 +91,14 @@ let languageContent = {
         "nav-sett": "Definições",
         "nav-copy": "Direitos de autor",
         "nav-exit": "Sair",
+        "add-task": "Adicionar Tarefa",
+        "label-title":"Título",
+        "title":"Inserir título",
+        "label-description":"Descrição",
+        "description":"Inserir descrição da tarefa",
+        "save-task":"Salvar Tarefa",
+
+
         "footer": "Sobre",
     }
 };
@@ -92,7 +107,13 @@ function changeLanguage(lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
     }
     for (let key in languageContent[lang]) {
-        document.getElementById(key).innerHTML = languageContent[lang][key];
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).placeholder === 'Insert Title')
+        document.getElementById(key).placeholder = languageContent[lang][key];
+        // conditional: extra special case <input> element for the 'Save Task' button
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Task')
+            document.getElementById(key).value = languageContent[lang][key];
+        else
+            document.getElementById(key).innerHTML = languageContent[lang][key];
     }
 };
 /**************************************************************************************************************************************************************************************/

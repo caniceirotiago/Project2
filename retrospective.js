@@ -154,7 +154,7 @@ let languageContent = {
          localStorage.setItem('language', lang); // saves data into localStorage
      }
     for (let key in languageContent[lang]) {
-        // conditional: extra special case <input> element for the Login button
+        // conditional: extra special case <input> element for the 'Save Retrospective' button
         if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Retrospective')
             document.getElementById(key).value = languageContent[lang][key];
         else
