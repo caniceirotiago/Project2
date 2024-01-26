@@ -17,12 +17,12 @@
         <h1><span id="usernameDisplay">Username</span></h1>
         <!------------------ Navigation Menu ------------------------------------>
         <div class="topnav">
-            <a class="active" href="homepage.html">Homepage</a>
-            <a class="btn-add" onclick="location.href='task.html';">Add Task</a>
-            <a href="retrospective.html">Retrospective</a>
-            <a href="settings.html">Settings</a>
-            <a href="copyright.html">Copyright</a>
-            <a href="index.html">Exit</a>
+            <a id="nav-home" class="active" href="homepage.html">Homepage</a>
+            <a id="nav-add" class="btn-add" onclick="location.href='task.html';">Add Task</a>
+            <a id="nav-retro" href="retrospective.html">Retrospective</a>
+            <a id="nav-sett" href="settings.html">Settings</a>
+            <a id="nav-copy" href="copyright.html">Copyright</a>
+            <a id="nav-exit" href="index.html">Exit</a>
         </div>
         <!------------------ Navigation Menu /end ------------------------------------>
     </header>
@@ -34,18 +34,18 @@
             <button id="edit-btn">Edit</button>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
                 <div class="row-task">
-                    <h2>Edit Task</h2>
+                    <h2 id="add-task">Edit Task</h2>
                 </div>
                 <div class="row-title">
-                    <label for="title">Title </label>
+                    <label id="label-title" for="title">Title </label>
                     <input type="text" name="title" id="title" disabled>
                 </div>
                 <div class="row-description">
-                    <label for="description">Description</label>
+                    <label id="label-description" for="description">Description</label>
                     <textarea name="description" id="description" disabled></textarea>
                 </div>
                 <div class="row-submit">
-                    <input type="submit" value="Save Task" disabled>
+                    <input id="save-task" type="submit" value="Save Task" disabled>
                 </div>
             </form>
         </div>
@@ -53,7 +53,7 @@
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
-        <h3><span>Footer : About</span></h3>
+        <h3 id="footer"><span>Footer : About</span></h3>
     </footer>
     <!------------------ Footer /end ------------------------------------>
 

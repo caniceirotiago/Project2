@@ -63,8 +63,81 @@ function saveTask() {
 }
 
 
+/**************************************************************************************************************************************************************************************/ 
+/* function checkLanguage() - CHECKS PREVIOUSLY SET LANGUAGE OR DEFAULTS TO LANGUAGE = ENGLISH */
+/**************************************************************************************************************************************************************************************/
+function checkLanguage() {
+    if (localStorage.getItem('language')===null) { // if it doesn't exist 
+        let lang='en'; // set it to English
+        localStorage.setItem('language', lang); // save it
+        console.log("Default language was null. Default language is now set to: "+lang);
+    }
+    else { // otherwise...
+        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
+};
+/**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+});
+/**************************************************************************************************************************************************************************************/
+ /* LANGUAGE SETTINGS */
+ /* Content switching according to */
+/**************************************************************************************************************************************************************************************/
+let languageContent = {
+    "en": {
+        "nav-home": "Homepage",
+        "nav-add": "Add Task",
+        "nav-retro": "Retrospective",
+        "nav-sett": "Settings",
+        "nav-copy": "Copyright",
+        "nav-exit": "Exit",
+        "edit-btn":"Edit",
+        "add-task": "Add Task",
+        "label-title":"Title",
+        "title":"Insert Title",
+        "label-description":"Description",
+        "description":"Insert Task Description",
+        "save-task":"Save Task",
+        
+        "footer": "About",
+    },
+    "pt": {
+        "nav-home": "Início",
+        "nav-add": "Adicionar Tarefa",
+        "nav-retro": "Retrospetiva",
+        "nav-sett": "Definições",
+        "nav-copy": "Direitos de autor",
+        "nav-exit": "Sair",
+        "edit-btn":"Editar",
+        "add-task": "Adicionar Tarefa",
+        "label-title":"Título",
+        "title":"Inserir título",
+        "label-description":"Descrição",
+        "description":"Inserir descrição da tarefa",
+        "save-task":"Salvar Tarefa",
 
 
+        "footer": "Sobre",
+    }
+};
+function changeLanguage(lang) {
+    if (lang) {
+         localStorage.setItem('language', lang); // saves data into localStorage
+    }
+    for (let key in languageContent[lang]) {
+        // conditional: extra special case <input> element for the 'Save Task' button
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Task')
+            document.getElementById(key).value = languageContent[lang][key];
+        else
+            document.getElementById(key).innerHTML = languageContent[lang][key];
+    }
+};
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
 
 
 
