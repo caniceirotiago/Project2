@@ -2,7 +2,7 @@
 /* Estilo geral com melhorias */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-image: url('images/backgroundIndexMain2.png'); /* Substitua pelo caminho correto da imagem */
+    background-image: url('images/backgroundIndexMain2.jpg'); /* Substitua pelo caminho correto da imagem */
     background-size: cover;
     background-position: center;
     color: #333;
@@ -16,19 +16,23 @@ body {
 }
 
 header {
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     width: 100%;
-    padding: 10px 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Adicionando um fundo translúcido */
+    padding: 0px 0;
+    background-color: rgba(211, 194, 194, 0.2); /* Adicionando um fundo translúcido */
     position: fixed;
     top: 0;
+    backdrop-filter: blur(5px)
+}
+header h1{
+    margin: 0px;
 }
 
 .top-left-flags {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0px;
+    left: 0px;
 }
 
 .top-left-flags ul {
@@ -69,15 +73,23 @@ preciso de criar um estilo de banner e de content para os divs correspondentes e
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 10px; /* Espaço entre o banner e o content */
+    display: flex; /* Alinha ícone e texto na mesma linha */
+    align-items: center; /* Centraliza verticalmente */
 }
 
-#banner img {
-    max-width: 100px; /* Ajuste o tamanho da imagem conforme necessário */
-    margin: 10px; /* Espaço ao redor da imagem */
+#login-icon {
+    max-width: 25px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
+    margin-right: 20px; /* Centraliza a imagem no banner */
 }
 
 .content {
-    padding: 20px;
+    padding: 25px;
+}
+
+#member-login-banner {
+    margin: 0;
 }
 
 /* Estilo do formulário com animação */
@@ -88,7 +100,7 @@ form {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     animation: slide-in 0.5s ease-out;
-    transition: transform 0.3s ease; /* Adicionando transição para transformação */
+    transition: transform 0.2s ease; /* Adicionando transição para transformação */
 }
 
 form:hover {
