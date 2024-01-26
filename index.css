@@ -121,6 +121,7 @@ form {
 
 form:hover {
     transform: scale(1.02); /* Aumenta ligeiramente o tamanho do formulário */
+    box-shadow: -3px 3px 30px rgba(0, 0, 0, 0.2);
 }
 
 
