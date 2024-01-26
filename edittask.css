@@ -1,0 +1,85 @@
+/* HOMEPAGE. CSS */
+
+/******************************************
+HEADER && FOOTER
+******************************************/
+/* HEADER */
+header {
+    text-align: center;
+    float: left;
+    width: 100%;
+    height: 10%;
+    min-height: 100px;
+    background-color: lightgrey;
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    float: right;
+    width: 100%;
+    height: 10%;
+    min-height: 100px;
+    background-color: lightgrey;
+}
+
+
+/******************************************
+ROWS DIV ELEMENTS
+******************************************/
+/* Necessário para organizar o Formulário de Task em linhas de uma tabela*/
+.mainBoard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+/* Parte relativa ao row no topo Add Task */
+.row-task {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
+}
+/* Parte relativa ao row title */
+.row-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
+}
+/* Parte relativa ao row description */
+.row-description {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
+}
+/* Parte relativa ao row submit */
+.row-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    float: top;
+    width: 100%;
+    height: 20%;
+    min-height: 175px;
+}
+
+/*******************************************************************/
+/*******************************************************************/
