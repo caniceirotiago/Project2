@@ -4,11 +4,14 @@
 BODY
 ******************************************/
 body, html {
-    height: 100%; /* Define a altura para 100% */
+   
     margin: 0;
     padding: 0;
     display: flex; /* Usa Flexbox */
     flex-direction: column; /* Orientação vertical */
+    height: 100%; /* Define a altura para 100% */
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 /******************************************
 HEADER && FOOTER
@@ -25,18 +28,25 @@ header h1 {
     padding: 0px 0;
 }
 main {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ajuste para ocupar a altura total disponível */
     align-self: center;
-    flex: 1; /* Ocupa o espaço disponível */
-    margin-bottom: 15px;
+    margin-top: 15px;
+    
 }
 footer {
     background-color: #525456;
     color: rgb(221, 217, 206);
     text-align: center;
     padding: 0px 0;
-    position: relative; /* Mudança para relative */
+    position: absolute; /* Mudança para relative */
     bottom: 0;
     width: 100vw;
+}
+footer h3 {
+    margin: 0;
+    
 }
 /******************************************
 TOPNAV -> Menu Buttons/Links
@@ -69,42 +79,45 @@ COLUMNS DIV ELEMENTS
 ******************************************/
 /* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
 .mainBoard {
-    display: block;
-    justify-content: space-around;
-    padding: 20px;
-    
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px;
+    height: calc(100vh - 127px);
+    margin-bottom: 25px;
 }
 
 /* Parte relativa ao MENU LATERAL */
 .col-leftMenu {
+    flex: 1;
     text-align: center;
     color: #f2f2f2;
-    float: left;
-    width: 8vw;
-    min-height: 65vh;
-    max-height: 65vh;
+    flex: 0 0 8vw;
     background-color: #333;
+    float: none; /* Remova o float, pois não é mais necessário com Flexbox */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ajuste a altura para ocupar 100% do espaço disponível */
 }
 
 /* Parte relativa à coluna TODO*/
 .col-todo {
+    flex: 1;
     text-align: center;
     float: left;
     width: 24vw;
-    min-height: 65vh;
-    max-height: 65vh;
     background-color: palegreen;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 /* Parte relativa à coluna DOING */
 .col-doing {
+    flex: 1;
     text-align: center;
     float: left;
     width: 24vw;
-    min-height: 65vh;
-    max-height: 65vh;
+    height: 100%;
     background-color: lightskyblue;
     display: flex;
     flex-direction: column;
@@ -115,8 +128,7 @@ COLUMNS DIV ELEMENTS
     text-align: center;
     float: left;
     width: 24vw;
-    min-height: 65vh;
-    max-height: 65vh;
+    height: 100%;
     background-color: violet;
     display: flex;
     flex-direction: column;
