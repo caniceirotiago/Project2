@@ -1,0 +1,140 @@
+/* Estilo geral com melhorias */
+/* Estilo geral com melhorias */
+body, html {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #353333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Define a altura para 100% */
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+}
+
+header {
+    color: #ffffff;
+    text-align: center;
+    width: 100vw;
+    padding: 0px 0;
+    background-color: rgba(100, 91, 91, 0.2); /* Adicionando um fundo translúcido */
+    position: fixed;
+    top: 0;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+}
+header h1{
+    margin: 0px;
+    margin: 0;
+    padding: 0px 0;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    height: 80%; /* Ajuste para ocupar a altura total disponÃ­vel */
+    align-self: center;
+    margin-top: 50px;
+    
+}
+
+.mainBoard-tasks-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0; /* Espaço para cabeçalho e barra de navegação */
+    gap: 20px; /* Espaço entre as colunas */
+    height: 100%;
+    margin-bottom: 25px;
+}
+
+.col-leftMenu, .col-todo, .col-doing, .col-done {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 20px; /* Espaçamento na parte inferior */
+    text-align: center;
+    width: 24vw;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 16vw;
+}
+
+.scrolable-ul {
+    overflow-y: scroll;
+    height: 100%;
+ 
+}
+
+footer {
+    background-color: rgba(145, 150, 157, 0.6); /* Transparência fosca */
+    color: #fff;
+    text-align: center;
+    padding: 0px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 5%;
+}
+footer h3 {
+    margin: 0;
+    
+}
+
+/* UNORDERED LIST FOR TASKS */
+ul {
+    padding-left: 0px;
+}
+
+
+.tableList { /* The larger box */
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
+    column-gap: 5px;
+    row-gap: 5px;
+    border: 1px solid black;
+}
+.tableList-Task { /* Each single item */
+    border: 1px solid black;
+}
+.task-item {
+    list-style-type: none; /* Remove o ponto padrÃ£o */
+    border: 1px solid #aaa; /* Adiciona uma borda */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparÃªncia */
+    padding: 4px; /* EspaÃ§amento interno */
+    margin-bottom: 10px; /* EspaÃ§amento entre os itens da lista */
+    overflow: hidden; /* Previne que o conteÃºdo ultrapasse os limites */
+    margin: 25px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
+    width: 90%; /* Largura ajustÃ¡vel */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transiÃ§Ã£o da transformaÃ§Ã£o e da sombra */
+}
+.task-item:hover {
+    cursor: pointer;
+    transform: translate(2px, -2px); /* Move o elemento 5px para a direita e 5px para cima */
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevaÃ§Ã£o */
+}
+.task-item:hover button {
+    opacity: 1; /* Torna o botÃ£o totalmente opaco (visÃ­vel) quando o mouse estÃ¡ sobre o task-item */
+}
+
+.task-item h3, .task-item p {
+    margin: 5px 0; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
+    word-wrap: break-word; /* Quebra palavras longas para nÃ£o ultrapassar a largura */
+}
+
+.task-item button {
+    opacity: 0; /* Torna o botÃ£o totalmente transparente (invisÃ­vel) por padrÃ£o */
+    transition: opacity 0.3s; /* Adiciona uma transiÃ§Ã£o suave para a opacidade */
+    float: right; /* Posiciona o botÃ£o Ã  direita */
+    margin-left: 10px; /* EspaÃ§o Ã  esquerda do botÃ£o */
+    padding: 5px 10px; /* EspaÃ§amento interno do botÃ£o */
+    background-color: #f0f0f0; /* Cor de fundo do botÃ£o */
+    border: 1px solid #ddd; /* Borda do botÃ£o */
+    cursor: pointer; /* Muda o cursor para indicar que Ã© clicÃ¡vel */
+}
+
+.task-item button:hover {
+    background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
+}
