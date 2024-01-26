@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
      form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
          event.preventDefault(); // previne que o formulário seja enviado da forma default
          var date = document.getElementById('date').value; //obtem o titulo da task
-         var presentMembers = document.getElementById('present-members').value; //obtem a descrição da task
-         var comments= document.getElementById('comments').value; //obtem a descrição da task
+         var presentMembers = document.getElementById('pres-TA-retro').value; //obtem a descrição da task
+         var comments= document.getElementById('comment-retro').value; //obtem a descrição da task
          if(date && presentMembers && comments) { // se o titulo e a descrição não estiverem vazios    
             addRetrospective(date, presentMembers, comments); // adiciona uma task com o titulo e a descrição
             clearRetrospectivesList();

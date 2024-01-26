@@ -23,6 +23,7 @@ header {
     top: 0;
     backdrop-filter: blur(5px);
     z-index: 2;
+    
 }
 header h1{
     margin: 0px;
@@ -34,7 +35,8 @@ main {
     flex-direction: column;
     height: 80%; /* Ajuste para ocupar a altura total disponÃ­vel */
     align-self: center;
-    margin-top: 50px;
+    margin-top: 60px;
+    
     
 }
 
@@ -52,14 +54,13 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
-    padding: 20px;
+    padding: 0px;
     margin-bottom: 20px; /* Espaçamento na parte inferior */
     text-align: center;
-    width: 24vw;
+    width: 21vw;
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 16vw;
 }
 
 .scrolable-ul {
