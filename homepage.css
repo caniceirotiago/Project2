@@ -166,10 +166,12 @@ ul {
     overflow: hidden; /* Previne que o conteúdo ultrapasse os limites */
     margin: 25px auto; /* Margem automática para centralização horizontal */
     width: 90%; /* Largura ajustável */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transição da transformação e da sombra */
 }
 .task-item:hover {
     cursor: pointer;
-    transform: scale(1.01); /* Aumenta ligeiramente ao passar o mouse */
+    transform: translate(2px, -2px); /* Move o elemento 5px para a direita e 5px para cima */
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevação */
 }
 .task-item:hover button {
     opacity: 1; /* Torna o botão totalmente opaco (visível) quando o mouse está sobre o task-item */
