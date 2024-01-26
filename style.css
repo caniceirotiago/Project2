@@ -50,7 +50,7 @@ main {
 }
 
 .col-leftMenu, .col-todo, .col-doing, .col-done {
-    background-color: white;
+    background-color: rgb(244, 231, 231);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
@@ -64,10 +64,28 @@ main {
 }
 
 .scrolable-ul {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
  
 }
+/* Personaliza a barra de rolagem para elementos com .scrolable-ul */
+.scrolable-ul::-webkit-scrollbar {
+    width: 8px; /* Espessura da barra de rolagem */
+}
+
+.scrolable-ul::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do trilho da barra de rolagem */
+}
+
+.scrolable-ul::-webkit-scrollbar-thumb {
+    background: #888; /* Cor da barra de rolagem */
+    border-radius: 8px; /*Arredonda os cantos*/
+}
+
+.scrolable-ul::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor da barra de rolagem ao passar o mouse */
+}
+
 
 footer {
     background-color: rgba(145, 150, 157, 0.6); /* Transparência fosca */
@@ -89,17 +107,29 @@ ul {
     padding-left: 0px;
 }
 
+.banner {
+    background-color: rgba(231, 237, 242, 0.95); /* Cor de fundo ligeiramente diferente */
+    padding: 15px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 10px; /* Espaço entre o banner e o content */
+    display: flex; /* Alinha ícone e texto na mesma linha */
+    align-items: center; /* Centraliza verticalmente */
+}
 
-.tableList { /* The larger box */
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
-    column-gap: 5px;
-    row-gap: 5px;
-    border: 1px solid black;
+#login-icon {
+    max-width: 25px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
+    margin-right: 20px; /* Centraliza a imagem no banner */
 }
-.tableList-Task { /* Each single item */
-    border: 1px solid black;
+
+.content {
+    padding: 25px;
 }
+
+
 .task-item {
     list-style-type: none; /* Remove o ponto padrÃ£o */
     border: 1px solid #aaa; /* Adiciona uma borda */
@@ -113,8 +143,8 @@ ul {
 }
 .task-item:hover {
     cursor: pointer;
-    transform: translate(2px, -2px); /* Move o elemento 5px para a direita e 5px para cima */
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevaÃ§Ã£o */
+    transform: translate(-2px, -2px); /* Move o elemento 5px para a direita e 5px para cima */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevaÃ§Ã£o */
 }
 .task-item:hover button {
     opacity: 1; /* Torna o botÃ£o totalmente opaco (visÃ­vel) quando o mouse estÃ¡ sobre o task-item */

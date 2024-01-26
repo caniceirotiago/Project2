@@ -49,9 +49,17 @@ function addTaskToRightList(task) {
     createDelBtnListener(delButton, task);
     createPrevBtnListener(prevButton, task);
 
+    /* Creating div's */
+    const bannerDiv = document.createElement('div');
+    bannerDiv.classList.add("banner");
+    bannerDiv.appendChild(itemTitle);
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add("content");
+    contentDiv.appendChild(itemDescription);
+
     /* Append Title and Description to Task */
-    itemList.appendChild(itemTitle);
-    itemList.appendChild(itemDescription);
+    itemList.appendChild(bannerDiv);
+    itemList.appendChild(contentDiv);
     
     /* Append Buttons to Task - with contextual relevance logic */
     if (!(task.status === 'done')) { itemList.appendChild(nextButton); }
