@@ -14,7 +14,10 @@ body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-    
+    background-image: url('images/backgroundHomepage.jpg'); /* Substitua pelo caminho correto da imagem */
+    background-size: cover;
+    background-attachment: fixed; /* Fixa a imagem de fundo */
+    background-position: center;
     margin: 0;
     padding: 0;
     display: flex;

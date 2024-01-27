@@ -2,7 +2,7 @@
 /* Estilo geral com melhorias */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-image: url('images/backgroundIndexMain2.jpg'); /* Substitua pelo caminho correto da imagem */
+    background-image: url('images/backgroundIndexMain.jpg'); /* Substitua pelo caminho correto da imagem */
     background-size: cover;
     background-attachment: fixed; /* Fixa a imagem de fundo */
     background-position: center;
@@ -16,6 +16,9 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #ffffff;
     text-align: center;
     width: 100%;
@@ -26,28 +29,18 @@ header {
     backdrop-filter: blur(5px);
     z-index: 2;
 }
-header h1{
-    margin: 0px;
-}
-
-.top-left-flags {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-.top-left-flags ul {
-    list-style: none;
-    padding: 0;
-}
-
-.top-left-flags li {
+.top-right-flags li {
     display: inline;
     margin-right: 10px;
 }
 
-.top-left-flags a {
+.top-right-flags a {
     color: #fff;
+    text-decoration: none;
+}
+.top-right-flags a:hover {
+    color: #bcc6db;
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -94,6 +87,12 @@ footer {
 }
 
 #login-icon {
+    max-width: 25px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
+    margin-right: 20px; /* Centraliza a imagem no banner */
+}
+#logo {
     max-width: 25px; /* Ajuste o tamanho da imagem conforme necessário */
     height: auto; /* Mantém a proporção da imagem */
     display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
