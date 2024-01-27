@@ -42,13 +42,31 @@ main {
 
 .mainBoard-tasks-container {
     display: flex;
-    justify-content: flex-start;
     padding: 0; /* Espaço para cabeçalho e barra de navegação */
     gap: 20px; /* Espaço entre as colunas */
     height: 100%;
     margin-bottom: 25px;
 }
-
+.right-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz este contêiner ocupar o espaço restante */
+}
+.tasks-row {
+    display: flex;
+    gap: 20px; /* Espaço entre as colunas */
+}
+.horizontal-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    flex-grow: 1; /* Faz a div ocupar o espaço restante na linha */
+    height: 50px; /* Altura da seção */
+    background-color: #f0f0f0; /* Cor de fundo */
+    margin-bottom: 20px; /* Espaço abaixo da seção horizontal */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para destaque */
+}
 .col-leftMenu, .col-todo, .col-doing, .col-done {
     background-color: rgb(244, 231, 231);
     border-radius: 8px;
