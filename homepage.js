@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadTasks();
     saveTasks();
+    
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
@@ -95,6 +96,15 @@ function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
     });
+    document.querySelectorAll('.task-item').forEach(item => {
+        item.addEventListener('dragstart', function(e) {
+            e.target.classList.add('dragging');
+        });
+    
+        item.addEventListener('dragend', function(e) {
+            e.target.classList.remove('dragging');
+        });
+    });
 }
 
 function moveTaskToColumn(taskId, newStatus){
@@ -125,6 +135,7 @@ function moveTaskElement(task) {
     // Adicionar a tarefa à nova coluna
     addTaskToRightList(task);
 }
+
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
 /**************************************************************************************************************************************************************************************/

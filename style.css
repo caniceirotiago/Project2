@@ -211,4 +211,8 @@ ul {
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
-
+.dragging {
+    opacity: 1; /* Torna o elemento mais transparente */
+    border: 2px dashed red; /* Adiciona uma borda para indicar que está sendo arrastado */
+    /* Outros estilos conforme necessário */
+}
