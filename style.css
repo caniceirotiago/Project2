@@ -108,6 +108,10 @@ main {
     flex-direction: column;
     height: 100%;
 }
+#todo, #doing, #done {
+    min-height: 75%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
+}
+
 
 .scrolable-ul {
     overflow-y: auto;
