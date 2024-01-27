@@ -133,7 +133,6 @@ footer {
 }
 footer h3 {
     margin: 0;
-    
 }
 
 /* UNORDERED LIST FOR TASKS */
@@ -143,7 +142,6 @@ ul {
 
 .banner {
     background-color: rgba(231, 237, 242, 0.95); /* Cor de fundo ligeiramente diferente */
-    padding: 10px;
     text-align: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -162,9 +160,8 @@ ul {
     list-style-type: none; /* Remove o ponto padrÃ£o */
     background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparÃªncia */
     padding: 0px; /* EspaÃ§amento interno */
-    margin-bottom: 8px; /* EspaÃ§amento entre os itens da lista */
     overflow: hidden; /* Previne que o conteÃºdo ultrapasse os limites */
-    margin: 10px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
+    margin: 8px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
     width: 90%; /* Largura ajustÃ¡vel */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transiÃ§Ã£o da transformaÃ§Ã£o e da sombra */
 }
@@ -178,7 +175,7 @@ ul {
 }
 
 .task-item h3, .task-item p {
-    margin: 5px 0; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
+    margin: 2px 5px; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
     word-wrap: break-word; /* Quebra palavras longas para nÃ£o ultrapassar a largura */
 }
 
