@@ -11,6 +11,19 @@ document.addEventListener('DOMContentLoaded', function() {
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
+    ['todo', 'doing', 'done'].forEach(status => { //faz com que as listas recebam itens
+        const column = document.getElementById(status);
+        column.addEventListener('dragover', function(e) {
+            e.preventDefault(); // Permite o drop
+        });
+    
+        column.addEventListener('drop', function(e) {
+            e.preventDefault();
+            const taskId = e.dataTransfer.getData('text/plain');
+            // Lógica para mover a tarefa para a coluna atual
+            moveTaskToColumn(taskId, status);
+        });
+    });
     loadTasks();
     saveTasks();
 });
@@ -31,6 +44,7 @@ function addTaskToRightList(task) {
     const itemList = document.createElement('li');
     itemList.setAttribute('data-task-id', task.id); // Creates a new <li> element
     itemList.classList.add('task-item');
+    itemList.setAttribute('draggable','true');
     const itemTitle = document.createElement('h3');
     itemTitle.textContent = task.title;
     const itemDescription = document.createElement('p');
@@ -48,6 +62,7 @@ function addTaskToRightList(task) {
     createNextBtnListener(nextButton, task);
     createDelBtnListener(delButton, task);
     createPrevBtnListener(prevButton, task);
+    createDragDropListener(itemList, task);
 
     /* Creating div's */
     const bannerDiv = document.createElement('div');
@@ -70,6 +85,46 @@ function addTaskToRightList(task) {
     document.getElementById(task.status).appendChild(itemList);
 }
 
+
+/**************************************************************************************************************************************************************************************/ 
+/* ADD ACTION LISTENERS TO DRAG AND DROP - Specifically Drag and drop
+/**************************************************************************************************************************************************************************************/
+/* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
+
+function createDragDropListener(itemList, task){
+    itemList.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text/plain', task.id);
+    });
+}
+
+function moveTaskToColumn(taskId, newStatus){
+     // Buscar as tarefas do armazenamento local
+     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+     // Encontrar a tarefa pelo taskId
+     let task = tasks.find(t => t.id === taskId);
+     
+     if (task) {
+         // Atualizar o status da tarefa
+         task.status = newStatus;
+ 
+         // Atualizar as tarefas no armazenamento local
+         localStorage.setItem('tasks', JSON.stringify(tasks));
+ 
+         // Mover a representação visual da tarefa para a coluna correta
+         moveTaskElement(task);
+     }
+}
+function moveTaskElement(task) {
+    // Remover a tarefa da sua coluna atual
+    const existingElement = document.querySelector(`[data-task-id="${task.id}"]`);
+    if (existingElement) {
+        existingElement.remove();
+    }
+
+    // Adicionar a tarefa à nova coluna
+    addTaskToRightList(task);
+}
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
 /**************************************************************************************************************************************************************************************/

@@ -2,10 +2,10 @@
 /* Estilo geral com melhorias */
 :root {
     --primary-color: rgba(3, 37, 76, 1);
-    --secondary-color: rgba(184, 115, 51, 1);
-    --tertiary-color: rgba(120, 144, 156, 1);
-    --quaternary-color: rgba(144, 164, 174, 1);
-    --quinary-color: rgba(207, 216, 220, 1);
+    --secondary-color: rgba(184, 115, 51, 0.6);
+    --tertiary-color: rgba(120, 144, 156, 0.6);
+    --quaternary-color: rgba(144, 164, 174, 0.6);
+    --quinary-color: rgba(207, 216, 220, 0.6);
     --background-color: rgb(174, 200, 217);
     --text-color:  #333;
     --text-color2:  #ffffff;
@@ -14,6 +14,7 @@ body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
+    
     margin: 0;
     padding: 0;
     display: flex;
@@ -120,6 +121,7 @@ main {
 
 .scrolable-ul::-webkit-scrollbar-track {
     background: #f1f1f1; /* Cor do trilho da barra de rolagem */
+    border-radius: 8px;
 }
 
 .scrolable-ul::-webkit-scrollbar-thumb {
