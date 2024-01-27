@@ -1,8 +1,19 @@
 /* Estilo geral com melhorias */
 /* Estilo geral com melhorias */
+:root {
+    --primary-color: rgba(3, 37, 76, 1);
+    --secondary-color: rgba(184, 115, 51, 1);
+    --tertiary-color: rgba(120, 144, 156, 1);
+    --quaternary-color: rgba(144, 164, 174, 1);
+    --quinary-color: rgba(207, 216, 220, 1);
+    --background-color: rgb(174, 200, 217);
+    --text-color:  #333;
+    --text-color2:  #ffffff;
+}
 body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #353333;
+    color: var(--text-color);
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +25,7 @@ body, html {
 }
 
 header {
-    color: #ffffff;
+    color: var(--text-color2);
     text-align: center;
     width: 100vw;
     padding: 0px 0;
@@ -66,12 +77,12 @@ main {
     align-items: center; /* Centraliza o conteúdo verticalmente */
     flex-grow: 1; /* Faz a div ocupar o espaço restante na linha */
     height: 10%; /* Altura da seção */
-    background-color: #f0f0f0; /* Cor de fundo */
+    background-color: var(--secondary-color); /* Cor de fundo */
     margin-bottom: 5px; /* Espaço abaixo da seção horizontal */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para destaque */
 }
 .col-leftMenu{
-    background-color: rgb(244, 231, 231);
+    background-color: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
@@ -84,7 +95,7 @@ main {
     height: 100%;
 }
 .col-todo, .col-doing, .col-done {
-    background-color: rgb(244, 231, 231);
+    background-color: var(--tertiary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
@@ -122,8 +133,8 @@ main {
 
 
 footer {
-    background-color: rgba(145, 150, 157, 0.6); /* Transparência fosca */
-    color: #fff;
+    background-color: rgba(100, 91, 91, 0.2); /* Transparência fosca */
+    color: var(--text-color2);
     text-align: center;
     padding: 0px 0;
     width: 100%;
@@ -141,7 +152,7 @@ ul {
 }
 
 .banner {
-    background-color: rgba(231, 237, 242, 0.95); /* Cor de fundo ligeiramente diferente */
+    background-color: var(--quaternary-color); /* Cor de fundo ligeiramente diferente */
     text-align: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -158,7 +169,7 @@ ul {
 .task-item {
     border-radius: 10px;
     list-style-type: none; /* Remove o ponto padrÃ£o */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparÃªncia */
+    background-color: var(--quinary-color); /* Fundo branco com transparÃªncia */
     padding: 0px; /* EspaÃ§amento interno */
     overflow: hidden; /* Previne que o conteÃºdo ultrapasse os limites */
     margin: 8px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
@@ -187,7 +198,7 @@ ul {
     padding: 3px 8px; /* EspaÃ§amento interno do botÃ£o */
     border-radius: 2px;
     border: none;
-    background-color: #e6e3dc; /* Cor de fundo do botÃ£o */
+    background-color: var(--quinary-color); /* Cor de fundo do botÃ£o */
     cursor: pointer; /* Muda o cursor para indicar que Ã© clicÃ¡vel */
 }
 
