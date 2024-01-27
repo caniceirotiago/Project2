@@ -1,12 +1,12 @@
 /* Estilo geral com melhorias */
 /* Estilo geral com melhorias */
 :root {
-    --primary-color: rgba(3, 37, 76, 1);
-    --secondary-color: rgba(9, 71, 164, 0.6);
-    --tertiary-color: rgba(137, 203, 236, 0.6);
-    --quaternary-color: rgba(106, 179, 215, 0.6);
-    --quinary-color: rgba(190, 196, 199, 0.6);
-    --background-color: rgb(214, 222, 227);
+    --primary-color: rgb(80, 113, 148);
+    --secondary-color: rgb(124, 158, 174);
+    --tertiary-color: rgb(211, 217, 201);
+    --quaternary-color: rgb(255, 255, 255);
+    --quinary-color: rgb(234, 235, 222);
+    --background-color: rgb(255, 255, 255);
     --text-color:  #333;
     --text-color2:  #ffffff;
 }
@@ -31,7 +31,7 @@ body, html {
 header {
     color: var(--text-color2);
     text-align: center;
-    width: 100vw;
+    width: 100%;
     padding: 0px 0;
     background-color: rgba(100, 91, 91, 0.2); /* Adicionando um fundo translúcido */
     position: fixed;
@@ -83,6 +83,7 @@ main {
     height: 10%; /* Altura da seção */
     background-color: var(--secondary-color); /* Cor de fundo */
     margin-bottom: 5px; /* Espaço abaixo da seção horizontal */
+    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para destaque */
 }
 .col-leftMenu{
@@ -93,7 +94,7 @@ main {
     padding: 0px;
     margin-bottom: 20px; /* Espaçamento na parte inferior */
     text-align: center;
-    width: 21vw;
+    width: 23vw;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -106,7 +107,7 @@ main {
     padding: 0px;
     margin-bottom: 20px; /* Espaçamento na parte inferior */
     text-align: center;
-    width: 21vw;
+    width: 23vw;
     display: flex;
     flex-direction: column;
     height: 100%;
