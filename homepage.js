@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadTasks();
     saveTasks();
+   
     
 });
 /**************************************************************************************************************************************************************************************/ 
@@ -65,6 +66,14 @@ function addTaskToRightList(task) {
     createPrevBtnListener(prevButton, task);
     createDragDropListener(itemList, task);
 
+    document.querySelectorAll('.task-item').forEach(item => {
+        item.addEventListener('dragstart', function(e) {
+            let img = new Image();
+            img.src = createDragImage(item);
+            e.dataTransfer.setDragImage(img, 0, 0); // Define a imagem de arraste
+        });
+    });
+
     /* Creating div's */
     const bannerDiv = document.createElement('div');
     bannerDiv.classList.add("banner");
@@ -96,15 +105,7 @@ function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
     });
-    document.querySelectorAll('.task-item').forEach(item => {
-        item.addEventListener('dragstart', function(e) {
-            e.target.classList.add('dragging');
-        });
-    
-        item.addEventListener('dragend', function(e) {
-            e.target.classList.remove('dragging');
-        });
-    });
+
 }
 
 function moveTaskToColumn(taskId, newStatus){
@@ -134,6 +135,19 @@ function moveTaskElement(task) {
 
     // Adicionar a tarefa à nova coluna
     addTaskToRightList(task);
+}
+function createDragImage(element) {
+    let canvas = document.createElement('canvas');
+    let ctx = canvas.getContext('2d');
+    canvas.width = element.offsetWidth;
+    canvas.height = element.offsetHeight;
+
+    ctx.fillStyle = '#fff'; // Fundo branco, ajuste conforme necessário
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.drawImage(element, 0, 0);
+
+    return canvas.toDataURL('image/png');
 }
 
 /**************************************************************************************************************************************************************************************/ 

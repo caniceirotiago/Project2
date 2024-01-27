@@ -2,11 +2,11 @@
 /* Estilo geral com melhorias */
 :root {
     --primary-color: rgba(3, 37, 76, 1);
-    --secondary-color: rgba(184, 115, 51, 0.6);
-    --tertiary-color: rgba(120, 144, 156, 0.6);
-    --quaternary-color: rgba(144, 164, 174, 0.6);
-    --quinary-color: rgba(207, 216, 220, 0.6);
-    --background-color: rgb(174, 200, 217);
+    --secondary-color: rgba(9, 71, 164, 0.6);
+    --tertiary-color: rgba(137, 203, 236, 0.6);
+    --quaternary-color: rgba(106, 179, 215, 0.6);
+    --quinary-color: rgba(190, 196, 199, 0.6);
+    --background-color: rgb(214, 222, 227);
     --text-color:  #333;
     --text-color2:  #ffffff;
 }
@@ -214,8 +214,4 @@ ul {
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
-.dragging {
-    opacity: 1; /* Torna o elemento mais transparente */
-    border: 2px dashed red; /* Adiciona uma borda para indicar que está sendo arrastado */
-    /* Outros estilos conforme necessário */
-}
+
