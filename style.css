@@ -1,8 +1,23 @@
 /* Estilo geral com melhorias */
 /* Estilo geral com melhorias */
+:root {
+    --primary-color: rgba(3, 37, 76, 1);
+    --secondary-color: rgba(9, 71, 164, 0.6);
+    --tertiary-color: rgba(137, 203, 236, 0.6);
+    --quaternary-color: rgba(106, 179, 215, 0.6);
+    --quinary-color: rgba(190, 196, 199, 0.6);
+    --background-color: rgb(214, 222, 227);
+    --text-color:  #333;
+    --text-color2:  #ffffff;
+}
 body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: #353333;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: url('images/backgroundHomepage.jpg'); /* Substitua pelo caminho correto da imagem */
+    background-size: cover;
+    background-attachment: fixed; /* Fixa a imagem de fundo */
+    background-position: center;
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +29,7 @@ body, html {
 }
 
 header {
-    color: #ffffff;
+    color: var(--text-color2);
     text-align: center;
     width: 100vw;
     padding: 0px 0;
@@ -66,12 +81,12 @@ main {
     align-items: center; /* Centraliza o conteúdo verticalmente */
     flex-grow: 1; /* Faz a div ocupar o espaço restante na linha */
     height: 10%; /* Altura da seção */
-    background-color: #f0f0f0; /* Cor de fundo */
+    background-color: var(--secondary-color); /* Cor de fundo */
     margin-bottom: 5px; /* Espaço abaixo da seção horizontal */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para destaque */
 }
 .col-leftMenu{
-    background-color: rgb(244, 231, 231);
+    background-color: var(--secondary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
@@ -84,7 +99,7 @@ main {
     height: 100%;
 }
 .col-todo, .col-doing, .col-done {
-    background-color: rgb(244, 231, 231);
+    background-color: var(--tertiary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
@@ -96,6 +111,10 @@ main {
     flex-direction: column;
     height: 100%;
 }
+#todo, #doing, #done {
+    min-height: 75%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
+}
+
 
 .scrolable-ul {
     overflow-y: auto;
@@ -109,6 +128,7 @@ main {
 
 .scrolable-ul::-webkit-scrollbar-track {
     background: #f1f1f1; /* Cor do trilho da barra de rolagem */
+    border-radius: 8px;
 }
 
 .scrolable-ul::-webkit-scrollbar-thumb {
@@ -122,8 +142,8 @@ main {
 
 
 footer {
-    background-color: rgba(145, 150, 157, 0.6); /* Transparência fosca */
-    color: #fff;
+    background-color: rgba(100, 91, 91, 0.2); /* Transparência fosca */
+    color: var(--text-color2);
     text-align: center;
     padding: 0px 0;
     width: 100%;
@@ -133,7 +153,6 @@ footer {
 }
 footer h3 {
     margin: 0;
-    
 }
 
 /* UNORDERED LIST FOR TASKS */
@@ -142,8 +161,7 @@ ul {
 }
 
 .banner {
-    background-color: rgba(231, 237, 242, 0.95); /* Cor de fundo ligeiramente diferente */
-    padding: 10px;
+    background-color: var(--quaternary-color); /* Cor de fundo ligeiramente diferente */
     text-align: center;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -160,11 +178,10 @@ ul {
 .task-item {
     border-radius: 10px;
     list-style-type: none; /* Remove o ponto padrÃ£o */
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparÃªncia */
+    background-color: var(--quinary-color); /* Fundo branco com transparÃªncia */
     padding: 0px; /* EspaÃ§amento interno */
-    margin-bottom: 8px; /* EspaÃ§amento entre os itens da lista */
     overflow: hidden; /* Previne que o conteÃºdo ultrapasse os limites */
-    margin: 10px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
+    margin: 8px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
     width: 90%; /* Largura ajustÃ¡vel */
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transiÃ§Ã£o da transformaÃ§Ã£o e da sombra */
 }
@@ -178,7 +195,7 @@ ul {
 }
 
 .task-item h3, .task-item p {
-    margin: 5px 0; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
+    margin: 2px 5px; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
     word-wrap: break-word; /* Quebra palavras longas para nÃ£o ultrapassar a largura */
 }
 
@@ -190,7 +207,7 @@ ul {
     padding: 3px 8px; /* EspaÃ§amento interno do botÃ£o */
     border-radius: 2px;
     border: none;
-    background-color: #e6e3dc; /* Cor de fundo do botÃ£o */
+    background-color: var(--quinary-color); /* Cor de fundo do botÃ£o */
     cursor: pointer; /* Muda o cursor para indicar que Ã© clicÃ¡vel */
 }
 
