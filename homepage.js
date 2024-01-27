@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         while (targetElement != null && !targetElement.classList.contains('task-item')) {
             targetElement = targetElement.parentElement;
         }
-        console.log("Chega aqui")
         // Se um task-item foi clicado
         if (targetElement && targetElement.classList.contains('task-item')) {
             

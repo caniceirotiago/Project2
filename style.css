@@ -23,6 +23,7 @@ header {
     top: 0;
     backdrop-filter: blur(5px);
     z-index: 2;
+    height: auto;
     
 }
 header h1{
@@ -43,18 +44,20 @@ main {
 .mainBoard-tasks-container {
     display: flex;
     padding: 0; /* Espaço para cabeçalho e barra de navegação */
-    gap: 20px; /* Espaço entre as colunas */
+    gap: 10px; /* Espaço entre as colunas */
     height: 100%;
-    margin-bottom: 25px;
+    flex-grow: 1;
 }
 .right-container {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Faz este contêiner ocupar o espaço restante */
+    flex-grow: 3; /* Faz este contêiner ocupar o espaço restante */
+    height: 100%;
 }
 .tasks-row {
     display: flex;
-    gap: 20px; /* Espaço entre as colunas */
+    gap: 10px; /* Espaço entre as colunas */
+    height: 90%;
 }
 .horizontal-section {
     display: flex;
@@ -62,12 +65,25 @@ main {
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
     flex-grow: 1; /* Faz a div ocupar o espaço restante na linha */
-    height: 50px; /* Altura da seção */
+    height: 10%; /* Altura da seção */
     background-color: #f0f0f0; /* Cor de fundo */
-    margin-bottom: 20px; /* Espaço abaixo da seção horizontal */
+    margin-bottom: 5px; /* Espaço abaixo da seção horizontal */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para destaque */
 }
-.col-leftMenu, .col-todo, .col-doing, .col-done {
+.col-leftMenu{
+    background-color: rgb(244, 231, 231);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    padding: 0px;
+    margin-bottom: 20px; /* Espaçamento na parte inferior */
+    text-align: center;
+    width: 21vw;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.col-todo, .col-doing, .col-done {
     background-color: rgb(244, 231, 231);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
