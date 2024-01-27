@@ -112,7 +112,7 @@ main {
     height: 100%;
 }
 #todo, #doing, #done {
-    min-height: 75%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
+    min-height: 86%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
 }
 
 
