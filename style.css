@@ -2,13 +2,14 @@
 /* Estilo geral com melhorias */
 :root {
     --primary-color: rgb(255, 255, 255);
-    --secondary-color: rgba(103, 115, 133, 0.2);
-    --tertiary-color: rgba(171, 171, 175, 0.2);
-    --quaternary-color: rgba(255, 255, 255, 0.3);
+    --secondary-color: rgba(31, 34, 38, 0.2);
+    --tertiary-color: rgba(164, 164, 169, 0.2);
+    --quaternary-color: rgba(255, 250, 250, 0.3);
     --quinary-color: #ffffff;
     --todo-color:rgba(0, 136, 255, 0.756);
     --doing-color:rgba(239, 235, 100, 0.655);
     --done-color:rgba(117, 211, 86, 0.66);
+    --header-color:rgba(101, 103, 108, 0.9);
     --background-color: rgb(255, 255, 255);
     --text-color:  #333;
     --text-color2:  #ffffff;
@@ -35,7 +36,7 @@ header {
     text-align: center;
     width: 100%;
     padding: 0px 0;
-    background-color: rgba(100, 91, 91, 0.2); /* Adicionando um fundo translúcido */
+    background-color: var(--header-color); /* Adicionando um fundo translúcido */
     position: fixed;
     top: 0;
     backdrop-filter: blur(5px);
@@ -44,6 +45,7 @@ header {
 header h1{
     margin: 0px;
     padding: 0px 0;
+    align-content: center;
 }
 #logo {
     max-width: 88px; /* Ajuste o tamanho da imagem conforme necessário */
@@ -54,6 +56,9 @@ header h1{
 }
 #usernameDisplay{
     padding: 0px 15px;
+    font-size: 20px;
+    align-content: center;
+    justify-content: center;
 }
 
 /*Barra de navegação*/
@@ -64,7 +69,7 @@ header h1{
 }
 
 .topnav a {
-    color: rgb(89, 79, 79); /* Cor do texto dos links */
+    color: rgb(255, 255, 255); /* Cor do texto dos links */
     padding: 10px 15px; /* Espaçamento interno dos links */
     text-decoration: none; /* Remove o sublinhado */
     font-size: 16px; /* Tamanho da fonte */
@@ -93,7 +98,7 @@ main {
 .mainBoard-tasks-container {
     display: flex;
     padding: 0; /* Espaço para cabeçalho e barra de navegação */
-    gap: 30px; /* Espaço entre as colunas */
+    gap: 20px; /* Espaço entre as colunas */
     height: 100%;
     flex-grow: 1;
 }
@@ -151,6 +156,12 @@ main {
     min-height: 86%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
 }
 
+#add-task-btn{
+    background-color: var(--secondary-color);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
 
 .scrolable-ul {
     overflow-y: auto;
@@ -178,7 +189,7 @@ main {
 
 
 footer {
-    background-color: rgba(100, 91, 91, 0.2); /* Transparência fosca */
+    background-color: var(--secondary-color);
     color: var(--text-color2);
     text-align: center;
     padding: 0px 0;
