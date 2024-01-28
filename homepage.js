@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     loadTasks();
-    saveTasks();
-   
-    
+    saveTasks(); 
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
@@ -110,21 +108,18 @@ function createDragDropListener(itemList, task){
 
 function moveTaskToColumn(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
-     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
      // Encontrar a tarefa pelo taskId
-     let task = tasks.find(t => t.id === taskId);
-     
-     if (task) {
+    let task = tasks.find(t => t.id === taskId);
+    if (task) {
          // Atualizar o status da tarefa
-         task.status = newStatus;
- 
+        task.status = newStatus;
          // Atualizar as tarefas no armazenamento local
-         localStorage.setItem('tasks', JSON.stringify(tasks));
- 
+        localStorage.setItem('tasks', JSON.stringify(tasks));
          // Mover a representação visual da tarefa para a coluna correta
-         moveTaskElement(task);
-     }
+        moveTaskElement(task);
+    }
 }
 function moveTaskElement(task) {
     // Remover a tarefa da sua coluna atual
