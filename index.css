@@ -2,7 +2,6 @@
 /* Estilo geral com melhorias */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: ;
     background-image: url('images/backgroundIndexMain.jpg'); /* Substitua pelo caminho correto da imagem */
     background-size: cover;
     background-attachment: fixed; /* Fixa a imagem de fundo */
@@ -97,7 +96,7 @@ footer {
     height: auto; /* Mantém a proporção da imagem */
     display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
     margin-right: 20px; /* Centraliza a imagem no banner */
-    margin-left: 20px;
+    margin-lef: 20px;
 }
 
 .content {

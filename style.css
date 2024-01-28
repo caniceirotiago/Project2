@@ -1,13 +1,13 @@
 /* Estilo geral com melhorias */
 /* Estilo geral com melhorias */
 :root {
-    --primary-color: rgb(80, 113, 148);
-    --secondary-color: rgba(253, 250, 250, 0.2);
-    --tertiary-color: rgba(55, 52, 52, 0.2);
-    --quaternary-color: rgb(255, 255, 255, 0.3);
-    --quinary-color: #ccccc9;
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgba(103, 115, 133, 0.2);
+    --tertiary-color: rgba(171, 171, 175, 0.2);
+    --quaternary-color: rgba(255, 255, 255, 0.3);
+    --quinary-color: #ffffff;
     --todo-color:rgba(0, 136, 255, 0.756);
-    --doing-color:rgba(229, 225, 108, 0.655);
+    --doing-color:rgba(239, 235, 100, 0.655);
     --done-color:rgba(117, 211, 86, 0.66);
     --background-color: rgb(255, 255, 255);
     --text-color:  #333;
@@ -28,7 +28,10 @@ body, html {
 }
 
 header {
-    color: var(--text-color2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
     text-align: center;
     width: 100%;
     padding: 0px 0;
@@ -37,22 +40,54 @@ header {
     top: 0;
     backdrop-filter: blur(5px);
     z-index: 2;
-    height: auto;
-    
 }
 header h1{
     margin: 0px;
-    margin: 0;
     padding: 0px 0;
 }
+#logo {
+    max-width: 88px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
+    margin-right: 20px; /* Centraliza a imagem no banner */
+    margin-lef: 20px;
+}
+#usernameDisplay{
+    padding: 0px 15px;
+}
+
+/*Barra de navegação*/
+.topnav {
+    display: flex; /* Alinha os itens da barra de navegação horizontalmente */
+    justify-content: center; /* Centraliza os itens da barra de navegação */   
+    padding: 0.5em 0; /* Espaçamento vertical da barra de navegação */
+}
+
+.topnav a {
+    color: rgb(89, 79, 79); /* Cor do texto dos links */
+    padding: 10px 15px; /* Espaçamento interno dos links */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.1s; /* Transição suave para o hover */
+    border-radius: 5px; /* Bordas arredondadas para um visual moderno */
+    margin: 0 5px; /* Espaçamento entre os links */
+}
+
+.topnav a:hover {
+    background-color: #9f9e9e; /* Cor de fundo ao passar o mouse */
+}
+
+.topnav a.active {
+    background-color: #a6a7a2; /* Cor de fundo para o link ativo */
+}
+
+
 main {
     display: flex;
     flex-direction: column;
     height: 80%; /* Ajuste para ocupar a altura total disponÃ­vel */
     align-self: center;
     margin-top: 60px;
-    
-    
 }
 
 .mainBoard-tasks-container {
