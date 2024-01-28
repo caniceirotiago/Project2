@@ -98,7 +98,7 @@ main {
     flex-direction: column;
     height: 100%;
 }
-.col-todo, .col-doing, .col-done {
+.col-todo, .col-doing, .col-done,.historic-retrospectives {
     background-color: var(--tertiary-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -222,3 +222,19 @@ ul {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
 
+/*Especifico pagina retrospetivas*/
+
+.retrospective-main{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    flex-grow: 1;
+    gap: 55px;
+    height: 100%;
+}
+.historic-retrospectives{
+    height: 80%;
+}
+.mainRetrospectivesForm{
+    flex: 1;
+}

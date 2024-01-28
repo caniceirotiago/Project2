@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
 let languageContent = {
     "en": {
         "nav-home": "Homepage",
-        "nav-add": "Add Task",
         "nav-retro": "Retrospective",
         "nav-sett": "Settings",
         "nav-copy": "Copyright",
@@ -81,12 +80,10 @@ let languageContent = {
         "label-description":"Description",
         "description":"Insert Task Description",
         "save-task":"Save Task",
-        
         "footer": "About",
     },
     "pt": {
         "nav-home": "Início",
-        "nav-add": "Adicionar Tarefa",
         "nav-retro": "Retrospetiva",
         "nav-sett": "Definições",
         "nav-copy": "Direitos de autor",
