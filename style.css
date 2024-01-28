@@ -3,13 +3,13 @@
 :root {
     --primary-color: rgb(80, 113, 148);
     --secondary-color: rgba(253, 250, 250, 0.2);
-    --tertiary-color: rgba(255, 255, 255, 0.2);
+    --tertiary-color: rgba(55, 52, 52, 0.2);
     --quaternary-color: rgb(255, 255, 255, 0.3);
     --quinary-color: #ccccc9;
     --todo-color:rgba(0, 136, 255, 0.756);
     --doing-color:rgba(229, 225, 108, 0.655);
     --done-color:rgba(117, 211, 86, 0.66);
-    --background-color: rgb(162, 156, 150);
+    --background-color: rgb(255, 255, 255);
     --text-color:  #333;
     --text-color2:  #ffffff;
 }
@@ -58,7 +58,7 @@ main {
 .mainBoard-tasks-container {
     display: flex;
     padding: 0; /* Espaço para cabeçalho e barra de navegação */
-    gap: 10px; /* Espaço entre as colunas */
+    gap: 30px; /* Espaço entre as colunas */
     height: 100%;
     flex-grow: 1;
 }
@@ -67,6 +67,7 @@ main {
     flex-direction: column;
     flex-grow: 3; /* Faz este contêiner ocupar o espaço restante */
     height: 100%;
+    width: 30%;
 }
 .tasks-row {
     display: flex;
