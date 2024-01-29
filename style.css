@@ -201,7 +201,7 @@ h4 {
     height: 100%;
 }
 #todo, #doing, #done {
-    min-height: 86%; /* Altura mínima da ul para tornar dragable mesmo que vazio*/
+    min-height: calc(100% - 45px); /* Altura mínima da ul para tornar dragable mesmo que vazio*/
 }
 
 #add-task-btn{
