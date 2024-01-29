@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadTasks();
     saveTasks(); 
+    console.log(countTODOTasks());
+    console.log(countDOINGTasks());
+    console.log(countDONETasks());
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
@@ -358,8 +361,27 @@ function changeLanguage(lang) {
     }
     activeLangFlag();
 };
+
+
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
 
+/*Contagem de tarefas */
+
+function countTODOTasks(){
+    const taskList = document.getElementById("todo");
+    let nOfTasks = taskList.childElementCount
+    return nOfTasks;
+}
+function countDOINGTasks(){
+    const taskList = document.getElementById("doing");
+    let nOfTasks = taskList.childElementCount
+    return nOfTasks;
+}
+function countDONETasks(){
+    const taskList = document.getElementById("done");
+    let nOfTasks = taskList.childElementCount
+    return nOfTasks;
+}
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
