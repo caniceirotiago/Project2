@@ -38,6 +38,7 @@ function activeLangFlag() {
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
+        "member-login-banner":"Member Login",
         "username-label": "Username",
         "username": "Enter your username",
         "errorLogin": "Mandatory field",
@@ -47,6 +48,7 @@ let languageContent = {
         "footer": "About",
     },
     "pt": {
+        "member-login-banner":"Acesso de membro",
         "username-label": "Nome de utilizador",
         "username": "Insira o nome de utilizador",
         "errorLogin": "Campo obrigatório",
