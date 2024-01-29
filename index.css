@@ -43,6 +43,12 @@ header {
     text-decoration: none;
 }
 
+.top-right-flags a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
 .main-content {
     flex: 1; /* Isso faz com que o conteúdo principal preencha o espaço disponível */
     display: flex;

@@ -10,27 +10,27 @@ function checkLanguage() {
     let language = localStorage.getItem('language');
     if (language===null) { // if it doesn't exist 
         let lang='en'; // defaults to English
-        localStorage.setItem('language', lang); // save it
-        console.log("Default language was null. Default language is now set to: "+lang);
+        localStorage.setItem('language', lang); // saves it
+        console.log("Default language was null. Default language is now set to: "+lang); // displays message on console
     }
-    else { // otherwise...
-        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+    else { // otherwise... reads from memory
+        changeLanguage(localStorage.getItem('language')); // calls function to changeLanguage
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
-    underlineLangFlag();
+    activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* underlineLangFlag() = Toggle of underline under the FlagElement */
+/* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
-function underlineLangFlag() {
+function activeLangFlag() {
     // 
     if(localStorage.getItem('language')==='en') {
-        document.getElementById("langIndexEN").classList.add("underline");
-        document.getElementById("langIndexPT").classList.remove("underline");
+        document.getElementById("langIndexEN").classList.add("active");
+        document.getElementById("langIndexPT").classList.remove("active");
     }
     if(localStorage.getItem('language')==='pt') {
-        document.getElementById("langIndexPT").classList.add("underline");
-        document.getElementById("langIndexEN").classList.remove("underline");
+        document.getElementById("langIndexPT").classList.add("active");
+        document.getElementById("langIndexEN").classList.remove("active");
     }
 };
 /**************************************************************************************************************************************************************************************/ 
@@ -60,10 +60,9 @@ let languageContent = {
 /* FUNCTION changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
 /**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
-     if (lang) {
-         // set no local storage.............. gravar lá
+    if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
-     }
+    }
     for (let key in languageContent[lang]) { // all the normal ones
         let username = document.getElementById('username').value; //obtem o username do campo correspondente
         let errorElement = document.getElementById('errorLogin'); // error login
@@ -84,7 +83,7 @@ function changeLanguage(lang) {
             document.getElementById(key).textContent = languageContent[lang][key];
     }
 
-    underlineLangFlag();
+    activeLangFlag();
 }; 
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN */
