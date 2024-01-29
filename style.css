@@ -70,7 +70,7 @@ header h1{
 
 .topnav a {
     color: rgb(255, 255, 255); /* Cor do texto dos links */
-    padding: 10px 15px; /* Espaçamento interno dos links */
+    padding: 5px 5px; /* Espa2çamento interno dos links */
     text-decoration: none; /* Remove o sublinhado */
     font-size: 16px; /* Tamanho da fonte */
     transition: background-color 0.1s; /* Transição suave para o hover */
@@ -161,6 +161,7 @@ main {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     cursor: pointer;
+    padding: 6px;
 }
 
 .scrolable-ul {
@@ -269,7 +270,7 @@ ul {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
 .task-item button img {
-    width: 16px; /* Ou qualquer tamanho que se adeque ao seu design */
+    width: 12px; /* Ou qualquer tamanho que se adeque ao seu design */
     height: auto;
 }
 
