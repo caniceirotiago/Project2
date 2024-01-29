@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const taskToEdit = tasks.find(task => task.id === taskId);
 
         if (taskToEdit) {
-            // Aqui você pode preencher os campos de edição com os dados da tarefa
+            // Aqui  pode preencher os campos de edição com os dados da tarefa
             document.getElementById('title').value = taskToEdit.title;
             document.getElementById('description').value = taskToEdit.description;
             // ... outros campos conforme necessário
@@ -123,7 +123,6 @@ let languageContent = {
         "nav-exit": "Exit",
         "edit-btn":"Edit",
         "label-title":"Title",
-        "title":"Insert Title",
         "label-description":"Description",
         "description":"Insert Task Description",
         "save-task":"Save Task",
@@ -138,7 +137,6 @@ let languageContent = {
         "nav-exit": "Sair",
         "edit-btn":"Editar",
         "label-title":"Título",
-        "title":"Inserir título",
         "label-description":"Descrição",
         "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
