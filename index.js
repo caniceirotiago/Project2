@@ -4,9 +4,9 @@
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
+/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContetIndex[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/
-let languageContent = {
+let languageContentIndex = {
     "en": {
         "member-login-banner":"Member Login",
         "username-label": "Username",
@@ -84,7 +84,7 @@ function changeLanguage(lang) {
     if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
     }
-    for (let key in languageContent[lang]) { // all the normal ones
+    for (let key in languageContentIndex[lang]) { // all the normal ones
         let username = document.getElementById('username').value; //obtem o username do campo correspondente
         let errorElement = document.getElementById('errorLogin'); // error login
         // conditional: special case <input> elements
@@ -93,15 +93,15 @@ function changeLanguage(lang) {
             continue;
         }
         if (document.getElementById(key).tagName.toLowerCase() === 'input')
-            document.getElementById(key).placeholder = languageContent[lang][key];
+            document.getElementById(key).placeholder = languageContentIndex[lang][key];
         // conditional: extra special case <input> element for the Login button
         if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login')
-            document.getElementById(key).value = languageContent[lang][key];
+            document.getElementById(key).value = languageContentIndex[lang][key];
         if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Entrar')
-            document.getElementById(key).value = languageContent[lang][key];
+            document.getElementById(key).value = languageContentIndex[lang][key];
         // default : all the remaining elements
         else
-            document.getElementById(key).textContent = languageContent[lang][key];
+            document.getElementById(key).textContent = languageContentIndex[lang][key];
     }
 
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied

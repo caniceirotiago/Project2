@@ -60,6 +60,29 @@ TOPNAV -> Menu Buttons/Links
 }
 
 /******************************************
+FLAGS
+******************************************/
+.top-right-flags li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.top-right-flags a {
+    color: #fff;
+    text-decoration: none;
+}
+.top-right-flags a:hover {
+    color: #bcc6db;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.top-right-flags a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/******************************************
 COLUMNS DIV ELEMENTS
 ******************************************/
 /* Necessário para organizar o MENU,TODO,DOING,DONE em colunas de uma tabela*/
