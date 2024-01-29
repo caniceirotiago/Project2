@@ -5,6 +5,8 @@
 /**************************************************************************************************************************************************************************************/ 
 /* SET USERNAME INTO HEADER AND LOAD UPDATED TASKS */
 /**************************************************************************************************************************************************************************************/
+
+
 document.addEventListener('DOMContentLoaded', function() {
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
@@ -66,13 +68,6 @@ function addTaskToRightList(task) {
     createPrevBtnListener(prevButton, task);
     createDragDropListener(itemList, task);
 
-    document.querySelectorAll('.task-item').forEach(item => {
-        item.addEventListener('dragstart', function(e) {
-            let img = new Image();
-            img.src = createDragImage(item);
-            e.dataTransfer.setDragImage(img, 0, 0); // Define a imagem de arraste
-        });
-    });
 
     /* Creating div's */
     const bannerDiv = document.createElement('div');
@@ -133,19 +128,7 @@ function moveTaskElement(task) {
     // Adicionar a tarefa à nova coluna
     addTaskToRightList(task);
 }
-function createDragImage(element) {
-    let canvas = document.createElement('canvas');
-    let ctx = canvas.getContext('2d');
-    canvas.width = element.offsetWidth;
-    canvas.height = element.offsetHeight;
 
-    ctx.fillStyle = '#fff'; // Fundo branco, ajuste conforme necessário
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.drawImage(element, 0, 0);
-
-    return canvas.toDataURL('image/png');
-}
 
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
@@ -260,6 +243,8 @@ function moveTask(task, nextStatus) {
 /**************************************************************************************************************************************************************************************/ 
 /* function saveTasks() 
 /**************************************************************************************************************************************************************************************/
+
+
 function saveTasks() {
     const tasks = [];
     ['todo', 'doing', 'done'].forEach(status => {
