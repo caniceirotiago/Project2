@@ -364,14 +364,14 @@ function changeLanguage(lang) {
         localStorage.setItem('language', lang); // saves data into localStorage
     }
 
-   for (let key in languageContent[lang]) {
-    if (document.getElementById(key) === null) 
-        continue;
-    else {
-        document.getElementById(key).innerHTML = languageContent[lang][key];
+    for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
+            continue;
+        else {
+            document.getElementById(key).innerHTML = languageContent[lang][key];
+        }
     }
-   }
-   activeLangFlag();
+    activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

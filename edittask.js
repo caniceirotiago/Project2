@@ -3,6 +3,17 @@
  when you make mistakes. */
 'use strict';
 
+
+/* SET USERNAME INTO HEADER  */
+document.addEventListener('DOMContentLoaded', function() {
+    var storedUsername = localStorage.getItem('username');
+    if (storedUsername) {
+        document.getElementById('usernameDisplay').textContent = storedUsername;
+    }
+});
+
+
+/*     */ 
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get('taskId');
@@ -141,8 +152,10 @@ function changeLanguage(lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
     }
     for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
+            continue;
         // conditional: extra special case <input> element for the 'Save Task' button
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Task')
+        if(document.getElementById(key).tagName.toLowerCase() === 'input')
             document.getElementById(key).value = languageContent[lang][key];
         else
             document.getElementById(key).innerHTML = languageContent[lang][key];
