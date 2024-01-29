@@ -54,7 +54,10 @@ function addTaskToRightList(task) {
     const nextButton = document.createElement('button');
     nextButton.textContent = '>';
     const delButton = document.createElement('button');
-    delButton.innerHTML = 'del';
+    const delIcon = document.createElement('img');
+    delIcon.src = "images/trashCanIcon.png";
+    delIcon.alt = 'del';
+    delButton.appendChild(delIcon);
     const prevButton = document.createElement('button');
     prevButton.textContent = '<';
 
@@ -154,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tasksContainer.addEventListener('click', function(event) {
         // Verificar se o clique foi diretamente em um botão
-        if (event.target.tagName === 'BUTTON') {
+        if (event.target.tagName === 'BUTTON'|| event.target.tagName === 'IMG') {
             return; // Não faz nada se um botão foi clicado, permitindo que o evento do botão seja processado
         }
 

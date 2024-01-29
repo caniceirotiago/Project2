@@ -268,6 +268,10 @@ ul {
 .task-item button:hover {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
+.task-item button img {
+    width: 16px; /* Ou qualquer tamanho que se adeque ao seu design */
+    height: auto;
+}
 
 /*Especifico pagina retrospetivas*/
 
