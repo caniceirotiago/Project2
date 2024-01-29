@@ -31,13 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
      retrospectives.push(retrospective); // adiciona a task ao array de tasks
      localStorage.setItem('retrospectives', JSON.stringify(retrospectives)); // guarda as tasks no localStorage
 }
-
 function getNextRetrospectiveId() {
     const retrospectives = JSON.parse(localStorage.getItem('retrospectives')) || [];
     const maxId = retrospectives.reduce((max, retrospective) => Math.max(max, retrospective.id || 0), 0);
     return maxId + 1;
 }
-
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
 /**************************************************************************************************************************************************************************************/
@@ -108,7 +106,6 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
@@ -129,55 +126,55 @@ function checkLanguage() {
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
-      "nav-home": "Homepage",
-   
-      "nav-retro": "Retrospective",
-      "nav-sett": "Settings",
-      "nav-copy": "Copyright",
-      "nav-exit": "Exit",
-      "hist-retro":"Historic Retrospectives",
-      "add-retro":"Add Retrospective",
-      "label-date-retro":"Date",
-      "label-pres-retro":"Present Members",
-      "pres-TA-retro":"Insert Present Members",
-      "label-comment-retro":"Comments",
-      "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
-      "input-save-retro":"Save Retrospective",
-
-      "footer": "About",
+        "nav-home": "Homepage",
+        "nav-retro": "Retrospective",
+        "nav-sett": "Settings",
+        "nav-copy": "Copyright",
+        "nav-exit": "Exit",
+        "hist-retro":"Historic Retrospectives",
+        "add-retro":"Add Retrospective",
+        "label-date-retro":"Date",
+        "label-pres-retro":"Present Members",
+        "pres-TA-retro":"Insert Present Members",
+        "label-comment-retro":"Comments",
+        "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
+        "input-save-retro":"Save Retrospective",
+        "footer": "About",
     },
     "pt": {
-      "nav-home": "Início",
-
-      "nav-retro": "Retrospetiva",
-      "nav-sett": "Definições",
-      "nav-copy": "Direitos de autor",
-      "nav-exit": "Sair",
-      "hist-retro":"Retrospectivas históricas",
-      "add-retro":"Adicionar Retrospetiva",
-      "label-date-retro":"Data",
-      "label-pres-retro":"Membros presentes",
-      "pres-TA-retro":"Inserir membros presentes",
-      "label-comment-retro":"Comentários",
-      "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
-      "input-save-retro":"Guardar Retrospetiva",
-
-      "footer": "Sobre",
+        "nav-home": "Início",
+        "nav-retro": "Retrospetiva",
+        "nav-sett": "Definições",
+        "nav-copy": "Direitos de autor",
+        "nav-exit": "Sair",
+        "hist-retro":"Retrospectivas históricas",
+        "add-retro":"Adicionar Retrospetiva",
+        "label-date-retro":"Data",
+        "label-pres-retro":"Membros presentes",
+        "pres-TA-retro":"Inserir membros presentes",
+        "label-comment-retro":"Comentários",
+        "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
+        "input-save-retro":"Guardar Retrospetiva",
+        "footer": "Sobre",
     }
 };
- function changeLanguage(lang) {
-     if (lang) {
-         localStorage.setItem('language', lang); // saves data into localStorage
-     }
+function changeLanguage(lang) {
+    if (lang) {
+        localStorage.setItem('language', lang); // saves data into localStorage
+    }
     for (let key in languageContent[lang]) {
         // conditional: extra special case <input> element for the 'Save Retrospective' button
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Retrospective')
+        if (document.getElementById(key) === null) {
+            continue;
+        }
+        if (document.getElementById(key).tagName.toLowerCase() === 'input') {
             document.getElementById(key).value = languageContent[lang][key];
-        else
+        }
+        else {
         document.getElementById(key).innerHTML = languageContent[lang][key];
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+    }
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
-

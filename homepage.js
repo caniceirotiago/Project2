@@ -277,6 +277,7 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
 /**************************************************************************************************************************************************************************************/ 
 /* CHECK LANGUAGE IS SET ON DOMcl
 /**************************************************************************************************************************************************************************************/
@@ -298,24 +299,23 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
 function checkLanguage() {
-    if (localStorage.getItem('language')===null) { // if it doesn't exist 
-        let lang='en'; // set it to English
-        localStorage.setItem('language', lang); // save it
+   if (localStorage.getItem('language')===null) { // if it doesn't exist 
+       let lang='en'; // set it to English
+       localStorage.setItem('language', lang); // save it
         console.log("Default language was null. Default language is now set to: "+lang);
     }
-    else { // otherwise...
+   else { // otherwise...
         changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
 };
 /**************************************************************************************************************************************************************************************/
- /* LANGUAGE SETTINGS */
- /* Content switching according to */
+/* LANGUAGE SETTINGS */
+/* Content switching according to */
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
@@ -324,11 +324,17 @@ let languageContent = {
         "nav-sett": "Settings",
         "nav-copy": "Copyright",
         "nav-exit": "Exit",
-        "col-leftMenu-text":"MENU",
-        "col-todo-text":"TO DO",
-        "col-doing-text":"DOING",
-        "add-task-btn":"Add Task",
-        "col-done-text":"DONE",
+        "col-leftMenu-text": "MENU",
+        "create-project": "Create Project",
+        "select-project": "Select Project",
+        "manage-backlog": "Backlog Manager",
+        "select-sprint": "Sprint Selector",
+        "project-settings": "Project Settings",
+
+        "col-todo-text": "TO DO",
+        "add-task-btn": "Add Task",
+        "col-doing-text": "DOING",   
+        "col-done-text": "DONE",
         "footer": "About",
     },
     "pt": {
@@ -337,22 +343,38 @@ let languageContent = {
         "nav-sett": "Definições",
         "nav-copy": "Direitos de autor",
         "nav-exit": "Sair",
-        "col-leftMenu-text":"MENU",
-        "col-todo-text":"PARA FAZER",
-        "add-task-btn":"Adicionar Tarefa",
-        "col-doing-text":"EM CURSO",
-        "col-done-text":"FEITO",
+        "col-leftMenu-text": "MENU",
+        "create-project": "Criar projeto",
+        "select-project": "Selecionar projeto",
+        "manage-backlog": "Gestor de atrasos",
+        "select-sprint": "Seletor de Sprint",
+        "project-settings": "Definições do projeto",
+
+
+        "col-todo-text": "PARA FAER",
+        "add-task-btn": "Adicionar Tarefa",
+        "col-doing-text": "EM CURSO",
+        "col-done-text": "FEITO",
         "footer": "Sobre",
-    }
+}
 };
 function changeLanguage(lang) {
     if (lang) {
-         localStorage.setItem('language', lang); // saves data into localStorage
+        // set no local storage.............. gravar lá
+        localStorage.setItem('language', lang); // saves data into localStorage
     }
-    for (let key in languageContent[lang]) {
+
+   for (let key in languageContent[lang]) {
+    if (document.getElementById(key) === null) 
+        continue;
+    else {
         document.getElementById(key).innerHTML = languageContent[lang][key];
     }
-    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+   }
+   activeLangFlag();
 };
+/**************************************************************************************************************************************************************************************/
+/**************************************************************************************************************************************************************************************/
+
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

@@ -50,7 +50,7 @@ header h1{
     height: auto; /* Mantém a proporção da imagem */
     display: inline-flexbox; /* Isso pode ajudar a garantir que o estilo seja aplicado */
     margin-right: 20px; /* Centraliza a imagem no banner */
-    margin-lef: 20px;
+    margin-left: 20px;
 }
 .top-right-flags li {
     display: inline;
@@ -102,6 +102,29 @@ header h1{
 
 .topnav a.active {
     background-color: #a6a7a2; /* Cor de fundo para o link ativo */
+}
+
+/******************************************
+FLAGS
+******************************************/
+.top-right-flags li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.top-right-flags a {
+    color: #fff;
+    text-decoration: none;
+}
+.top-right-flags a:hover {
+    color: #bcc6db;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.top-right-flags a.active {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 
