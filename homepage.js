@@ -314,20 +314,7 @@ function checkLanguage() {
        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
    }
 };
-/**************************************************************************************************************************************************************************************/ 
-/* underlineLangFlag() = Toggle of underline under the FlagElement */
-/**************************************************************************************************************************************************************************************/
-function underlineLangFlag() {
-    // 
-    if(localStorage.getItem('language')==='en') {
-        document.getElementById("langEN").classList.add("underline"); // *** mudar para selected em vez de underline
-        document.getElementById("langPT").classList.remove("underline");
-    }
-    if(localStorage.getItem('language')==='pt') {
-        document.getElementById("langPT").classList.add("underline");
-        document.getElementById("langEN").classList.remove("underline");
-    }
-};
+
 /**************************************************************************************************************************************************************************************/
 /* LANGUAGE SETTINGS */
 /* Content switching according to */
@@ -373,6 +360,7 @@ function changeLanguage(lang) {
         document.getElementById(key).innerHTML = languageContent[lang][key];
     }
    }
+   activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
