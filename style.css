@@ -130,7 +130,7 @@ main {
 .tasks-row {
     display: flex;
     gap: 10px; /* Espaço entre as colunas */
-    height: 90%;
+    height: 89%;
 }
 .horizontal-section {
     display: flex;
