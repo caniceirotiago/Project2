@@ -4,20 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script defer src="copyright.js"></script>
     <title>Copyright Page</title>
 </head>
 
-<header>
-
-</header>
-
+<!-- HTML File - contains the interactive content that is displayed -->
+<body>
+    <!------------------ Header ------------------------------------>
+    <header>
+        <img id="logo" src="images/logo.png" alt="IMG">
+        <!------------------ Navigation Menu ------------------------------------>
+        <div class="topnav">
+        <a id="nav-home" href="homepage.html">Homepage</a>
+        <a id="nav-retro" href="retrospective.html">Retrospective</a>
+        <a id="nav-sett" href="settings.html">Settings</a>
+        <a id="nav-copy" class="active" href="#home">Copyright</a>
+        <a id="nav-exit" href="index.html">Exit</a>
+        </div>
+        <!------------------ Navigation Menu /end ------------------------------------> 
+        <h1><span id="usernameDisplay">Username</span></h1>
+    </header>
+<!------------------ Header /end ------------------------------------>
 
 <body>
-    <p>Copyright Page....</p>
+    <main>
+    <div id="copyright">In here we place some general corporate info...</div>
+    <!-- Google Maps -->
+    <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1524.0086393539896!2d-8.418163284659414!3d40.186428914524114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd22f9952aaf6517%3A0xd3822ec1d359eb52!2sDEI%20-%20Departamento%20de%20Engenharia%20Inform%C3%A1tica%20-%20FCTUC!5e0!3m2!1spt-PT!2spt!4v1706523545450!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!-- Contact Details -->
+    <div>
+        <p id="adressTitle"><strong>Adress:</strong></p>
+        <p id="address">Pólo II da Universidade de Coimbra, R. Silvio Lima, 3030-790 Coimbra</p>
+        <p id="phoneNumberTitle"><strong>Phone Number:</strong></p>
+        <p id="phoneNumber">239 790000</p>
+    </div>
+    </main>
+    
+    
+
 </body>
 
+<!------------------ Footer ------------------------------------>
 <footer>
-
+    <h3 id="footer"><span>About</span></h3>
 </footer>
-
+<!------------------ Footer /end ------------------------------------>
 </html>
