@@ -83,7 +83,7 @@ function clearRetrospectivesList() {
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
-       document.getElementById('usernameDisplay').textContent = storedUsername;
+        document.getElementById('usernameDisplay').textContent = storedUsername;
     }
     loadRetrospectives();
 });
@@ -92,7 +92,23 @@ document.addEventListener('DOMContentLoaded', function() {
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 });
+/**************************************************************************************************************************************************************************************/ 
+/* activeLangFlag() = Toggle of active under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function activeLangFlag() {
+    // 
+    if(localStorage.getItem('language')==='en') {
+        document.getElementById("langIndexEN").classList.add("active");
+        document.getElementById("langIndexPT").classList.remove("active");
+    }
+    if(localStorage.getItem('language')==='pt') {
+        document.getElementById("langIndexPT").classList.add("active");
+        document.getElementById("langIndexEN").classList.remove("active");
+    }
+};
+
 /**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
@@ -106,7 +122,7 @@ function checkLanguage() {
         changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
- };
+};
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
@@ -160,6 +176,7 @@ let languageContent = {
         else
         document.getElementById(key).innerHTML = languageContent[lang][key];
     }
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

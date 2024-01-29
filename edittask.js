@@ -82,7 +82,23 @@ function checkLanguage() {
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 });
+/**************************************************************************************************************************************************************************************/ 
+/* activeLangFlag() = Toggle of active under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function activeLangFlag() {
+    // 
+    if(localStorage.getItem('language')==='en') {
+        document.getElementById("langIndexEN").classList.add("active");
+        document.getElementById("langIndexPT").classList.remove("active");
+    }
+    if(localStorage.getItem('language')==='pt') {
+        document.getElementById("langIndexPT").classList.add("active");
+        document.getElementById("langIndexEN").classList.remove("active");
+    }
+};
+
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
@@ -131,6 +147,7 @@ function changeLanguage(lang) {
         else
             document.getElementById(key).innerHTML = languageContent[lang][key];
     }
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

@@ -4,36 +4,6 @@
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* DEFAULT LANGUAGE = ENGLISH */
-/**************************************************************************************************************************************************************************************/
-function checkLanguage() {
-    let language = localStorage.getItem('language');
-    if (language===null) { // if it doesn't exist 
-        let lang='en'; // defaults to English
-        localStorage.setItem('language', lang); // saves it
-        console.log("Default language was null. Default language is now set to: "+lang); // displays message on console
-    }
-    else { // otherwise... reads from memory
-        changeLanguage(localStorage.getItem('language')); // calls function to changeLanguage
-        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
-    }
-    activeLangFlag();
-};
-/**************************************************************************************************************************************************************************************/ 
-/* activeLangFlag() = Toggle of active under the FlagElement */
-/**************************************************************************************************************************************************************************************/
-function activeLangFlag() {
-    // 
-    if(localStorage.getItem('language')==='en') {
-        document.getElementById("langIndexEN").classList.add("active");
-        document.getElementById("langIndexPT").classList.remove("active");
-    }
-    if(localStorage.getItem('language')==='pt') {
-        document.getElementById("langIndexPT").classList.add("active");
-        document.getElementById("langIndexEN").classList.remove("active");
-    }
-};
-/**************************************************************************************************************************************************************************************/ 
 /* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContet[en/pt] applying the correspondence between pair {key : string}
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
@@ -71,6 +41,43 @@ let languageContent = {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
+/* DEFAULT LANGUAGE = ENGLISH */
+/**************************************************************************************************************************************************************************************/
+function checkLanguage() {
+    let language = localStorage.getItem('language');
+    if (language===null) { // if it doesn't exist 
+        let lang='en'; // defaults to English
+        localStorage.setItem('language', lang); // saves it
+        console.log("Default language was null. Default language is now set to: "+lang); // displays message on console
+    }
+    else { // otherwise... reads from memory
+        changeLanguage(localStorage.getItem('language')); // calls function to changeLanguage
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
+    activeLangFlag();
+};
+/**************************************************************************************************************************************************************************************/ 
+/* CHECK LANGUAGE IS SET ON DOMcl
+/**************************************************************************************************************************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+});
+/**************************************************************************************************************************************************************************************/ 
+/* activeLangFlag() = Toggle of active under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function activeLangFlag() {
+    // 
+    if(localStorage.getItem('language')==='en') {
+        document.getElementById("langIndexEN").classList.add("active");
+        document.getElementById("langIndexPT").classList.remove("active");
+    }
+    if(localStorage.getItem('language')==='pt') {
+        document.getElementById("langIndexPT").classList.add("active");
+        document.getElementById("langIndexEN").classList.remove("active");
+    }
+};
+/**************************************************************************************************************************************************************************************/ 
 /* FUNCTION changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
 /**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
@@ -97,7 +104,7 @@ function changeLanguage(lang) {
             document.getElementById(key).textContent = languageContent[lang][key];
     }
 
-    activeLangFlag();
+    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 }; 
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN */
