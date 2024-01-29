@@ -74,6 +74,8 @@ function changeLanguage(lang) {
         // conditional: extra special case <input> element for the Login button
         if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login')
             document.getElementById(key).value = languageContent[lang][key];
+        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Entrar')
+            document.getElementById(key).value = languageContent[lang][key];
         // default : all the remaining elements
         else
             document.getElementById(key).textContent = languageContent[lang][key];
