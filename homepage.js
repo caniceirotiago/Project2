@@ -1,10 +1,9 @@
-/* JavaScript File - all the code in the world  */
-/* Switch to strict mode to get more useful errors
- when you make mistakes. */
+/* JavaScript File - all the code that was written goes here  */
+/* Switch to strict mode to get more useful errors, when/if you make mistakes. */
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER AND LOAD UPDATED TASKSS */
+/* SET USERNAME INTO HEADER AND LOAD UPDATED TASKS */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     let storedUsername = localStorage.getItem('username'); //
@@ -297,43 +296,45 @@ function checkLanguage() {
         changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
- };
+};
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
-      "nav-home": "Homepage",
-      "nav-retro": "Retrospective",
-      "nav-sett": "Settings",
-      "nav-copy": "Copyright",
-      "nav-exit": "Exit",
-      "col-leftMenu-text":"MENU",
-      "col-todo-text":"TO DO",
-      "col-doing-text":"DOING",
-      "col-done-text":"DONE",
-      "footer": "About",
+        "nav-home": "Homepage",
+        "nav-retro": "Retrospective",
+        "nav-sett": "Settings",
+        "nav-copy": "Copyright",
+        "nav-exit": "Exit",
+        "col-leftMenu-text":"MENU",
+        "col-todo-text":"TO DO",
+        "col-doing-text":"DOING",
+        "add-task-btn":"Add Task",
+        "col-done-text":"DONE",
+        "footer": "About",
     },
     "pt": {
-      "nav-home": "Início",
-      "nav-retro": "Retrospetiva",
-      "nav-sett": "Definições",
-      "nav-copy": "Direitos de autor",
-      "nav-exit": "Sair",
-      "col-leftMenu-text":"MENU",
-      "col-todo-text":"PARA FAZER",
-      "col-doing-text":"EM CURSO",
-      "col-done-text":"FEITO",
-      "footer": "Sobre",
+        "nav-home": "Início",
+        "nav-retro": "Retrospetiva",
+        "nav-sett": "Definições",
+        "nav-copy": "Direitos de autor",
+        "nav-exit": "Sair",
+        "col-leftMenu-text":"MENU",
+        "col-todo-text":"PARA FAZER",
+        "add-task-btn":"Adicionar Tarefa",
+        "col-doing-text":"EM CURSO",
+        "col-done-text":"FEITO",
+        "footer": "Sobre",
     }
 };
- function changeLanguage(lang) {
-     if (lang) {
+function changeLanguage(lang) {
+    if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
-     }
+    }
     for (let key in languageContent[lang]) {
-       document.getElementById(key).innerHTML = languageContent[lang][key];
+        document.getElementById(key).innerHTML = languageContent[lang][key];
     }
 };
 /**************************************************************************************************************************************************************************************/
