@@ -27,9 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadTasks();
     saveTasks(); 
-    console.log(countTODOTasks());
-    console.log(countDOINGTasks());
-    console.log(countDONETasks());
+    updateTaskCountView();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
@@ -91,6 +89,7 @@ function addTaskToRightList(task) {
     
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
+    updateTaskCountView();
 }
 
 
@@ -224,8 +223,8 @@ function delTask(task) {
     if (oldTaskElement) {
         oldTaskElement.remove();
     }
-
     saveTasks(); // Saves Tasks, thus also updating the localStorage
+    updateTaskCountView();
 }
 /**************************************************************************************************************************************************************************************/ 
 /* function moveTask(task, nextStatus) - 
@@ -382,6 +381,11 @@ function countDONETasks(){
     const taskList = document.getElementById("done");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
+}
+function updateTaskCountView(){
+    document.getElementById("todo-count").textContent = countTODOTasks();
+    document.getElementById("doing-count").textContent = countDOINGTasks();
+    document.getElementById("done-count").textContent = countDONETasks();
 }
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
