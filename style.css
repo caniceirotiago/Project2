@@ -132,6 +132,7 @@ main {
     display: flex;
     flex-direction: column;
     height: calc(100% - 90px); /* Ajuste para ocupar a altura total disponÃ­vel */
+    width: 99%;
     align-self: center;
     margin: 5px 0px;
 }
@@ -139,8 +140,9 @@ main {
 .mainBoard-tasks-container {
     display: flex;
     padding: 0; /* Espaço para cabeçalho e barra de navegação */
-    gap: 20px; /* Espaço entre as colunas */
+    gap: 15px; /* Espaço entre as colunas */
     max-height: 100%;
+    width: 100%;
     flex-grow: 1;
 }
 .right-container {
@@ -148,7 +150,7 @@ main {
     flex-direction: column;
     flex-grow: 3; /* Faz este contêiner ocupar o espaço restante */
     max-height: 100%;
-    width: 30%;
+    width: 12%;
 }
 .tasks-row {
     display: flex;
