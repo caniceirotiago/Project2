@@ -38,15 +38,15 @@ function activeLangFlag() {
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
 function checkLanguage() {
-   if (localStorage.getItem('language')===null) { // if it doesn't exist 
-       let lang='en'; // set it to English
-       localStorage.setItem('language', lang); // save it
-       console.log("Default language was null. Default language is now set to: "+lang);
-   }
-   else { // otherwise...
-       changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
-       console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
-   }
+    if (localStorage.getItem('language')===null) { // if it doesn't exist 
+        let lang='en'; // set it to English
+        localStorage.setItem('language', lang); // save it
+        console.log("Default language was null. Default language is now set to: "+lang);
+    }
+    else { // otherwise...
+        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
 };
 /**************************************************************************************************************************************************************************************/ 
 /* underlineLangFlag() = Toggle of underline under the FlagElement */
@@ -93,6 +93,10 @@ let languageContent = {
         "footer": "Sobre",
     }
 };
+
+/**************************************************************************************************************************************************************************************/ 
+/* changeLanguage(lang) = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
@@ -108,5 +112,25 @@ function changeLanguage(lang) {
     }
     activeLangFlag();
 };
+/**************************************************************************************************************************************************************************************/ 
+/* changeTheme(lang) = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+function changeTheme(theme) {
+    if (lang) {
+        // set no local storage.............. gravar lá
+        localStorage.setItem('language', lang); // saves data into localStorage
+    }
+
+    for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
+            continue;
+        else {
+            document.getElementById(key).innerHTML = languageContent[lang][key];
+        }
+    }
+    activeLangFlag();
+};
+
+
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

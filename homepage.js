@@ -338,7 +338,7 @@ let languageContent = {
         "project-settings": "Definições do projeto",
 
 
-        "col-todo-text": "PARA FAER",
+        "col-todo-text": "PARA FAZER",
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
         "col-done-text": "FEITO",
