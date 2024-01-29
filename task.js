@@ -118,10 +118,12 @@ function changeLanguage(lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
     }
     for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
+            continue;
         if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).placeholder === 'Insert Title')
         document.getElementById(key).placeholder = languageContent[lang][key];
         // conditional: extra special case <input> element for the 'Save Task' button
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Task')
+        if(document.getElementById(key).tagName.toLowerCase() === 'input')
             document.getElementById(key).value = languageContent[lang][key];
         else
             document.getElementById(key).innerHTML = languageContent[lang][key];

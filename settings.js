@@ -67,34 +67,31 @@ function underlineLangFlag() {
 /* Content switching according to */
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
-   "en": {
-     "nav-home": "Homepage",
-     "nav-retro": "Retrospective",
-     "nav-sett": "Settings",
-     "nav-copy": "Copyright",
-     "nav-exit": "Exit",
-     "theme":"Theme",
-     "dark-theme": "Dark",
-     "white-theme": "White",
-     "lang":"Language",
-      "langEN": "English",
-      "langPT": "Portuguese",
-      "footer": "About",
-   },
-   "pt": {
-     "nav-home": "Início",
-     "nav-retro": "Retrospetiva",
-     "nav-sett": "Definições",
-     "nav-copy": "Direitos de autor",
-     "nav-exit": "Sair",
-     "theme":"Tema",
-     "dark-theme": "Escuro",
-     "white-theme": "Claro",
-     "lang":"Língua",
-     "langEN": "Inglês",
-      "langPT": "Português",
-      "footer": "Sobre",
-   }
+    "en": {
+        "nav-home": "Homepage",
+        "nav-retro": "Retrospective",
+        "nav-sett": "Settings",
+        "nav-copy": "Copyright",
+        "nav-exit": "Exit",
+        "theme":"Theme",
+        "dark-theme": "Dark",
+        "white-theme": "White",
+        "footer": "About",
+    },
+    "pt": {
+        "nav-home": "Início",
+        "nav-retro": "Retrospetiva",
+        "nav-sett": "Definições",
+        "nav-copy": "Direitos de autor",
+        "nav-exit": "Sair",
+        "theme":"Tema",
+        "dark-theme": "Escuro",
+        "white-theme": "Claro",
+        "lang":"Língua",
+        "langEN": "Inglês",
+        "langPT": "Português",
+        "footer": "Sobre",
+    }
 };
 function changeLanguage(lang) {
     if (lang) {
@@ -102,9 +99,14 @@ function changeLanguage(lang) {
         localStorage.setItem('language', lang); // saves data into localStorage
     }
 
-   for (let key in languageContent[lang]) {
-      document.getElementById(key).innerHTML = languageContent[lang][key];
-   }
+    for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
+            continue;
+        else {
+            document.getElementById(key).innerHTML = languageContent[lang][key];
+        }
+    }
+    activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
