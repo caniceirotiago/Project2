@@ -55,42 +55,41 @@ function checkLanguage() {
         changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
- };
+};
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
 /**************************************************************************************************************************************************************************************/
 let languageContent = {
     "en": {
-      "nav-home": "Homepage",
-      "nav-retro": "Retrospective",
-      "nav-sett": "Settings",
-      "nav-copy": "Copyright",
-      "nav-exit": "Exit",
-      "copyright":"In here we place some general corporate info...",
-      "adressTitle":"Address:",
-      "phoneNumberTitle":"Phone Number:",
-      "footer": "About",
+    "nav-home": "Homepage",
+    "nav-retro": "Retrospective",
+    "nav-sett": "Settings",
+    "nav-copy": "Copyright",
+    "nav-exit": "Exit",
+    "copyright":"In here we place some general corporate info...",
+    "adressTitle":"Address:",
+    "phoneNumberTitle":"Phone Number:",
+    "footer": "About",
     },
     "pt": {
-      "nav-home": "Início",
-      "nav-retro": "Retrospetiva",
-      "nav-sett": "Definições",
-      "nav-copy": "Direitos de autor",
-      "nav-exit": "Sair",
-      "copyright":"Aqui colocamos algumas informações gerais sobre a empresa...",
-      "adressTitle":"Morada:",
-      "phoneNumberTitle":"Número de telefone:",
-      
-      "footer": "Sobre",
+    "nav-home": "Início",
+    "nav-retro": "Retrospetiva",
+    "nav-sett": "Definições",
+    "nav-copy": "Direitos de autor",
+    "nav-exit": "Sair",
+    "copyright":"Aqui colocamos algumas informações gerais sobre a empresa...",
+    "adressTitle":"Morada:",
+    "phoneNumberTitle":"Número de telefone:",
+    "footer": "Sobre",
     }
 };
- function changeLanguage(lang) {
-     if (lang) {
+function changeLanguage(lang) {
+    if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
-     }
+    }
     for (let key in languageContent[lang]) {
-       document.getElementById(key).innerHTML = languageContent[lang][key];
+        document.getElementById(key).innerHTML = languageContent[lang][key];
     }
 };
 /**************************************************************************************************************************************************************************************/
