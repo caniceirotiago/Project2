@@ -150,7 +150,7 @@ main {
     flex-direction: column;
     flex-grow: 3; /* Faz este contêiner ocupar o espaço restante */
     max-height: 100%;
-    width: 12%;
+    width: 30%;
 }
 .tasks-row {
     display: flex;
@@ -344,9 +344,10 @@ form {
     display: flex;
     flex-direction: column;
     background-color: var(--tertiary-color); /* Transparência */
-    padding: 0px;
+    padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    max-width: 600px;
 }
 
 input[type="date"], input[type="textarea"] {
@@ -386,8 +387,14 @@ input[type="submit"] {
     transition: background-color 0.3s;
 }
 
+
 input[type="submit"]:hover {
     background-color: #d7e2ef;
+}
+button#cancel-edit {
+    background-color: #f44336; /* Cor vermelha para cancelar */
+    color: white;
+    cursor: pointer;
 }
 
 /* Animações e foco nos inputs */
@@ -396,3 +403,14 @@ input[type="text"]:focus, input[type="password"]:focus {
     border-color: #007aff;
     box-shadow: 0 0 8px rgba(0, 122, 255, 0.6);
 }
+/*Other*/
+.task-viewer-editer-adder{
+    justify-content: center;
+    align-items: center;
+}
+.mainBoard{
+    width: 50%;
+    justify-content: center;
+}
+
+

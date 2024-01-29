@@ -33,11 +33,11 @@
     </header>
     <!------------------ Header /end ------------------------------------>
 
-    <main>
+    <main class="task-viewer-editer-adder">
         <div class="mainBoard">
             <!-- Task contents -->
-            <button id="edit-btn">Edit</button>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
+                <button id="edit-btn">Edit</button>
                 <div class="row-task">
                     <h2 id="add-task">Edit Task</h2>
                 </div>
@@ -52,6 +52,10 @@
                 <div class="row-submit">
                     <input id="save-task" type="submit" value="Save Task" disabled>
                 </div>
+                <div class="row-cancel">
+                    <button id="cancel-edit" type="button" onclick="location.href='homepage.html';">Cancel</button>
+                </div>
+                
             </form>
         </div>
 
