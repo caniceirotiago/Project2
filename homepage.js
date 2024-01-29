@@ -299,7 +299,6 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* DEFAULT LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
@@ -307,14 +306,13 @@ function checkLanguage() {
    if (localStorage.getItem('language')===null) { // if it doesn't exist 
        let lang='en'; // set it to English
        localStorage.setItem('language', lang); // save it
-       console.log("Default language was null. Default language is now set to: "+lang);
-   }
+        console.log("Default language was null. Default language is now set to: "+lang);
+    }
    else { // otherwise...
-       changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
-       console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
-   }
+        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
+        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
+    }
 };
-
 /**************************************************************************************************************************************************************************************/
 /* LANGUAGE SETTINGS */
 /* Content switching according to */
@@ -327,6 +325,12 @@ let languageContent = {
         "nav-copy": "Copyright",
         "nav-exit": "Exit",
         "col-leftMenu-text": "MENU",
+        "create-project": "Create Project",
+        "select-project": "Select Project",
+        "manage-backlog": "Backlog Manager",
+        "select-sprint": "Sprint Selector",
+        "project-settings": "Project Settings",
+
         "col-todo-text": "TO DO",
         "add-task-btn": "Add Task",
         "col-doing-text": "DOING",   
@@ -340,6 +344,13 @@ let languageContent = {
         "nav-copy": "Direitos de autor",
         "nav-exit": "Sair",
         "col-leftMenu-text": "MENU",
+        "create-project": "Criar projeto",
+        "select-project": "Selecionar projeto",
+        "manage-backlog": "Gestor de atrasos",
+        "select-sprint": "Seletor de Sprint",
+        "project-settings": "Definições do projeto",
+
+
         "col-todo-text": "PARA FAER",
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
