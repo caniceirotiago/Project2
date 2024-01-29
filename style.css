@@ -5,14 +5,14 @@
     --secondary-color: rgba(31, 34, 38, 0.2);
     --tertiary-color: rgba(164, 164, 169, 0.2);
     --quaternary-color: rgba(255, 250, 250, 0.3);
-    --quinary-color: #ffffff;
+    --quinary-color: rgb(255,255,255,1);
     --todo-color:rgba(0, 136, 255, 0.756);
     --doing-color:rgba(239, 235, 100, 0.655);
     --done-color:rgba(117, 211, 86, 0.66);
     --header-color:rgba(101, 103, 108, 0.9);
     --background-color: rgb(255, 255, 255);
-    --text-color:  #333;
-    --text-color2:  #ffffff;
+    --text-color:  rgb(0,0,0,1);
+    --text-color2:  rgb(255,255,255,1);
 }
 body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -32,12 +32,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #ffffff;
+    color: var(--text-color2);
     text-align: center;
     width: 100%;
     padding: 0px 0;
     background-color: var(--header-color); /* Adicionando um fundo translúcido */
-    position: fixed;
+    position: relative;
     top: 0;
     backdrop-filter: blur(5px);
     z-index: 2;
@@ -69,7 +69,7 @@ header h1{
 }
 
 .topnav a {
-    color: rgb(255, 255, 255); /* Cor do texto dos links */
+    color: var(--text-color2); /* Cor do texto dos links */
     padding: 5px 5px; /* Espa2çamento interno dos links */
     text-decoration: none; /* Remove o sublinhado */
     font-size: 16px; /* Tamanho da fonte */
@@ -90,9 +90,9 @@ header h1{
 main {
     display: flex;
     flex-direction: column;
-    height: 80%; /* Ajuste para ocupar a altura total disponÃ­vel */
+    height: 98%; /* Ajuste para ocupar a altura total disponÃ­vel */
     align-self: center;
-    margin-top: 60px;
+    margin: 5px 0px;
 }
 
 .mainBoard-tasks-container {
@@ -132,12 +132,17 @@ main {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     flex: 1;
     padding: 0px;
-    margin-bottom: 20px; /* Espaçamento na parte inferior */
+    margin-bottom: 0px; /* Espaçamento na parte inferior */
     text-align: center;
     width: 23vw;
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+h4 {
+    margin: 0;
+    padding: 5px;
+
 }
 .col-todo, .col-doing, .col-done,.historic-retrospectives {
     background-color: var(--tertiary-color);
@@ -195,7 +200,7 @@ footer {
     text-align: center;
     padding: 0px 0;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     height: 5%;
 }
