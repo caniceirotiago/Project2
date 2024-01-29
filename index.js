@@ -66,9 +66,12 @@ function changeLanguage(lang) {
      }
     for (let key in languageContent[lang]) { // all the normal ones
         let username = document.getElementById('username').value; //obtem o username do campo correspondente
+        let errorElement = document.getElementById('errorLogin'); // error login
         // conditional: special case <input> elements
-        if (key==='errorLogin' && username === "" || username === null)
+        if (key==='errorLogin' && (username === "" || username === null) ) {
+            errorElement.innerText=""; // clear the error message 
             continue;
+        }
         if (document.getElementById(key).tagName.toLowerCase() === 'input')
             document.getElementById(key).placeholder = languageContent[lang][key];
         // conditional: extra special case <input> element for the Login button
@@ -87,7 +90,7 @@ function changeLanguage(lang) {
 /* FORM FOR LOGIN */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
+    
     // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
     // index.html // <form id="loginForm" action="homepage.html">
     let form = document.getElementById('loginForm'); // obtains the loginForm
@@ -99,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let errorMsg = 'Mandatory field';
 
         if (localStorage.getItem('language')==='pt')
-            errorMsg='Campo obrigatório';    
+            errorMsg='Campo obrigatório';  
+
         if (username === "" || username === null) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
             errorElement.innerText = errorMsg; // sets the error message
@@ -107,8 +111,10 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('username', username); // saves data into localStorage
             console.log("The user "+username+" has been added.");
             errorElement.innerText=""; // clear the error message 
+            
         }
     });
+    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
 });
 /**************************************************************************************************************************************************************************************/ 
 /* FUNCTION validateUsername() - checks if the username has min 6 length && is alphanumeric (only a-z, A-Z, 0-9 allowed)
