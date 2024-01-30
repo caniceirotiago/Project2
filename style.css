@@ -19,7 +19,7 @@ body.theme-light {
     --quinary-color: rgb(255,255,255,1);
     --todo-color:rgba(0, 136, 255, 0.756);
     --doing-color:rgba(239, 235, 100, 0.655);
-    --done-color:rgba(117, 211, 86, 0.66);
+    --done-color:rgba(121, 219, 88, 0.714);
     --header-color:rgba(101, 103, 108, 0.9);
     --background-color: rgb(255, 255, 255);
     --text-color:  rgb(0,0,0,1);
@@ -31,9 +31,9 @@ body.theme-dark {
     --tertiary-color: rgba(255, 255, 255, 0.2);
     --quaternary-color: rgba(0, 5, 5, 0.3);
     --quinary-color: rgba(255, 255, 255, 0.075);
-    --todo-color:rgba(242, 168, 102, 0.756);
-    --doing-color:rgba(247, 245, 121, 0.655);
-    --done-color:rgba(154, 233, 191, 0.66);
+    --todo-color:rgb(236, 154, 82);
+    --doing-color:rgb(173, 171, 57);
+    --done-color:rgba(155, 233, 154, 0.66);
     --header-color:rgba(77, 78, 81, 0.9);
     --background-color: rgb(0, 0, 0);
     --text-color:  rgb(246, 242, 242);
@@ -203,8 +203,6 @@ main {
     font-weight: bold;
 }
 
-
-
 h4 {
     margin: 0;
     padding: 5px;
@@ -225,10 +223,35 @@ h4 {
 }
 .header-list{
     display: flex;
-    gap: 10px;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
 }
+
+#col-todo-text, #col-doing-text, #col-done-text{
+    flex-grow: 1;
+    justify-self: center;
+}
+.count-div-circle{
+    background-color: var(--primary-color);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    height: 30px;
+    width: 40px;
+    border-radius: 20px;
+    margin-right: 7px;
+    align-items: center;
+}
+.invisible-counter {
+    visibility: hidden; /* Torna o elemento invisível */
+    width: 40px; /* Mesmo largura da .count-div-circle */
+    height: 30px; /* Mesma altura da .count-div-circle */
+    margin-right: 7px; /* Mesma margem da .count-div-circle */
+}
+
+.count-div-circle h3{
+    margin: 0px;
+    padding: 3px;
+}
+
 #todo, #doing, #done {
     min-height: calc(100% - 45px); /* Altura mínima da ul para tornar dragable mesmo que vazio*/
 }
