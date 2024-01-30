@@ -216,6 +216,14 @@ main {
     flex-direction: column;
     height: 100%;
 }
+
+.col-leftMenu a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+
 h4 {
     margin: 0;
     padding: 5px;

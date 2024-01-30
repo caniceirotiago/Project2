@@ -127,37 +127,23 @@ function changeTheme(theme) {
 /**************************************************************************************************************************************************************************************/
 function checkTheme() {
     let theme = localStorage.getItem('theme');
+    let darkBtn = document.getElementById('dark-theme');
+    let lightBtn = document.getElementById('light-theme');
 
     if (theme==='theme-dark') {
         console.log("now dark");
         document.body.classList.add('theme-dark');
         document.body.classList.remove('theme-light');
-        
+        darkBtn.classList.add('active');
+        lightBtn.classList.remove('active');
     }
     if (theme==='theme-light') {
         console.log("now light");
         document.body.classList.add('theme-light');
         document.body.classList.remove('theme-dark');
-        
+        lightBtn.classList.add('active');
+        darkBtn.classList.remove('active');
     }
 };
-
-/*
-:root {
-    --primary-color: rgb(255, 255, 255);
-    --secondary-color: rgba(31, 34, 38, 0.2);
-    --tertiary-color: rgba(164, 164, 169, 0.2);
-    --quaternary-color: rgba(255, 250, 250, 0.3);
-    --quinary-color: rgb(255,255,255,1);
-    --todo-color:rgba(0, 136, 255, 0.756);
-    --doing-color:rgba(239, 235, 100, 0.655);
-    --done-color:rgba(117, 211, 86, 0.66);
-    --header-color:rgba(101, 103, 108, 0.9);
-    --background-color: rgb(255, 255, 255);
-    --text-color:  rgb(0,0,0,1);
-    --text-color2:  rgb(255,255,255,1);
-}
-*/
-
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
