@@ -30,10 +30,10 @@ body.theme-dark {
     --secondary-color: rgba(255, 255, 255, 0.111);
     --tertiary-color: rgba(255, 255, 255, 0.2);
     --quaternary-color: rgba(0, 5, 5, 0.3);
-    --quinary-color: rgb(0, 0, 0, 1);
-    --todo-color:rgba(255, 119, 0, 0.756);
-    --doing-color:rgba(158, 155, 0, 0.655);
-    --done-color:rgba(86, 153, 117, 0.66);
+    --quinary-color: rgba(255, 255, 255, 0.075);
+    --todo-color:rgba(242, 168, 102, 0.756);
+    --doing-color:rgba(247, 245, 121, 0.655);
+    --done-color:rgba(154, 233, 191, 0.66);
     --header-color:rgba(77, 78, 81, 0.9);
     --background-color: rgb(0, 0, 0);
     --text-color:  rgb(246, 242, 242);
