@@ -113,24 +113,60 @@ function changeLanguage(lang) {
     activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* changeTheme(lang) = Toggle of underline under the FlagElement */
+/* changeTheme(thme) = Toggle of colour set
 /**************************************************************************************************************************************************************************************/
 function changeTheme(theme) {
-    if (lang) {
+    if (theme) {
         // set no local storage.............. gravar lá
-        localStorage.setItem('language', lang); // saves data into localStorage
+        localStorage.setItem('theme', theme); // saves data into localStorage
     }
-
-    for (let key in languageContent[lang]) {
-        if (document.getElementById(key) === null) 
-            continue;
-        else {
-            document.getElementById(key).innerHTML = languageContent[lang][key];
-        }
+    if(theme='dark') {
+        document.documentElement.style.setProperty('--primary-color', 'rgb(0, 0, 0)');
+        document.documentElement.style.setProperty('--secondary-color', 'rgba(224, 224, 224, 0.2)');
+        document.documentElement.style.setProperty('--tertiary-color', 'rgba(91, 91, 91, 0.2)');
+        document.documentElement.style.setProperty('--quaternary-color', 'rgba(0, 5, 5, 0.3)');
+        document.documentElement.style.setProperty('--quinary-color', 'rgb(0, 0, 0, 1)');
+        document.documentElement.style.setProperty('--todo-color', 'rgba(255, 119, 0, 0.756)');
+        document.documentElement.style.setProperty('--doing-color', 'rgba(158, 155, 0, 0.655)');
+        document.documentElement.style.setProperty('--done-color', 'rgba(86, 153, 117, 0.66)');
+        document.documentElement.style.setProperty('--header-color', 'rgba(154, 156, 161, 0.9)');
+        document.documentElement.style.setProperty('--background-color', 'rgb(0, 0, 0)');
+        document.documentElement.style.setProperty('--text-color', 'rgb(255, 255, 255, 1)');
+        document.documentElement.style.setProperty('--text-color2', 'rgb(0, 0, 0, 1)');
     }
-    activeLangFlag();
+    if(theme='light') { // default = light
+        document.documentElement.style.setProperty('--primary-color', 'rgb(255, 255, 255)');
+        document.documentElement.style.setProperty('--secondary-color', 'rgba(31, 34, 38, 0.2)');
+        document.documentElement.style.setProperty('--tertiary-color', 'rgba(164, 164, 169, 0.2)');
+        document.documentElement.style.setProperty('--quaternary-color', 'rgba(255, 250, 250, 0.3)');
+        document.documentElement.style.setProperty('--quinary-color', 'rgb(255, 255, 255, 1)');
+        document.documentElement.style.setProperty('--todo-color', 'rgba(0, 136, 255, 0.756)');
+        document.documentElement.style.setProperty('--doing-color', 'rgba(239, 235, 100, 0.655)');
+        document.documentElement.style.setProperty('--done-color', 'rgba(117, 211, 86, 0.66)');
+        document.documentElement.style.setProperty('--header-color', 'rgba(101, 103, 108, 0.9)');
+        document.documentElement.style.setProperty('--background-color', 'rgb(255, 255, 255)');
+        document.documentElement.style.setProperty('--text-color', 'rgb(0, 0, 0, 1)');
+        document.documentElement.style.setProperty('--text-color2', 'rgb(255, 255, 255, 1)');
+    }
 };
 
+
+/*
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgba(31, 34, 38, 0.2);
+    --tertiary-color: rgba(164, 164, 169, 0.2);
+    --quaternary-color: rgba(255, 250, 250, 0.3);
+    --quinary-color: rgb(255,255,255,1);
+    --todo-color:rgba(0, 136, 255, 0.756);
+    --doing-color:rgba(239, 235, 100, 0.655);
+    --done-color:rgba(117, 211, 86, 0.66);
+    --header-color:rgba(101, 103, 108, 0.9);
+    --background-color: rgb(255, 255, 255);
+    --text-color:  rgb(0,0,0,1);
+    --text-color2:  rgb(255,255,255,1);
+}
+*/
 
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
