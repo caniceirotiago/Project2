@@ -37,7 +37,6 @@ header {
     background-color: var(--header-color); /* Adicionando um fundo translúcido */
     position: relative;
     top: 0;
-    backdrop-filter: blur(5px);
     z-index: 2;
 }
 header h1{
@@ -415,14 +414,13 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 /*Estatisticas*/
 #task-bar-chart {
-    width: 100%; /* ou um valor específico maior */
+    width: 25%; /* ou um valor específico maior */
     height: 50px; /* altura maior para visibilidade */
     display: flex;
     flex-direction: row;
     border-radius: 5px;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
-    padding-right: 40px;
 }
 
 .task-bar {
