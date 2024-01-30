@@ -389,7 +389,7 @@ input[type="date"], input[type="textarea"] {
 }
 /* Estilos para textarea */
 textarea {
-    width: 100%; /* Faz a textarea ocupar 100% da largura do elemento pai */
+    width: calc(100% - 20px);; /* Faz a textarea ocupar calc(100% - 20px) da largura do elemento pai */
     padding: 10px; /* Espaço interno para o texto */
     margin: 10px 0; /* Margem exterior */
     border: 1px solid #ddd; /* Borda */
