@@ -27,9 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     loadTasks();
     saveTasks(); 
-    console.log(countTODOTasks());
-    console.log(countDOINGTasks());
-    console.log(countDONETasks());
+    updateTaskCountView();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
@@ -91,6 +89,7 @@ function addTaskToRightList(task) {
     
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
+    updateTaskCountView();
 }
 
 
@@ -224,8 +223,8 @@ function delTask(task) {
     if (oldTaskElement) {
         oldTaskElement.remove();
     }
-
     saveTasks(); // Saves Tasks, thus also updating the localStorage
+    updateTaskCountView();
 }
 /**************************************************************************************************************************************************************************************/ 
 /* function moveTask(task, nextStatus) - 
@@ -382,6 +381,38 @@ function countDONETasks(){
     const taskList = document.getElementById("done");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
+}
+function updateTaskCountView(){
+    const todoCount = countTODOTasks();
+    const doingCount = countDOINGTasks();
+    const doneCount = countDONETasks();
+    const totalCount = todoCount + doingCount + doneCount;
+
+    document.getElementById("todo-count").textContent = todoCount;
+    document.getElementById("doing-count").textContent = doingCount;
+    document.getElementById("done-count").textContent = doneCount;
+
+    updateBarChart(todoCount, doingCount, doneCount, totalCount);
+}
+function updateBarChart(todo, doing, done, total) {
+    const barChart = document.getElementById('task-bar-chart');
+    barChart.innerHTML = ''; // Limpa o conteúdo anterior
+
+    if (total > 0) {
+        barChart.appendChild(createBarElement('todo', (todo / total) * 100));
+        barChart.appendChild(createBarElement('doing', (doing / total) * 100));
+        barChart.appendChild(createBarElement('done', (done / total) * 100));
+    }
+}
+
+function createBarElement(className, widthPercent) {
+    const bar = document.createElement('div');
+    bar.classList.add('task-bar', className);
+    bar.id = `${className}-bar`;
+    bar.style.width = `${widthPercent}px`;
+    bar.style.height = `${20}px`;
+    bar.title = className; // título para teste
+    return bar;
 }
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

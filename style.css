@@ -2,12 +2,12 @@
 /* Estilo geral com melhorias */
 :root {
     --primary-color: rgb(255, 255, 255);
-    --secondary-color: rgba(31, 34, 38, 0.2);
-    --tertiary-color: rgba(164, 164, 169, 0.2);
-    --quaternary-color: rgba(255, 250, 250, 0.3);
-    --quinary-color: rgb(255,255,255,1);
-    --todo-color:rgba(0, 136, 255, 0.756);
-    --doing-color:rgba(239, 235, 100, 0.655);
+    --secondary-color: rgba(193, 198, 203, 0.2);
+    --tertiary-color: rgba(194, 194, 202, 0.2);
+    --quaternary-color: rgba(160, 160, 171, 0.3);
+    --quinary-color: rgb(255, 255, 255);
+    --todo-color:rgba(137, 32, 186, 0.756);
+    --doing-color:rgba(12, 22, 113, 0.846);
     --done-color:rgba(117, 211, 86, 0.66);
     --header-color:rgba(101, 103, 108, 0.9);
     --background-color: rgb(255, 255, 255);
@@ -413,4 +413,38 @@ input[type="text"]:focus, input[type="password"]:focus {
     justify-content: center;
 }
 
+/*Estatisticas*/
+#task-bar-chart {
+    width: 100%; /* ou um valor específico maior */
+    height: 50px; /* altura maior para visibilidade */
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    justify-content: right;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.task-bar {
+    display: flex;
+    height: 100%; /* Use 100% para que as barras preencham totalmente a altura do contêiner */
+    transition: width 0.5s ease;
+   
+    border: 2px
+   
+}
+
+#todo-bar { /* Certifique-se de que essas classes correspondam às usadas no seu JavaScript */
+    background-color: var(--todo-color); /* Azul */
+}
+
+#doing-bar {
+    background-color: var(--doing-color); /* Amarelo */
+    
+}
+
+#done-bar {
+    background-color: var(--done-color); /* Verde */
+   
+}
 
