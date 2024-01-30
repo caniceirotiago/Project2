@@ -62,6 +62,7 @@ function checkLanguage() {
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+    checkTheme(); // on load checks which theme dark/light was predefined
 });
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
@@ -136,6 +137,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
 });
+
+/**************************************************************************************************************************************************************************************/ 
+/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
+/**************************************************************************************************************************************************************************************/
+function changeTheme(theme) {
+    if (theme) {
+        // set no local storage.............. gravar lá
+        localStorage.setItem('theme', theme); // saves data into localStorage
+    }
+    checkTheme();
+};
+/**************************************************************************************************************************************************************************************/ 
+/* check(theme) = Toggle according set of colours for ROOT element
+/**************************************************************************************************************************************************************************************/
+function checkTheme() {
+    let theme = localStorage.getItem('theme');
+
+    if (theme==='theme-dark') {
+        console.log("now dark");
+        document.body.classList.add('theme-dark');
+        document.body.classList.remove('theme-light');
+        
+    }
+    if (theme==='theme-light') {
+        console.log("now light");
+        document.body.classList.add('theme-light');
+        document.body.classList.remove('theme-dark');
+        
+    }
+};
 /**************************************************************************************************************************************************************************************/ 
 /* FUNCTION validateUsername() - checks if the username has min 6 length && is alphanumeric (only a-z, A-Z, 0-9 allowed)
 /**************************************************************************************************************************************************************************************/

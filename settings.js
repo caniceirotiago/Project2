@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+    checkTheme(); // on load checks which theme dark/light was predefined
 });
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
@@ -86,14 +87,13 @@ let languageContent = {
         "nav-exit": "Sair",
         "theme":"Tema",
         "dark-theme": "Escuro",
-        "white-theme": "Claro",
+        "light-theme": "Claro",
         "lang":"Língua",
         "langEN": "Inglês",
         "langPT": "Português",
         "footer": "Sobre",
     }
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* changeLanguage(lang) = Toggle of underline under the FlagElement */
 /**************************************************************************************************************************************************************************************/
@@ -113,43 +113,34 @@ function changeLanguage(lang) {
     activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* changeTheme(thme) = Toggle of colour set
+/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
 /**************************************************************************************************************************************************************************************/
 function changeTheme(theme) {
     if (theme) {
         // set no local storage.............. gravar lá
         localStorage.setItem('theme', theme); // saves data into localStorage
     }
-    if(theme='dark') {
-        document.documentElement.style.setProperty('--primary-color', 'rgb(0, 0, 0)');
-        document.documentElement.style.setProperty('--secondary-color', 'rgba(224, 224, 224, 0.2)');
-        document.documentElement.style.setProperty('--tertiary-color', 'rgba(91, 91, 91, 0.2)');
-        document.documentElement.style.setProperty('--quaternary-color', 'rgba(0, 5, 5, 0.3)');
-        document.documentElement.style.setProperty('--quinary-color', 'rgb(0, 0, 0, 1)');
-        document.documentElement.style.setProperty('--todo-color', 'rgba(255, 119, 0, 0.756)');
-        document.documentElement.style.setProperty('--doing-color', 'rgba(158, 155, 0, 0.655)');
-        document.documentElement.style.setProperty('--done-color', 'rgba(86, 153, 117, 0.66)');
-        document.documentElement.style.setProperty('--header-color', 'rgba(154, 156, 161, 0.9)');
-        document.documentElement.style.setProperty('--background-color', 'rgb(0, 0, 0)');
-        document.documentElement.style.setProperty('--text-color', 'rgb(255, 255, 255, 1)');
-        document.documentElement.style.setProperty('--text-color2', 'rgb(0, 0, 0, 1)');
+    checkTheme();
+};
+/**************************************************************************************************************************************************************************************/ 
+/* check(theme) = Toggle according set of colours for ROOT element
+/**************************************************************************************************************************************************************************************/
+function checkTheme() {
+    let theme = localStorage.getItem('theme');
+
+    if (theme==='theme-dark') {
+        console.log("now dark");
+        document.body.classList.add('theme-dark');
+        document.body.classList.remove('theme-light');
+        
     }
-    if(theme='light') { // default = light
-        document.documentElement.style.setProperty('--primary-color', 'rgb(255, 255, 255)');
-        document.documentElement.style.setProperty('--secondary-color', 'rgba(31, 34, 38, 0.2)');
-        document.documentElement.style.setProperty('--tertiary-color', 'rgba(164, 164, 169, 0.2)');
-        document.documentElement.style.setProperty('--quaternary-color', 'rgba(255, 250, 250, 0.3)');
-        document.documentElement.style.setProperty('--quinary-color', 'rgb(255, 255, 255, 1)');
-        document.documentElement.style.setProperty('--todo-color', 'rgba(0, 136, 255, 0.756)');
-        document.documentElement.style.setProperty('--doing-color', 'rgba(239, 235, 100, 0.655)');
-        document.documentElement.style.setProperty('--done-color', 'rgba(117, 211, 86, 0.66)');
-        document.documentElement.style.setProperty('--header-color', 'rgba(101, 103, 108, 0.9)');
-        document.documentElement.style.setProperty('--background-color', 'rgb(255, 255, 255)');
-        document.documentElement.style.setProperty('--text-color', 'rgb(0, 0, 0, 1)');
-        document.documentElement.style.setProperty('--text-color2', 'rgb(255, 255, 255, 1)');
+    if (theme==='theme-light') {
+        console.log("now light");
+        document.body.classList.add('theme-light');
+        document.body.classList.remove('theme-dark');
+        
     }
 };
-
 
 /*
 :root {

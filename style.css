@@ -24,6 +24,40 @@ body, html {
     flex-direction: column;
     height: 100%; /* Define a altura para 100% */
 }
+body.theme-light {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgba(31, 34, 38, 0.2);
+    --tertiary-color: rgba(164, 164, 169, 0.2);
+    --quaternary-color: rgba(255, 250, 250, 0.3);
+    --quinary-color: rgb(255,255,255,1);
+    --todo-color:rgba(0, 136, 255, 0.756);
+    --doing-color:rgba(239, 235, 100, 0.655);
+    --done-color:rgba(117, 211, 86, 0.66);
+    --header-color:rgba(101, 103, 108, 0.9);
+    --background-color: rgb(255, 255, 255);
+    --text-color:  rgb(0,0,0,1);
+    --text-color2:  rgb(255,255,255,1);
+}
+body.theme-dark {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: rgba(91, 91, 91, 0.2);
+    --tertiary-color: rgba(91, 91, 91, 0.2);
+    --quaternary-color: rgba(0, 5, 5, 0.3);
+    --quinary-color: rgb(0, 0, 0, 1);
+    --todo-color:rgba(255, 119, 0, 0.756);
+    --doing-color:rgba(158, 155, 0, 0.655);
+    --done-color:rgba(86, 153, 117, 0.66);
+    --header-color:rgba(154, 156, 161, 0.9);
+    --background-color: rgb(255, 255, 255);
+    --text-color:  rgb(255, 255, 255, 1);
+    --text-color2:  rgb(0, 0, 0, 1);
+}
+
+
+
+
+
+
 
 header {
     display: flex;
