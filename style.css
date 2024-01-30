@@ -478,6 +478,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    box-shadow:  2px 4px rgb(0, 0, 0);
 }
 
 .task-bar {
