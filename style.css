@@ -302,8 +302,10 @@ footer {
     bottom: 0;
     height: 40px;
 }
-footer h3 {
+footer p {
     margin: 0;
+    
+    font-size: 13px;
 }
 
 /* UNORDERED LIST FOR TASKS */
