@@ -334,7 +334,7 @@ let languageContent = {
         "col-leftMenu-text": "MENU",
         "create-project": "Criar projeto",
         "select-project": "Selecionar projeto",
-        "manage-backlog": "Gestor de atrasos",
+        "manage-backlog": "Gestor de Tarefas Pendentes",
         "select-sprint": "Seletor de Sprint",
         "project-settings": "Definições do projeto",
 
