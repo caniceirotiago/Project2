@@ -97,7 +97,6 @@ let languageContent = {
         "label-description":"Description",
         "description":"Insert Task Description",
         "save-task":"Save Task",
-        "footer": "About",
     },
     "pt": {
         "nav-home": "Início",
@@ -111,7 +110,6 @@ let languageContent = {
         "label-description":"Descrição",
         "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
-        "footer": "Sobre",
     }
 };
 function changeLanguage(lang) {

@@ -140,7 +140,6 @@ let languageContent = {
         "label-comment-retro":"Comments",
         "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
         "input-save-retro":"Save Retrospective",
-        "footer": "About",
     },
     "pt": {
         "nav-home": "Início",
@@ -156,7 +155,6 @@ let languageContent = {
         "label-comment-retro":"Comentários",
         "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
         "input-save-retro":"Guardar Retrospetiva",
-        "footer": "Sobre",
     }
 };
 function changeLanguage(lang) {

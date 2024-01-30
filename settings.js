@@ -77,7 +77,6 @@ let languageContent = {
         "theme":"Theme",
         "dark-theme": "Dark",
         "white-theme": "White",
-        "footer": "About",
     },
     "pt": {
         "nav-home": "Início",
@@ -91,7 +90,6 @@ let languageContent = {
         "lang":"Língua",
         "langEN": "Inglês",
         "langPT": "Português",
-        "footer": "Sobre",
     }
 };
 /**************************************************************************************************************************************************************************************/ 

@@ -323,7 +323,6 @@ let languageContent = { //hash table-map like structure
         "add-task-btn": "Add Task",
         "col-doing-text": "DOING",   
         "col-done-text": "DONE",
-        "footer": "About",
     },
     "pt": {
         "nav-home": "Início",
@@ -343,7 +342,6 @@ let languageContent = { //hash table-map like structure
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
         "col-done-text": "FEITO",
-        "footer": "Sobre",
 }
 };
 function changeLanguage(lang) {
