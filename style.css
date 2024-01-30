@@ -413,4 +413,38 @@ input[type="text"]:focus, input[type="password"]:focus {
     justify-content: center;
 }
 
+/*Estatisticas*/
+#task-bar-chart {
+    width: 100%; /* ou um valor específico maior */
+    height: 50px; /* altura maior para visibilidade */
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    justify-content: right;
+    padding-right: 40px;
+}
+
+.task-bar {
+    display: flex;
+    border-radius: 5px;
+    height: 100%; /* Use 100% para que as barras preencham totalmente a altura do contêiner */
+    transition: width 0.5s ease;
+    padding: 5px;
+    border: 2px
+   
+}
+
+#todo-bar { /* Certifique-se de que essas classes correspondam às usadas no seu JavaScript */
+    background-color: var(--todo-color); /* Azul */
+}
+
+#doing-bar {
+    background-color: var(--doing-color); /* Amarelo */
+    
+}
+
+#done-bar {
+    background-color: var(--done-color); /* Verde */
+   
+}
 

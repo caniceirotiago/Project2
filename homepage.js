@@ -383,9 +383,36 @@ function countDONETasks(){
     return nOfTasks;
 }
 function updateTaskCountView(){
-    document.getElementById("todo-count").textContent = countTODOTasks();
-    document.getElementById("doing-count").textContent = countDOINGTasks();
-    document.getElementById("done-count").textContent = countDONETasks();
+    const todoCount = countTODOTasks();
+    const doingCount = countDOINGTasks();
+    const doneCount = countDONETasks();
+    const totalCount = todoCount + doingCount + doneCount;
+
+    document.getElementById("todo-count").textContent = todoCount;
+    document.getElementById("doing-count").textContent = doingCount;
+    document.getElementById("done-count").textContent = doneCount;
+
+    updateBarChart(todoCount, doingCount, doneCount, totalCount);
+}
+function updateBarChart(todo, doing, done, total) {
+    const barChart = document.getElementById('task-bar-chart');
+    barChart.innerHTML = ''; // Limpa o conteúdo anterior
+
+    if (total > 0) {
+        barChart.appendChild(createBarElement('todo', (todo / total) * 100));
+        barChart.appendChild(createBarElement('doing', (doing / total) * 100));
+        barChart.appendChild(createBarElement('done', (done / total) * 100));
+    }
+}
+
+function createBarElement(className, widthPercent) {
+    const bar = document.createElement('div');
+    bar.classList.add('task-bar', className);
+    bar.id = `${className}-bar`;
+    bar.style.width = `${widthPercent}px`;
+    bar.style.height = `${40}px`;
+    bar.title = className; // título para teste
+    return bar;
 }
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
