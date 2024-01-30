@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<!-- HTML File - contains the interactive content that is displayed -->
 <html lang="en">
-
+<!--------------------------  Head ----------------------------------->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,7 @@
     <script defer src="edittask.js"></script>
     <title>Homepage - Scrum</title>
 </head>
-
-<!-- HTML File - contains the interactive content that is displayed -->
-
+<!--------------------------  Body ----------------------------------->
 <body>
     <!------------------ Header ------------------------------------>
     <header>
@@ -29,13 +28,12 @@
                 <li><a id="langIndexEN" onclick = "changeLanguage('en')">EN</a></li>
             </ul>
         </div>
+        <!------------------ Username ------------------------------------> 
         <h1><span id="usernameDisplay">Username</span></h1>
     </header>
-    <!------------------ Header /end ------------------------------------>
-
     <main class="task-viewer-editer-adder">
         <div class="mainBoard">
-            <!-- Task contents -->
+            <!------------------ Task Contents ------------------------------------>
             <form id="taskForm" action="homepage.html"> <!-- Loaded page after form fetch okay -->
                 <button id="edit-btn">Edit</button>
                 <div class="row-task">
@@ -55,18 +53,12 @@
                 <div class="row-cancel">
                     <button id="cancel-edit" type="button" onclick="location.href='homepage.html';">Cancel</button>
                 </div>
-                
             </form>
         </div>
-
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
         <h3 id="footer"><span>Footer : About</span></h3>
     </footer>
-    <!------------------ Footer /end ------------------------------------>
-
 </body>
-
-
 </html>
