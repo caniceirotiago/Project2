@@ -161,6 +161,7 @@ main {
     flex-direction: row;
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
+    gap: 20px; /* Espaço entre as colunas */
     flex-grow: 1; /* Faz a div ocupar o espaço restante na linha */
     height: 10%; /* Altura da seção */
     background-color: var(--secondary-color); /* Cor de fundo */
