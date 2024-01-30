@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<!-- HTML File - contains the interactive content that is displayed -->
 <html lang="en">
-
+<!------------------ Head ------------------------------------>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,6 @@
     <script defer src="settings.js"></script>
     <title>Settings Page - Scrum</title>
 </head>
-
-<!-- HTML File - contains the interactive content that is displayed -->
 
 <body>
     <!------------------ Header ------------------------------------>
@@ -22,20 +21,21 @@
         <a id="nav-sett" class="active" href="settings.html">Settings</a>
         <a id="nav-exit" href="index.html">Exit</a>
         </div>
-        <!------------------ Navigation Menu /end ------------------------------------>
+        <!------------------ Language Flags ------------------------------------>
         <div class="top-right-flags" id="langFlag">
             <ul>
                 <li><a id="langIndexPT" onclick = "changeLanguage('pt')">PT</a></li>
                 <li><a id="langIndexEN" onclick = "changeLanguage('en')">EN</a></li>
             </ul>
-        </div> 
+        </div>
+        <!------------------ Username ------------------------------------> 
         <h1><span id="usernameDisplay">Username</span></h1>
     </header>
-    <!------------------ Header /end ------------------------------------>
     
     <main>
         <div class="mainBoard">
         <div class="mainBoard tasks-container">
+            <!------------------ Colour Theme Options ------------------------------------>
             <div class="col-leftMenu">
                 <p>
                 <a id="theme">Theme</a>
@@ -43,15 +43,12 @@
                 <a id="light-theme" onclick = "changeTheme('theme-light')">Light</a>
             </p>
         </div>
-
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
         <h3 id="footer"><span>About</span></h3>
     </footer>
     <!------------------ Footer /end ------------------------------------>
-    
 </body>
-
 
 </html>

@@ -10,7 +10,6 @@
     <title>Homepage - Scrum</title>
 </head>
 
-
 <body class="theme-light">
     <!------------------ Header ------------------------------------>
     <header>
@@ -22,19 +21,20 @@
         <a id="nav-sett" href="settings.html">Settings</a>
         <a id="nav-exit" href="index.html">Exit</a>
         </div>
-        <!------------------ Navigation Menu /end ------------------------------------>
+        <!------------------ Language Flags ------------------------------------>
         <div class="top-right-flags" id="langFlag">
             <ul>
                 <li><a id="langIndexPT" onclick = "changeLanguage('pt')">PT</a></li>
                 <li><a id="langIndexEN" onclick = "changeLanguage('en')">EN</a></li>
             </ul>
         </div> 
+        <!------------------ Username ------------------------------------>
         <h1><span id="usernameDisplay">Username</span></h1>
     </header>
-    <!------------------ Header /end ------------------------------------>
-    
+    <!------------------ Main ------------------------------------>
     <main>
         <div class="mainBoard-tasks-container">
+            <!------------------ Leftmost Column -------------------------------->
             <div class="col-leftMenu">
                 <h2 id="col-leftMenu-text">MENU</h2>
                 <h4 id="create-project">Create Project</h4>
@@ -44,12 +44,14 @@
                 <h4 id="project-settings">Project Settings</h4>
             </div>
             <div class="right-container">
+                <!------------------ Row with statistics/ Progression Bar -------------------------------->
                 <div class="horizontal-section">
                     <h3>Project: Name</h3>
                     <h4>Sprint: Name</h4>
                     <h4>Sprint Progress:</h4>
                     <div id="task-bar-chart"></div>
                 </div>
+                <!------------------ Columns TODO - Content added by .js  -------------------------------->
                     <div class="tasks-row">
                         <div class="col-todo">
                             <div class="header-list">
@@ -59,8 +61,10 @@
                         <section class="scrolable-ul">
                             <ul id="todo"></ul>
                         </section>
+                        <!------------------ Add Task Button -------------------------------->
                         <a id="add-task-btn" class="btn-add" onclick="location.href='task.html';">Add Task</a>
                     </div>
+                    <!------------------ Columns DOING - Content added by .js  -------------------------------->
                     <div class="col-doing">
                         <div class="header-list">
                             <h2 id="col-doing-text">DOING</h2>
@@ -70,6 +74,7 @@
                             <ul id="doing"></ul>
                         </section>
                     </div>
+                    <!------------------ Columns DONE - Content added by .js  -------------------------------->
                     <div class="col-done">
                         <div class="header-list">
                             <h2 id="col-done-text">DONE</h2>
@@ -88,8 +93,5 @@
         <h3 id="footer"><span>About</span></h3>
     </footer>
     <!------------------ Footer /end ------------------------------------>
-    
 </body>
-
-
 </html>

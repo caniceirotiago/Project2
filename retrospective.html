@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<!-- HTML File - contains the interactive content that is displayed -->
 <html lang="en">
-
+<!------------------ Head ------------------------------------>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,8 @@
     <title>Retrospective - Scrum</title>
 </head>
 
-<!-- HTML File - contains the interactive content that is displayed -->
-
 <body>
-    <!------------------ Header ------------------------------------>
+    
     <header>
         <img id="logo" src="images/logo.png" alt="IMG">
         <!------------------ Navigation Menu ------------------------------------>
@@ -22,18 +21,19 @@
         <a id="nav-sett" href="settings.html">Settings</a>
         <a id="nav-exit" href="index.html">Exit</a>
         </div>
-        <!------------------ Navigation Menu /end ------------------------------------> 
+        <!------------------ Language Flags ------------------------------------> 
         <div class="top-right-flags" id="langFlag">
             <ul>
                 <li><a id="langIndexPT" onclick = "changeLanguage('pt')">PT</a></li>
                 <li><a id="langIndexEN" onclick = "changeLanguage('en')">EN</a></li>
             </ul>
         </div>
+        <!------------------ Username ------------------------------------>
         <h1><span id="usernameDisplay">Username</span></h1>
     </header>
-    <!------------------ Header /end ------------------------------------>
-    
+    <!------------------ Main ------------------------------------>
     <main class="retrospective-main">
+        <!------------------ Retrospectives display ------------------------------------>
         <div  class="historic-retrospectives">
             <h2 id="hist-retro">Historic Retrospectives</h2><br>
             <section class="scrolable-ul">
@@ -41,7 +41,7 @@
             </section>
         </div>
         <div class="mainRetrospectivesForm">
-            <!-- Task contents -->
+            <!--------------- Add New Retrospective FORM ---------------------------->
             <form id="retrospectiveForm" action="retrospective.html"> <!-- Loaded page after form fetch okay -->
             <div class="row-retrospective">
                 <h2 id="add-retro">Add Retrospective</h2>
@@ -63,14 +63,11 @@
             </div>
             </form>
         </div>
-
     </main>
     <!------------------ Footer ------------------------------------>
     <footer>
         <h3 id="footer"><span>Footer : About</span></h3>
     </footer>
-    <!------------------ Footer /end ------------------------------------>
-    
 </body>
 
 
