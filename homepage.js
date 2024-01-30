@@ -305,7 +305,7 @@ function checkLanguage() {
 /* LANGUAGE SETTINGS */
 /* Content switching according to */
 /**************************************************************************************************************************************************************************************/
-let languageContent = {
+let languageContent = { //hash table-map like structure
     "en": {
         "nav-home": "Homepage",
         "nav-retro": "Retrospective",

@@ -4,7 +4,8 @@
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO languageContetIndex[en/pt] applying the correspondence between pair {key : string}
+/* PAGE UPDATE TO REFLECT LANGUAGE SETTINGS ACCORDING TO: */
+/* languageContetIndex[en/pt] applying the correspondence between pair {key : string} */
 /**************************************************************************************************************************************************************************************/
 let languageContentIndex = {
     "en": {
@@ -41,34 +42,32 @@ let languageContentIndex = {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* DEFAULT LANGUAGE = ENGLISH */
+/* function checkLanguage() - checks localstorage for value, if null defaults to english */
 /**************************************************************************************************************************************************************************************/
 function checkLanguage() {
     let language = localStorage.getItem('language');
-    if (language===null) { // if it doesn't exist 
+    if (language===null) { // if it doesn't exist as preset 
         let lang='en'; // defaults to English
         localStorage.setItem('language', lang); // saves it
         console.log("Default language was null. Default language is now set to: "+lang); // displays message on console
     }
-    else { // otherwise... reads from memory
+    else { // otherwise... reads from memory preexisting value
         changeLanguage(localStorage.getItem('language')); // calls function to changeLanguage
         console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
     }
     activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE IS SET ON DOMcl
+/* DOMContentLoaded Listener :: CHECK LANGUAGE, LANGUAGE FLAGS, AND THEME
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-    checkTheme(); // on load checks which theme dark/light was predefined
 });
 /**************************************************************************************************************************************************************************************/ 
-/* activeLangFlag() = Toggle of active under the FlagElement */
+/* function activeLangFlag() = Toggle of class="active" on each of the Language Flag Elements */
 /**************************************************************************************************************************************************************************************/
 function activeLangFlag() {
-    // 
     if(localStorage.getItem('language')==='en') {
         document.getElementById("langIndexEN").classList.add("active");
         document.getElementById("langIndexPT").classList.remove("active");
@@ -79,7 +78,7 @@ function activeLangFlag() {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* FUNCTION changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
+/* function changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
 /**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
@@ -105,81 +104,52 @@ function changeLanguage(lang) {
             document.getElementById(key).textContent = languageContentIndex[lang][key];
     }
 
-    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
+    activeLangFlag(); // swaps the active lang flag
 }; 
 /**************************************************************************************************************************************************************************************/ 
-/* FORM FOR LOGIN */
+/* FORM FOR LOGIN LISTENER */ // index.html // <form id="loginForm" action="homepage.html">
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    
     // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
-    // index.html // <form id="loginForm" action="homepage.html">
     let form = document.getElementById('loginForm'); // obtains the loginForm
-
     // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
         let username = document.getElementById('username').value; // obtains username inserted text
         let errorElement = document.getElementById('errorLogin'); // obtains the error element for later message insertion
-        let errorMsg = 'Mandatory field';
-
+        let errorMsg = 'Mandatory field. Min. 6 letters.';
         if (localStorage.getItem('language')==='pt')
-            errorMsg='Campo obrigatório';  
+            errorMsg='Campo obrigatório. Min. 6 letras.';
 
-        if (username === "" || username === null) {
+        if (isUsernameInvalid(username) || isUsernameSmall(username)) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
             errorElement.innerText = errorMsg; // sets the error message
         } else {
             localStorage.setItem('username', username); // saves data into localStorage
             console.log("The user "+username+" has been added.");
             errorElement.innerText=""; // clear the error message 
-            
         }
     });
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
 });
-
 /**************************************************************************************************************************************************************************************/ 
-/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
+/* FUNCTION isUsernameInvalid(username) - checks if username is empty or null
 /**************************************************************************************************************************************************************************************/
-function changeTheme(theme) {
-    if (theme) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('theme', theme); // saves data into localStorage
-    }
-    checkTheme();
+function isUsernameInvalid(username) {
+    if (username === "" || username === null)
+        return true;
+    return false;
 };
 /**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
+/* FUNCTION isUsernameSmall(username) - checks if username is under 6 letters
 /**************************************************************************************************************************************************************************************/
-function checkTheme() {
-    let theme = localStorage.getItem('theme');
-
-    if (theme==='theme-dark') {
-        console.log("now dark");
-        document.body.classList.add('theme-dark');
-        document.body.classList.remove('theme-light');
-        
+function isUsernameSmall(username) {
+    if (username.length<6) {
+        console.log("username is smoll");
+        return true;
     }
-    if (theme==='theme-light') {
-        console.log("now light");
-        document.body.classList.add('theme-light');
-        document.body.classList.remove('theme-dark');
-        
-    }
+    return false;
 };
-/**************************************************************************************************************************************************************************************/ 
-/* FUNCTION validateUsername() - checks if the username has min 6 length && is alphanumeric (only a-z, A-Z, 0-9 allowed)
 /**************************************************************************************************************************************************************************************/
-/* to implement later
-function validateUsername() {
-    ; // insert code here to check for 6 letters min and alphanumeroc    
-}
-*/
-
-
-
-
-
+/**************************************************************************************************************************************************************************************/
 
 
 
