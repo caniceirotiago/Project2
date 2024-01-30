@@ -226,6 +226,9 @@ h4 {
     align-items: center;
     justify-items: center;
 }
+.header-list h4 {
+    padding: 18px 0px;
+}
 
 #col-todo-text, #col-doing-text, #col-done-text{
     flex-grow: 1;
@@ -467,13 +470,14 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 /*Estatisticas*/
 #task-bar-chart {
-    width: 25%; /* ou um valor específico maior */
-    height: 50px; /* altura maior para visibilidade */
+    width: 100px; /* ou um valor específico maior */
+    height: 20px; /* altura maior para visibilidade */
     display: flex;
     flex-direction: row;
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .task-bar {
