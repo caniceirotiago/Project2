@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         let targetElement = event.target;
-
+        //verifica qual o elemento pai que realmente corresponde ao um task-item
         while (targetElement != null && !targetElement.classList.contains('task-item')) {
             targetElement = targetElement.parentElement;
         }
