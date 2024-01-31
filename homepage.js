@@ -2,14 +2,16 @@
 /* Switch to strict mode to get more useful errors, when/if you make mistakes. */
 'use strict';
 
+import { setUsername } from "./username.js";
+
+/**************************************************************************************************************************************************************************************/ 
+/* SET USERNAME INTO HEADER  */
+/**************************************************************************************************************************************************************************************/ 
+setUsername();
 /**************************************************************************************************************************************************************************************/ 
 /* SET USERNAME INTO HEADER AND LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    let storedUsername = localStorage.getItem('username'); //
-    if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = storedUsername;
-    }
     document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
         const status = column.id;
         column.addEventListener('dragover', function(e) {
