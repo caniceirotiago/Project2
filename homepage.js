@@ -124,7 +124,7 @@ function createDragDropListener(itemList, task){
     });
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskToColumn - handles movint a task to another collumn */
+/* function moveTaskToColumn - handles movint a task to another collumn on drag and drop*/
 /**************************************************************************************************************************************************************************************/
 function moveTaskToColumn(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
@@ -142,7 +142,7 @@ function moveTaskToColumn(taskId, newStatus){
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskElement(task) ---- */
+/* function moveTaskElement(task) ---- handles movint a task to another collumn on drag and drop visual*/
 /**************************************************************************************************************************************************************************************/
 function moveTaskElement(task) {
     // Remover a tarefa da sua coluna atual
