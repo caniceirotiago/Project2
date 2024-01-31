@@ -74,9 +74,9 @@ function addTaskToRightList(task) {
     itemList.appendChild(contentDiv);
     
     /* Append Buttons to Task - with contextual relevance logic */
-    if (!(task.status === 'done')) { itemList.appendChild(nextButton); }
-    itemList.appendChild(delButton);
-    if (!(task.status === 'todo')) { itemList.appendChild(prevButton); }
+    if (!(task.status === 'done')) { itemList.appendChild(nextButton); } //this one is not added in right most column
+    itemList.appendChild(delButton); // this one is always added
+    if (!(task.status === 'todo')) { itemList.appendChild(prevButton); } //this one is not added in left most column
     
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
