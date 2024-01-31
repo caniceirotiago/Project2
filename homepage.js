@@ -90,7 +90,7 @@ function addTaskToRightList(task) {
     updateTaskCountView();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function createDragDropListener ---  ADD ACTION LISTENERS TO DRAG AND DROP - Specifically Drag and drop
+/* function createDragDropListener --- 'e',aka, event object -> `dataTransfer` property -> sets the data, of the element being dragged, as the `id` of the `task` object
 /**************************************************************************************************************************************************************************************/
 /* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
 function createDragDropListener(itemList, task){
