@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
-    ['todo', 'doing', 'done'].forEach(status => { //faz com que as listas recebam itens
-        const column = document.getElementById(status);
+    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
+        const status = column.id;
         column.addEventListener('dragover', function(e) {
             e.preventDefault(); // Permite o drop
         });
