@@ -56,7 +56,7 @@ function checkLanguage() {
     activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* DOMContentLoaded Listener :: CHECK LANGUAGE, LANGUAGE FLAGS, AND THEME
+/* DOMContentLoaded Listener :: CHECK LANGUAGE, LANGUAGE FLAGS
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded

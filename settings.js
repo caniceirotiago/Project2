@@ -4,25 +4,23 @@
 'use strict';
 
 import { setUsername } from "./username.js";
+import { listenerThemeBtns,loadTheme} from "./theme.js";
 
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER  */
+/* adds listener to theme buttons */
 /**************************************************************************************************************************************************************************************/ 
-setUsername();
-
+listenerThemeBtns(); // adds listener to the theme buttons
+/**************************************************************************************************************************************************************************************/ 
+/* DOMcl sets username, changes theme *** */
+/**************************************************************************************************************************************************************************************/ 
+document.addEventListener('DOMContentLoaded', function() {
+    setUsername(); // set username on loading
+    loadTheme(); // loads up the previously set theme
+});
 /**************************************************************************************************************************************************************************************/ 
 /* CHECK LANGUAGE IS SET ON DOMcl
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    const darkThemeButton = document.getElementById('dark-theme');
-    if (darkThemeButton) {
-        darkThemeButton.addEventListener('click', () => changeTheme('theme-dark'));
-    }
-
-    const lightThemeButton = document.getElementById('light-theme');
-    if (lightThemeButton) {
-        lightThemeButton.addEventListener('click', () => changeTheme('theme-light'));
-    }
 
     const langPT = document.getElementById('langIndexPT');
     const langEN = document.getElementById('langIndexEN');
@@ -36,10 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-    checkTheme(); // on load checks which theme dark/light was predefined
 });
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
@@ -129,38 +124,7 @@ function changeLanguage(lang) {
     }
     activeLangFlag();
 };
-/**************************************************************************************************************************************************************************************/ 
-/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
-/**************************************************************************************************************************************************************************************/
-function changeTheme(theme) {
-    if (theme) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('theme', theme); // saves data into localStorage
-    }
-    checkTheme();
-};
-/**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
-/**************************************************************************************************************************************************************************************/
-function checkTheme() {
-    let theme = localStorage.getItem('theme');
-    let darkBtn = document.getElementById('dark-theme');
-    let lightBtn = document.getElementById('light-theme');
 
-    if (theme==='theme-dark') {
-        console.log("now dark");
-        document.body.classList.add('theme-dark');
-        document.body.classList.remove('theme-light');
-        darkBtn.classList.add('active');
-        lightBtn.classList.remove('active');
-    }
-    if (theme==='theme-light') {
-        console.log("now light");
-        document.body.classList.add('theme-light');
-        document.body.classList.remove('theme-dark');
-        lightBtn.classList.add('active');
-        darkBtn.classList.remove('active');
-    }
-};
+
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
