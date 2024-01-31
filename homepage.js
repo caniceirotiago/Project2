@@ -155,25 +155,23 @@ function moveTaskElement(task) {
     addTaskToRightList(task);
 };
 /**************************************************************************************************************************************************************************************/ 
-/* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
+/* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Only on the task-item excluding buttons 
 /**************************************************************************************************************************************************************************************/
-/* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
 document.addEventListener('DOMContentLoaded', function() {
     const tasksContainer = document.querySelector('.mainBoard-tasks-container');
 
     tasksContainer.addEventListener('click', function(event) {
-        // Verificar se o clique foi diretamente em um botão
+        // Verificar se o clique foi diretamente num botão
         if (event.target.tagName === 'BUTTON'|| event.target.tagName === 'IMG') {
             return; // Não faz nada se um botão foi clicado, permitindo que o evento do botão seja processado
         }
 
         let targetElement = event.target;
 
-        // Subir na árvore do DOM até encontrar um task-item
         while (targetElement != null && !targetElement.classList.contains('task-item')) {
             targetElement = targetElement.parentElement;
         }
-        // Se um task-item foi clicado
+        // Se um task-item for clicado
         if (targetElement && targetElement.classList.contains('task-item')) {
             
             const taskId = targetElement.getAttribute('data-task-id');
