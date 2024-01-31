@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
             addRetrospective(date, presentMembers, comments); // adiciona uma task com o titulo e a descrição
             clearRetrospectivesList();
             loadRetrospectives();
-        }    
+        }   
     });
+    loadRetrospectives();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* function addRetrospective(date, presentMembers, comments) - // adiciona uma task com o titulo e a descrição */
