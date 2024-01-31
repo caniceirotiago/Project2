@@ -3,10 +3,8 @@
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER AND LOAD UPDATED TASKS */
+/* SET USERNAME INTO HEADER AND LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
 /**************************************************************************************************************************************************************************************/
-
-
 document.addEventListener('DOMContentLoaded', function() {
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
@@ -37,7 +35,7 @@ function loadTasks() {
     tasks.forEach(task => {
         addTaskToRightList(task); // para cada terefa chama ométodo para a adicionar à lista correta
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function addTaskToRightList - ADD TASKS TO THE RIGHT LIST */
 /**************************************************************************************************************************************************************************************/
@@ -53,22 +51,15 @@ function addTaskToRightList(task) {
     itemDescription.textContent = task.description;
     
     /* Creating the buttons */
-    const nextButton = document.createElement('button');
-    nextButton.textContent = '>';
-    const delButton = document.createElement('button');
-    const delIcon = document.createElement('img');
-    delIcon.src = "images/trashCanIcon.png";
-    delIcon.alt = 'del';
-    delButton.appendChild(delIcon);
-    const prevButton = document.createElement('button');
-    prevButton.textContent = '<';
+    const nextButton = createNextButton();
+    const delButton = createDelButton();
+    const prevButton = createPrevButton();
 
     /* Creating the button Listeners */
     createNextBtnListener(nextButton, task);
     createDelBtnListener(delButton, task);
     createPrevBtnListener(prevButton, task);
     createDragDropListener(itemList, task);
-
 
     /* Creating div's */
     const bannerDiv = document.createElement('div');
@@ -83,33 +74,61 @@ function addTaskToRightList(task) {
     itemList.appendChild(contentDiv);
     
     /* Append Buttons to Task - with contextual relevance logic */
-    if (!(task.status === 'done')) { itemList.appendChild(nextButton); }
-    itemList.appendChild(delButton);
-    if (!(task.status === 'todo')) { itemList.appendChild(prevButton); }
+    if (!(task.status === 'done')) { itemList.appendChild(nextButton); } //this one is not added in right most column
+    itemList.appendChild(delButton); // this one is always added
+    if (!(task.status === 'todo')) { itemList.appendChild(prevButton); } //this one is not added in left most column
     
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
     updateTaskCountView();
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
-/* ADD ACTION LISTENERS TO DRAG AND DROP - Specifically Drag and drop
+/* function createNextButton() - creates and returns the nextButton  */
+/**************************************************************************************************************************************************************************************/
+function createNextButton() {
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '>';
+
+    return nextButton;
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createDelButton() - creates and returns the delButton  */
+/**************************************************************************************************************************************************************************************/
+function createDelButton() {
+    const delButton = document.createElement('button');
+    const delIcon = document.createElement('img');
+    delIcon.src = "images/trashCanIcon.png";
+    delIcon.alt = 'del';
+    delButton.appendChild(delIcon);
+    
+    return delButton;
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createPrevButton() - creates and returns the prevButton  */
+/**************************************************************************************************************************************************************************************/
+function createPrevButton() {
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '<';
+
+    return prevButton;
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createDragDropListener --- 'e',aka, event object -> `dataTransfer` property -> sets the data, of the element being dragged, as the `id` of the `task` object
 /**************************************************************************************************************************************************************************************/
 /* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
-
 function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
     });
-
-}
-
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function moveTaskToColumn - handles movint a task to another collumn */
+/**************************************************************************************************************************************************************************************/
 function moveTaskToColumn(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
-     // Encontrar a tarefa pelo taskId
+    // Encontrar a tarefa pelo taskId
     let task = tasks.find(t => t.id === taskId);
     if (task) {
          // Atualizar o status da tarefa
@@ -119,7 +138,10 @@ function moveTaskToColumn(taskId, newStatus){
          // Mover a representação visual da tarefa para a coluna correta
         moveTaskElement(task);
     }
-}
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function moveTaskElement(task) ---- */
+/**************************************************************************************************************************************************************************************/
 function moveTaskElement(task) {
     // Remover a tarefa da sua coluna atual
     const existingElement = document.querySelector(`[data-task-id="${task.id}"]`);
@@ -129,9 +151,7 @@ function moveTaskElement(task) {
 
     // Adicionar a tarefa à nova coluna
     addTaskToRightList(task);
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
 /**************************************************************************************************************************************************************************************/
@@ -175,7 +195,7 @@ function createNextBtnListener(nextButton, task) {
         }
         moveTask(task, nextStatus);
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function createDelBtnListener - CREATES DEL BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - deleting the task if pressed + confirmed
 /**************************************************************************************************************************************************************************************/
@@ -185,7 +205,7 @@ function createDelBtnListener(delButton, task) {
             delTask(task);
         }
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function delConfirmation - Delete confirmation small box appears - boolean logic return value
 /**************************************************************************************************************************************************************************************/
@@ -197,7 +217,7 @@ function delConfirmation(){
         return false;
     }
     return true;
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function createPrevBtnListener - CREATES PREV BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to PREVIOUS column and saving/updating the display
 /**************************************************************************************************************************************************************************************/
@@ -214,7 +234,7 @@ function createPrevBtnListener(nextButton, task) {
         }
         moveTask(task, nextStatus);
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function delTask(task) - DELETES A TASK PASSED BY ARGUMENT - deletes task and saves/updatesthe display
 /**************************************************************************************************************************************************************************************/
@@ -225,7 +245,7 @@ function delTask(task) {
     }
     saveTasks(); // Saves Tasks, thus also updating the localStorage
     updateTaskCountView();
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function moveTask(task, nextStatus) - 
 /**************************************************************************************************************************************************************************************/
@@ -245,8 +265,6 @@ function moveTask(task, nextStatus) {
 /**************************************************************************************************************************************************************************************/ 
 /* function saveTasks() 
 /**************************************************************************************************************************************************************************************/
-
-
 function saveTasks() {
     const tasks = [];
     ['todo', 'doing', 'done'].forEach(status => {
@@ -264,7 +282,6 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
 /**************************************************************************************************************************************************************************************/ 
 /* CHECK LANGUAGE IS SET ON DOMcl
 /**************************************************************************************************************************************************************************************/
@@ -277,7 +294,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
 function activeLangFlag() {
-    // 
     if(localStorage.getItem('language')==='en') {
         document.getElementById("langIndexEN").classList.add("active");
         document.getElementById("langIndexPT").classList.remove("active");
@@ -318,7 +334,6 @@ let languageContent = { //hash table-map like structure
         "manage-backlog": "Backlog Manager",
         "select-sprint": "Sprint Selector",
         "project-settings": "Project Settings",
-
         "col-todo-text": "TO DO",
         "add-task-btn": "Add Task",
         "col-doing-text": "DOING",   
@@ -336,20 +351,20 @@ let languageContent = { //hash table-map like structure
         "manage-backlog": "Gestor de Tarefas Pendentes",
         "select-sprint": "Seletor de Sprint",
         "project-settings": "Definições do projeto",
-
-
         "col-todo-text": "PARA FAZER",
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
         "col-done-text": "FEITO",
-}
+    }
 };
+/**************************************************************************************************************************************************************************************/
+/* function changeLanguage(lang) */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
         localStorage.setItem('language', lang); // saves data into localStorage
     }
-
     for (let key in languageContent[lang]) {
         if (document.getElementById(key) === null) 
             continue;
@@ -359,28 +374,33 @@ function changeLanguage(lang) {
     }
     activeLangFlag();
 };
-
-
 /**************************************************************************************************************************************************************************************/
+/* function countTODOTasks() --- /*Contagem de tarefas da COLUNA TODO */
 /**************************************************************************************************************************************************************************************/
-
-/*Contagem de tarefas */
-
 function countTODOTasks(){
     const taskList = document.getElementById("todo");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function countDOINGTasks() --- /*Contagem de tarefas da COLUNA DOING */
+/**************************************************************************************************************************************************************************************/
 function countDOINGTasks(){
     const taskList = document.getElementById("doing");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function countDOINGTasks() --- /*Contagem de tarefas da COLUNA DONE */
+/**************************************************************************************************************************************************************************************/
 function countDONETasks(){
     const taskList = document.getElementById("done");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function updateTaskCountView() --- calls functions to count tasks for each collumn and places those values in correct place */
+/**************************************************************************************************************************************************************************************/
 function updateTaskCountView(){
     const todoCount = countTODOTasks();
     const doingCount = countDOINGTasks();
@@ -392,7 +412,10 @@ function updateTaskCountView(){
     document.getElementById("done-count").textContent = doneCount;
 
     updateBarChart(todoCount, doingCount, doneCount, totalCount);
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function updateBarCharttodo, doing, done, total --- sets the top right element task-bar-char with correct proportions (visually a progress bar) */
+/**************************************************************************************************************************************************************************************/
 function updateBarChart(todo, doing, done, total) {
     const barChart = document.getElementById('task-bar-chart');
     barChart.innerHTML = ''; // Limpa o conteúdo anterior
@@ -402,8 +425,10 @@ function updateBarChart(todo, doing, done, total) {
         barChart.appendChild(createBarElement('doing', (doing / total) * 100));
         barChart.appendChild(createBarElement('done', (done / total) * 100));
     }
-}
-
+};
+/**************************************************************************************************************************************************************************************/
+/* function createBarElement(className, widthPercent) --- creates the progress bar subelement - each subpice used by function updateBarChart
+/**************************************************************************************************************************************************************************************/
 function createBarElement(className, widthPercent) {
     const bar = document.createElement('div');
     bar.classList.add('task-bar', className);
@@ -412,11 +437,9 @@ function createBarElement(className, widthPercent) {
     bar.style.height = `${20}px`;
     bar.title = className; // título para teste
     return bar;
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
+/* check(theme) = Toggle according set of colours for ROOT element */
 /**************************************************************************************************************************************************************************************/
 function checkTheme() {
     let theme = localStorage.getItem('theme');
@@ -434,6 +457,5 @@ function checkTheme() {
         
     }
 };
-
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

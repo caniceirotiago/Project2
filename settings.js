@@ -76,7 +76,7 @@ let languageContent = {
         "nav-exit": "Exit",
         "theme":"Theme",
         "dark-theme": "Dark",
-        "white-theme": "White",
+        "light-theme": "Light",
     },
     "pt": {
         "nav-home": "Início",

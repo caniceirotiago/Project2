@@ -3,17 +3,18 @@
  when you make mistakes. */
 'use strict';
 
-
-/* SET USERNAME INTO HEADER  */
+/**************************************************************************************************************************************************************************************/ 
+/* SET USERNAME INTO HEADER */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
 });
-
-
-/*     */ 
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get('taskId');
@@ -30,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK PART II - Interactivity - EDITTASK.HTML - adds the EDIT button and it's responsiveness, on 'click' it enables editing */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-btn');
     const inputs = document.querySelectorAll('#taskForm input, #taskForm textarea');
@@ -42,18 +45,21 @@ document.addEventListener('DOMContentLoaded', function() {
         this.disabled = true; // Opcional: desabilita o botão Edit após o clique
     });
 });
-
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK  PART III - Save Changes  - EDITTASK.HTML - saves the task and returns to homepage */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.getElementById('taskForm');
 
     taskForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Previne o comportamento padrão de submissão do formulário
+        event.preventDefault(); // Previne o comportamento padrão de submissão do formulário ...
         saveTask();
         window.location.href = 'homepage.html';
     });
 });
-
-// Função para salvar a tarefa editada
+/**************************************************************************************************************************************************************************************/ 
+/* function saveTask() - saves the task into local storage ::: finds previous occurence, replaces it and resaves */
+/**************************************************************************************************************************************************************************************/
 function saveTask() {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get('taskId');
@@ -68,12 +74,9 @@ function saveTask() {
             taskToEdit.description = document.getElementById('description').value;
             // ... outros campos conforme necessário
         }
-
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function checkLanguage() - CHECKS PREVIOUSLY SET LANGUAGE OR DEFAULTS TO LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
@@ -89,7 +92,7 @@ function checkLanguage() {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE IS SET ON DOMcl
+/* CHECK LANGUAGE, activeLangFlag, checkTheme IS SET ON DOMcl - on document/page loading checks the language that was set, the language flag that needs to be underlined and the theme/color scheme */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
@@ -100,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
 function activeLangFlag() {
-    // 
     if(localStorage.getItem('language')==='en') {
         document.getElementById("langIndexEN").classList.add("active");
         document.getElementById("langIndexPT").classList.remove("active");
@@ -110,7 +112,6 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
@@ -141,6 +142,9 @@ let languageContent = {
         "save-task":"Salvar Tarefa",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* changeLanguage() = parses elements and translates them into appropriate lang + toggles the activeFlag underlined
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
@@ -156,7 +160,6 @@ function changeLanguage(lang) {
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* changeTheme(theme) = changes theme from on click and... calls the checkTheme
 /**************************************************************************************************************************************************************************************/
@@ -172,31 +175,19 @@ function changeTheme(theme) {
 /**************************************************************************************************************************************************************************************/
 function checkTheme() {
     let theme = localStorage.getItem('theme');
-
     if (theme==='theme-dark') {
         console.log("now dark");
         document.body.classList.add('theme-dark');
         document.body.classList.remove('theme-light');
-        
     }
     if (theme==='theme-light') {
         console.log("now light");
         document.body.classList.add('theme-light');
         document.body.classList.remove('theme-dark');
-        
     }
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
 
 
 
