@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (storedUsername) {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
-    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
+    document.querySelectorAll(".ul-tasks").forEach(column => { // Seleciona a classe para que seja mais fácil no futuro adicionar colunas
         const status = column.id;
         column.addEventListener('dragover', function(e) {
             e.preventDefault(); // Permite o drop
@@ -37,7 +37,7 @@ function loadTasks() {
     });
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function addTaskToRightList - ADD TASKS TO THE RIGHT LIST */
+/* function addTaskToRightList - ADD TASKS TO THE RIGHT LIST */ 
 /**************************************************************************************************************************************************************************************/
 function addTaskToRightList(task) {
     /* <li> list items */
@@ -211,7 +211,7 @@ function createDelBtnListener(delButton, task) {
 /**************************************************************************************************************************************************************************************/
 function delConfirmation(){
     let delConfirmMsg = 'Are you sure you want to delete this task?';
-    // (alternatives would be: alert ||prompt || [[modal popup (but those are annoying! please never use those))]]
+    // (alternatives would be: alert ||prompt || modal popup (but those are annoying! please never use those))
     let result = confirm(delConfirmMsg);
     if (result == false) {
         return false;
@@ -448,11 +448,13 @@ function checkTheme() {
         console.log("now dark");
         document.body.classList.add('theme-dark');
         document.body.classList.remove('theme-light');
+        
     }
     if (theme==='theme-light') {
         console.log("now light");
         document.body.classList.add('theme-light');
         document.body.classList.remove('theme-dark');
+        
     }
 };
 /**************************************************************************************************************************************************************************************/
