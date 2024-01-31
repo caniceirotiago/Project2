@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('usernameDisplay').textContent = storedUsername;
     }
 });
-
-
 /**************************************************************************************************************************************************************************************/ 
 /* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it */
 /**************************************************************************************************************************************************************************************/
@@ -54,12 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.getElementById('taskForm');
 
     taskForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Previne o comportamento padrão de submissão do formulário
+        event.preventDefault(); // Previne o comportamento padrão de submissão do formulário ...
         saveTask();
         window.location.href = 'homepage.html';
     });
 });
-
 /**************************************************************************************************************************************************************************************/ 
 /* function saveTask() - saves the task into local storage ::: finds previous occurence, replaces it and resaves */
 /**************************************************************************************************************************************************************************************/
@@ -77,12 +74,9 @@ function saveTask() {
             taskToEdit.description = document.getElementById('description').value;
             // ... outros campos conforme necessário
         }
-
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function checkLanguage() - CHECKS PREVIOUSLY SET LANGUAGE OR DEFAULTS TO LANGUAGE = ENGLISH */
 /**************************************************************************************************************************************************************************************/
@@ -109,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
 function activeLangFlag() {
-    // 
     if(localStorage.getItem('language')==='en') {
         document.getElementById("langIndexEN").classList.add("active");
         document.getElementById("langIndexPT").classList.remove("active");
@@ -119,7 +112,6 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
@@ -168,7 +160,6 @@ function changeLanguage(lang) {
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* changeTheme(theme) = changes theme from on click and... calls the checkTheme
 /**************************************************************************************************************************************************************************************/
@@ -184,31 +175,19 @@ function changeTheme(theme) {
 /**************************************************************************************************************************************************************************************/
 function checkTheme() {
     let theme = localStorage.getItem('theme');
-
     if (theme==='theme-dark') {
         console.log("now dark");
         document.body.classList.add('theme-dark');
         document.body.classList.remove('theme-light');
-        
     }
     if (theme==='theme-light') {
         console.log("now light");
         document.body.classList.add('theme-light');
         document.body.classList.remove('theme-dark');
-        
     }
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
-
-
-
-
-
-
-
-
-
 
 
 

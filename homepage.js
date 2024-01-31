@@ -3,10 +3,8 @@
 'use strict';
 
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER AND LOAD UPDATED TASKS */
+/* SET USERNAME INTO HEADER AND LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
 /**************************************************************************************************************************************************************************************/
-
-
 document.addEventListener('DOMContentLoaded', function() {
     let storedUsername = localStorage.getItem('username'); //
     if (storedUsername) {
@@ -37,7 +35,7 @@ function loadTasks() {
     tasks.forEach(task => {
         addTaskToRightList(task); // para cada terefa chama ométodo para a adicionar à lista correta
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function addTaskToRightList - ADD TASKS TO THE RIGHT LIST */
 /**************************************************************************************************************************************************************************************/
@@ -90,26 +88,24 @@ function addTaskToRightList(task) {
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
     updateTaskCountView();
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
-/* ADD ACTION LISTENERS TO DRAG AND DROP - Specifically Drag and drop
+/* function createDragDropListener ---  ADD ACTION LISTENERS TO DRAG AND DROP - Specifically Drag and drop
 /**************************************************************************************************************************************************************************************/
 /* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
-
 function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
     });
-
-}
-
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function moveTaskToColumn - handles movint a task to another collumn */
+/**************************************************************************************************************************************************************************************/
 function moveTaskToColumn(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
-     // Encontrar a tarefa pelo taskId
+    // Encontrar a tarefa pelo taskId
     let task = tasks.find(t => t.id === taskId);
     if (task) {
          // Atualizar o status da tarefa
@@ -119,7 +115,10 @@ function moveTaskToColumn(taskId, newStatus){
          // Mover a representação visual da tarefa para a coluna correta
         moveTaskElement(task);
     }
-}
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function moveTaskElement(task) ---- */
+/**************************************************************************************************************************************************************************************/
 function moveTaskElement(task) {
     // Remover a tarefa da sua coluna atual
     const existingElement = document.querySelector(`[data-task-id="${task.id}"]`);
@@ -129,9 +128,7 @@ function moveTaskElement(task) {
 
     // Adicionar a tarefa à nova coluna
     addTaskToRightList(task);
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Specifically in the buttons
 /**************************************************************************************************************************************************************************************/
@@ -175,7 +172,7 @@ function createNextBtnListener(nextButton, task) {
         }
         moveTask(task, nextStatus);
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function createDelBtnListener - CREATES DEL BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - deleting the task if pressed + confirmed
 /**************************************************************************************************************************************************************************************/
@@ -245,8 +242,6 @@ function moveTask(task, nextStatus) {
 /**************************************************************************************************************************************************************************************/ 
 /* function saveTasks() 
 /**************************************************************************************************************************************************************************************/
-
-
 function saveTasks() {
     const tasks = [];
     ['todo', 'doing', 'done'].forEach(status => {
@@ -264,7 +259,6 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-
 /**************************************************************************************************************************************************************************************/ 
 /* CHECK LANGUAGE IS SET ON DOMcl
 /**************************************************************************************************************************************************************************************/
@@ -318,7 +312,6 @@ let languageContent = { //hash table-map like structure
         "manage-backlog": "Backlog Manager",
         "select-sprint": "Sprint Selector",
         "project-settings": "Project Settings",
-
         "col-todo-text": "TO DO",
         "add-task-btn": "Add Task",
         "col-doing-text": "DOING",   
@@ -336,14 +329,15 @@ let languageContent = { //hash table-map like structure
         "manage-backlog": "Gestor de Tarefas Pendentes",
         "select-sprint": "Seletor de Sprint",
         "project-settings": "Definições do projeto",
-
-
         "col-todo-text": "PARA FAZER",
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
         "col-done-text": "FEITO",
 }
 };
+/**************************************************************************************************************************************************************************************/
+/* function changeLanguage(lang) */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
@@ -359,13 +353,9 @@ function changeLanguage(lang) {
     }
     activeLangFlag();
 };
-
-
 /**************************************************************************************************************************************************************************************/
+/* function countTODOTasks() --- /*Contagem de tarefas */
 /**************************************************************************************************************************************************************************************/
-
-/*Contagem de tarefas */
-
 function countTODOTasks(){
     const taskList = document.getElementById("todo");
     let nOfTasks = taskList.childElementCount
