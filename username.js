@@ -12,3 +12,17 @@ export function setUsername(){
         }
     });
 };
+
+
+/*
+Requires: on .html -> both need to be type="module"
+<script defer src="homepage.js" type="module"></script>
+<script defer src="username.js" type="module"></script>
+
+Requires on *main*.js
+import { setUsername } from "./username.js";
+...
+setUsername();
+
+
+*/
