@@ -101,7 +101,6 @@ function changeLanguage(lang) {
         else
             document.getElementById(key).textContent = languageContentIndex[lang][key];
     }
-
     activeLangFlag(); // swaps the active lang flag
 }; 
 /**************************************************************************************************************************************************************************************/ 

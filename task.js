@@ -3,7 +3,9 @@
  when you make mistakes. */
 'use strict';
 
-/* TASK SUBMISSION */
+/**************************************************************************************************************************************************************************************/ 
+/*  TASK SUBMISSION */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('taskForm'); // obtem o forumulário de criação de uma task!
     form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
@@ -16,7 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }    
     });
 });
+/**************************************************************************************************************************************************************************************/ 
 /* TASK CREATION */
+/**************************************************************************************************************************************************************************************/
 function addTask(title, description) { // adiciona uma task com o titulo e a descrição
     let task = { // cria um objeto task
         id: getNextTaskId(),
@@ -27,16 +31,18 @@ function addTask(title, description) { // adiciona uma task com o titulo e a des
     let tasks = JSON.parse(localStorage.getItem('tasks')) || []; // obtem as tasks do localStorage
     tasks.push(task); // adiciona a task ao array de tasks
     localStorage.setItem('tasks', JSON.stringify(tasks)); // guarda as tasks no localStorage
-}
-
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function getNextTaskId() */
+/**************************************************************************************************************************************************************************************/
 function getNextTaskId() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const maxId = tasks.reduce((max, task) => Math.max(max, task.id || 0), 0);
     return maxId + 1;
-}
-
-
+};
+/**************************************************************************************************************************************************************************************/ 
 /* SET USERNAME INTO HEADER  */
+/**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
@@ -79,7 +85,6 @@ function activeLangFlag() {
         document.getElementById("langIndexEN").classList.remove("active");
     }
 };
-
 /**************************************************************************************************************************************************************************************/
  /* LANGUAGE SETTINGS */
  /* Content switching according to */
@@ -112,6 +117,9 @@ let languageContent = {
         "save-task":"Salvar Tarefa",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* changeLanguage(lang) = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
@@ -129,7 +137,6 @@ function changeLanguage(lang) {
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
 };
-
 /**************************************************************************************************************************************************************************************/ 
 /* changeTheme(theme) = changes theme from on click and... calls the checkTheme
 /**************************************************************************************************************************************************************************************/

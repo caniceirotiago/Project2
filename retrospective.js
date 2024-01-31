@@ -3,8 +3,9 @@
  when you make mistakes. */
 'use strict';
 
-
-/* TASK SUBMISSION*/
+/**************************************************************************************************************************************************************************************/ 
+/* TASK SUBMISSION LISTENER  - For the ADD RETROSPECTIVE FORM*/
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
      var form = document.getElementById('retrospectiveForm'); // obtem o forumulário de criação de uma task!
      form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
@@ -19,8 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }    
     });
 });
-/* Retrospective CREATION*/
- function addRetrospective(date, presentMembers, comments) { // adiciona uma task com o titulo e a descrição
+/**************************************************************************************************************************************************************************************/ 
+/* function addRetrospective(date, presentMembers, comments) - // adiciona uma task com o titulo e a descrição */
+/**************************************************************************************************************************************************************************************/
+function addRetrospective(date, presentMembers, comments) { // adiciona uma task com o titulo e a descrição
      let retrospective = { // cria um objeto task
         id: getNextRetrospectiveId(),
         date: date,
@@ -30,21 +33,24 @@ document.addEventListener('DOMContentLoaded', function() {
      let retrospectives = JSON.parse(localStorage.getItem('retrospectives')) || []; // obtem as tasks do localStorage
      retrospectives.push(retrospective); // adiciona a task ao array de tasks
      localStorage.setItem('retrospectives', JSON.stringify(retrospectives)); // guarda as tasks no localStorage
-}
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function getNextRetrospectiveId() - gets the place where the next one will be inserted */
+/**************************************************************************************************************************************************************************************/
 function getNextRetrospectiveId() {
     const retrospectives = JSON.parse(localStorage.getItem('retrospectives')) || [];
     const maxId = retrospectives.reduce((max, retrospective) => Math.max(max, retrospective.id || 0), 0);
     return maxId + 1;
-}
+};
 /**************************************************************************************************************************************************************************************/ 
-/* function loadTasks - LOAD ALL TASKS */
+/* function loadRetrospectives - LOAD ALL Retrospectives */
 /**************************************************************************************************************************************************************************************/
 function loadRetrospectives() {
     const retrospectives = JSON.parse(localStorage.getItem('retrospectives')) || [];// vai buscar as tarefas gravadas anteriormente
     retrospectives.forEach(retrospective => {
         addRetrospectiveToList(retrospective); // para cada terefa chama ométodo para a adicionar à lista correta
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function addTaskToRightList - ADD TASKS TO THE RIGHT LIST */
 /**************************************************************************************************************************************************************************************/
@@ -59,7 +65,6 @@ function addRetrospectiveToList(retrospective) {
     presentMembers.textContent = retrospective.presentMembers;
     const comments = document.createElement('p');
     comments.textContent = retrospective.comments;
-    
 
     /* Append Title and Description to Task */
     itemList.appendChild(itemDate);
@@ -69,15 +74,19 @@ function addRetrospectiveToList(retrospective) {
     
     /* Add Task to correct List */
     document.getElementById("historic-retrospectives-list").appendChild(itemList);
-}
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function clearRetrospectivesList() - clears */
+/**************************************************************************************************************************************************************************************/
 function clearRetrospectivesList() {
     const list = document.getElementById("historic-retrospectives-list");
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
-}
-
- /* SET USERNAME INTO HEADER  */
+};
+/**************************************************************************************************************************************************************************************/ 
+/*  /* SET USERNAME INTO HEADER  */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
@@ -157,6 +166,9 @@ let languageContent = {
         "input-save-retro":"Guardar Retrospetiva",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* function changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
         localStorage.setItem('language', lang); // saves data into localStorage
