@@ -182,7 +182,7 @@ function createDelBtnListener(delButton, task) {
             delTask(task);
         }
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function delConfirmation - Delete confirmation small box appears - boolean logic return value
 /**************************************************************************************************************************************************************************************/
@@ -194,7 +194,7 @@ function delConfirmation(){
         return false;
     }
     return true;
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function createPrevBtnListener - CREATES PREV BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to PREVIOUS column and saving/updating the display
 /**************************************************************************************************************************************************************************************/
@@ -211,7 +211,7 @@ function createPrevBtnListener(nextButton, task) {
         }
         moveTask(task, nextStatus);
     });
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function delTask(task) - DELETES A TASK PASSED BY ARGUMENT - deletes task and saves/updatesthe display
 /**************************************************************************************************************************************************************************************/
@@ -222,7 +222,7 @@ function delTask(task) {
     }
     saveTasks(); // Saves Tasks, thus also updating the localStorage
     updateTaskCountView();
-}
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function moveTask(task, nextStatus) - 
 /**************************************************************************************************************************************************************************************/
@@ -271,7 +271,6 @@ document.addEventListener('DOMContentLoaded', function() {
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
 function activeLangFlag() {
-    // 
     if(localStorage.getItem('language')==='en') {
         document.getElementById("langIndexEN").classList.add("active");
         document.getElementById("langIndexPT").classList.remove("active");
@@ -333,7 +332,7 @@ let languageContent = { //hash table-map like structure
         "add-task-btn": "Adicionar Tarefa",
         "col-doing-text": "EM CURSO",
         "col-done-text": "FEITO",
-}
+    }
 };
 /**************************************************************************************************************************************************************************************/
 /* function changeLanguage(lang) */
@@ -343,7 +342,6 @@ function changeLanguage(lang) {
         // set no local storage.............. gravar lá
         localStorage.setItem('language', lang); // saves data into localStorage
     }
-
     for (let key in languageContent[lang]) {
         if (document.getElementById(key) === null) 
             continue;
@@ -354,23 +352,32 @@ function changeLanguage(lang) {
     activeLangFlag();
 };
 /**************************************************************************************************************************************************************************************/
-/* function countTODOTasks() --- /*Contagem de tarefas */
+/* function countTODOTasks() --- /*Contagem de tarefas da COLUNA TODO */
 /**************************************************************************************************************************************************************************************/
 function countTODOTasks(){
     const taskList = document.getElementById("todo");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function countDOINGTasks() --- /*Contagem de tarefas da COLUNA DOING */
+/**************************************************************************************************************************************************************************************/
 function countDOINGTasks(){
     const taskList = document.getElementById("doing");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function countDOINGTasks() --- /*Contagem de tarefas da COLUNA DONE */
+/**************************************************************************************************************************************************************************************/
 function countDONETasks(){
     const taskList = document.getElementById("done");
     let nOfTasks = taskList.childElementCount
     return nOfTasks;
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function updateTaskCountView() --- calls functions to count tasks for each collumn and places those values in correct place */
+/**************************************************************************************************************************************************************************************/
 function updateTaskCountView(){
     const todoCount = countTODOTasks();
     const doingCount = countDOINGTasks();
@@ -382,7 +389,10 @@ function updateTaskCountView(){
     document.getElementById("done-count").textContent = doneCount;
 
     updateBarChart(todoCount, doingCount, doneCount, totalCount);
-}
+};
+/**************************************************************************************************************************************************************************************/
+/* function updateBarCharttodo, doing, done, total --- sets the top right element task-bar-char with correct proportions (visually a progress bar) */
+/**************************************************************************************************************************************************************************************/
 function updateBarChart(todo, doing, done, total) {
     const barChart = document.getElementById('task-bar-chart');
     barChart.innerHTML = ''; // Limpa o conteúdo anterior
@@ -392,8 +402,10 @@ function updateBarChart(todo, doing, done, total) {
         barChart.appendChild(createBarElement('doing', (doing / total) * 100));
         barChart.appendChild(createBarElement('done', (done / total) * 100));
     }
-}
-
+};
+/**************************************************************************************************************************************************************************************/
+/* function createBarElement(className, widthPercent) --- creates the progress bar subelement - each subpice used by function updateBarChart
+/**************************************************************************************************************************************************************************************/
 function createBarElement(className, widthPercent) {
     const bar = document.createElement('div');
     bar.classList.add('task-bar', className);
@@ -402,11 +414,9 @@ function createBarElement(className, widthPercent) {
     bar.style.height = `${20}px`;
     bar.title = className; // título para teste
     return bar;
-}
-
-
+};
 /**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
+/* check(theme) = Toggle according set of colours for ROOT element */
 /**************************************************************************************************************************************************************************************/
 function checkTheme() {
     let theme = localStorage.getItem('theme');
@@ -424,6 +434,5 @@ function checkTheme() {
         
     }
 };
-
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
