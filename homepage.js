@@ -51,22 +51,15 @@ function addTaskToRightList(task) {
     itemDescription.textContent = task.description;
     
     /* Creating the buttons */
-    const nextButton = document.createElement('button');
-    nextButton.textContent = '>';
-    const delButton = document.createElement('button');
-    const delIcon = document.createElement('img');
-    delIcon.src = "images/trashCanIcon.png";
-    delIcon.alt = 'del';
-    delButton.appendChild(delIcon);
-    const prevButton = document.createElement('button');
-    prevButton.textContent = '<';
+    const nextButton = createNextButton();
+    const delButton = createDelButton();
+    const prevButton = createPrevButton();
 
     /* Creating the button Listeners */
     createNextBtnListener(nextButton, task);
     createDelBtnListener(delButton, task);
     createPrevBtnListener(prevButton, task);
     createDragDropListener(itemList, task);
-
 
     /* Creating div's */
     const bannerDiv = document.createElement('div');
@@ -88,6 +81,36 @@ function addTaskToRightList(task) {
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
     updateTaskCountView();
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createNextButton() - creates and returns the nextButton  */
+/**************************************************************************************************************************************************************************************/
+function createNextButton() {
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '>';
+
+    return nextButton;
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createDelButton() - creates and returns the delButton  */
+/**************************************************************************************************************************************************************************************/
+function createDelButton() {
+    const delButton = document.createElement('button');
+    const delIcon = document.createElement('img');
+    delIcon.src = "images/trashCanIcon.png";
+    delIcon.alt = 'del';
+    delButton.appendChild(delIcon);
+    
+    return delButton;
+};
+/**************************************************************************************************************************************************************************************/ 
+/* function createPrevButton() - creates and returns the prevButton  */
+/**************************************************************************************************************************************************************************************/
+function createPrevButton() {
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '<';
+
+    return prevButton;
 };
 /**************************************************************************************************************************************************************************************/ 
 /* function createDragDropListener --- 'e',aka, event object -> `dataTransfer` property -> sets the data, of the element being dragged, as the `id` of the `task` object
