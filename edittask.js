@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /**************************************************************************************************************************************************************************************/ 
-/* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it
+/* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 /**************************************************************************************************************************************************************************************/ 
-/* DISPLAY TASK PART II - Interactivity - EDITTASK.HTML - adds the EDIT button and it's responsiveness, on 'click' it enables editing
+/* DISPLAY TASK PART II - Interactivity - EDITTASK.HTML - adds the EDIT button and it's responsiveness, on 'click' it enables editing */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-btn');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 /**************************************************************************************************************************************************************************************/ 
-/* DISPLAY TASK  PART III - Save Changes  - EDITTASK.HTML - saves the task and returns to homepage
+/* DISPLAY TASK  PART III - Save Changes  - EDITTASK.HTML - saves the task and returns to homepage */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.getElementById('taskForm');
@@ -60,7 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para salvar a tarefa editada
+/**************************************************************************************************************************************************************************************/ 
+/* function saveTask() - saves the task into local storage ::: finds previous occurence, replaces it and resaves */
+/**************************************************************************************************************************************************************************************/
 function saveTask() {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get('taskId');
@@ -96,7 +98,7 @@ function checkLanguage() {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE IS SET ON DOMcl
+/* CHECK LANGUAGE, activeLangFlag, checkTheme IS SET ON DOMcl - on document/page loading checks the language that was set, the language flag that needs to be underlined and the theme/color scheme */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
@@ -148,6 +150,9 @@ let languageContent = {
         "save-task":"Salvar Tarefa",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* changeLanguage() = parses elements and translates them into appropriate lang + toggles the activeFlag underlined
+/**************************************************************************************************************************************************************************************/
 function changeLanguage(lang) {
     if (lang) {
          localStorage.setItem('language', lang); // saves data into localStorage
