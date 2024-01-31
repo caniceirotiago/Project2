@@ -14,10 +14,32 @@ setUsername();
 /* CHECK LANGUAGE IS SET ON DOMcl
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
+    const darkThemeButton = document.getElementById('dark-theme');
+    if (darkThemeButton) {
+        darkThemeButton.addEventListener('click', () => changeTheme('theme-dark'));
+    }
+
+    const lightThemeButton = document.getElementById('light-theme');
+    if (lightThemeButton) {
+        lightThemeButton.addEventListener('click', () => changeTheme('theme-light'));
+    }
+
+    const langPT = document.getElementById('langIndexPT');
+    const langEN = document.getElementById('langIndexEN');
+
+    if (langPT) {
+        langPT.addEventListener('click', () => changeLanguage('pt'));
+    }
+
+    if (langEN) {
+        langEN.addEventListener('click', () => changeLanguage('en'));
+    }
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
     checkTheme(); // on load checks which theme dark/light was predefined
 });
+
+
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
 /**************************************************************************************************************************************************************************************/
