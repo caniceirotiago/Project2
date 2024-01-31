@@ -3,8 +3,9 @@
  when you make mistakes. */
 'use strict';
 
-
-/* SET USERNAME INTO HEADER  */
+/**************************************************************************************************************************************************************************************/ 
+/* SET USERNAME INTO HEADER */
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     var storedUsername = localStorage.getItem('username');
     if (storedUsername) {
@@ -13,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-/*     */ 
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const taskId = urlParams.get('taskId');
@@ -30,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK PART II - Interactivity - EDITTASK.HTML - adds the EDIT button and it's responsiveness, on 'click' it enables editing
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-btn');
     const inputs = document.querySelectorAll('#taskForm input, #taskForm textarea');
@@ -42,7 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
         this.disabled = true; // Opcional: desabilita o botão Edit após o clique
     });
 });
-
+/**************************************************************************************************************************************************************************************/ 
+/* DISPLAY TASK  PART III - Save Changes  - EDITTASK.HTML - saves the task and returns to homepage
+/**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.getElementById('taskForm');
 
