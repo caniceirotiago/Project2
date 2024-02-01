@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /*  PlaceHolder desapear */
 /**************************************************************************************************************************************************************************************/
 document.getElementById('title').addEventListener('click', function() {
-    this.value = '';
+ 
 });
 
 document.getElementById('description').addEventListener('click', function() {

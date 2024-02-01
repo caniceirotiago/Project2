@@ -130,7 +130,7 @@ export let languageContent = {
         "label-description":"Description",
         "description":"Insert Task Description",
         "save-task":"Save Task",
-        "cancel-edit":"Cancel",
+        "cancel-edit":"Back",
         // task.html
         "title":"Insert title",
         // retrospective.html
@@ -191,48 +191,20 @@ export let languageContent = {
         "label-description":"Descrição",
         "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
-        "cancel-edit":"Cancelar",
-        // task.html
-        "title":"Inserir título",
-        // retrospective.html
-        "hist-retro":"Retrospectivas históricas",
-        "add-retro":"Adicionar Retrospetiva",
-        "label-date-retro":"Data",
-        "label-pres-retro":"Membros presentes",
-        "pres-TA-retro":"Inserir membros presentes",
-        "label-comment-retro":"Comentários",
-        "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
-        "input-save-retro":"Guardar Retrospetiva",
-        // homepage.html
-        "create-project": "Criar projeto",
-        "select-project": "Selecionar projeto",
-        "manage-backlog": "Gestor de Tarefas Pendentes",
-        "select-sprint": "Seletor de Sprint",
-        "project-settings": "Definições do projeto",
-        "col-todo-text": "PARA FAZER",
-        "add-task-btn": "Adicionar Tarefa",
-        "col-doing-text": "EM CURSO",
-        "col-done-text": "FEITO",
-        "project-name": "Projeto: Nome",
-        "sprint-name": "Sprint: Nome",
-        "sprint-progress": "Progresso do Sprint:",
+        "cancel-edit":"Retroceder",
     }
 };
+/**************************************************************************************************************************************************************************************/ 
+/* changeLanguage(lang) = Toggle of underline under the FlagElement */
+/**************************************************************************************************************************************************************************************/
+export function changeLanguage(lang) {
+    if (lang) {
+        // set no local storage.............. gravar lá
+        localStorage.setItem('language', lang); // saves data into localStorage
+    }
 
-//if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).placeholder === 'Insert Title')
-//document.getElementById(key).placeholder = languageContent[lang][key];
-// conditional: extra special case <input> element for the 'Save Task' button
-//if(document.getElementById(key).tagName.toLowerCase() === 'input')
-//    document.getElementById(key).value = languageContent[lang][key];
-
-
-/*
-for (let key in languageContentIndex[lang]) { // all the normal ones
-        let username = document.getElementById('username').value; //obtem o username do campo correspondente
-        let errorElement = document.getElementById('errorLogin'); // error login
-        // conditional: special case <input> elements
-        if (key==='errorLogin' && (username === "" || username === null) ) {
-            errorElement.innerText=""; // clear the error message 
+    for (let key in languageContent[lang]) {
+        if (document.getElementById(key) === null) 
             continue;
         }
         if (document.getElementById(key).tagName.toLowerCase() === 'input')

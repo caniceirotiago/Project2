@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-btn');
-    const inputs = document.querySelectorAll('#taskForm input, #taskForm textarea');
+    const inputs = document.querySelectorAll('#taskForm-viewer-edition input, #taskForm-viewer-edition textarea');
 
     editButton.addEventListener('click', function() {
         inputs.forEach(function(input) {
@@ -54,12 +54,17 @@ document.addEventListener('DOMContentLoaded', function() {
 /* DISPLAY TASK  PART III - Save Changes  - EDITTASK.HTML - saves the task and returns to homepage */
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
-    const taskForm = document.getElementById('taskForm');
+    const taskForm = document.getElementById('taskForm-viewer-edition');
 
     taskForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Previne o comportamento padrão de submissão do formulário ...
         saveTask();
-        window.location.href = 'homepage.html';
+        const inputs = document.querySelectorAll('#taskForm-viewer-edition input, #taskForm-viewer-edition textarea');
+        inputs.forEach(function(input) {
+            input.disabled = true;
+        });
+        const editButton = document.getElementById('edit-btn');
+        editButton.disabled = false;
     });
 });
 /**************************************************************************************************************************************************************************************/ 
