@@ -115,7 +115,7 @@ export let languageContent = {
         "nav-retro": "Retrospective",
         "nav-sett": "Settings",
         "nav-copy": "Copyright",
-        "nav-exit": "Exit",
+        "nav-exit": "Logout",
         "theme":"Theme",
         // settings.html
         "dark-theme": "Dark",
@@ -197,7 +197,8 @@ export let languageContent = {
 /**************************************************************************************************************************************************************************************/ 
 /* changeLanguage(lang) = Toggle of underline under the FlagElement */
 /**************************************************************************************************************************************************************************************/
-export function changeLanguage(lang) {
+
+/*export function changeLanguage(lang) {
     if (lang) {
         // set no local storage.............. gravar lá
         localStorage.setItem('language', lang); // saves data into localStorage
