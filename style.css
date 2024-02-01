@@ -515,9 +515,10 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .main-settings{
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items:center;
+    align-items: center;
+    justify-content:baseline;
 }
 .mainBoard-settings{
     display: flex;
