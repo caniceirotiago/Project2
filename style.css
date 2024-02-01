@@ -385,14 +385,18 @@ ul {
 
 .retrospective-main{
     display: flex;
+    flex-direction: column;
+    height: calc(100% - 90px); /* Ajuste para ocupar a altura total disponÃ­vel */
+    width: 99%;
+    align-self: center;
+    margin: 5px 0px;
+    display: flex;
     flex-direction: row;
-    height: 100%;
     flex-grow: 1;
-    gap: 55px;
-    height: 100%;
+    gap: 15px;
 }
 .historic-retrospectives{
-    height: 80%;
+    height: 100%;
 }
 .mainRetrospectivesForm{
     flex: 1;
