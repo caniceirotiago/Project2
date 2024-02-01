@@ -4,13 +4,16 @@
 
 import { setUsername } from "./username.js";
 import { loadTheme} from "./theme.js";
+import { listenerLanguageBtns, underlineLangFlag } from "./language.js";
 
+listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
 /* DOMcl sets username, changes theme *** */
 /**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
     setUsername(); // set username on loading
     loadTheme(); // loads up the previously set theme
+    underlineLangFlag();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
@@ -286,97 +289,6 @@ function saveTasks() {
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
-/**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE IS SET ON DOMcl
-/**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
-    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-});
-/**************************************************************************************************************************************************************************************/ 
-/* activeLangFlag() = Toggle of active under the FlagElement */
-/**************************************************************************************************************************************************************************************/
-function activeLangFlag() {
-    if(localStorage.getItem('language')==='en') {
-        document.getElementById("langIndexEN").classList.add("active");
-        document.getElementById("langIndexPT").classList.remove("active");
-    }
-    if(localStorage.getItem('language')==='pt') {
-        document.getElementById("langIndexPT").classList.add("active");
-        document.getElementById("langIndexEN").classList.remove("active");
-    }
-};
-/**************************************************************************************************************************************************************************************/ 
-/* DEFAULT LANGUAGE = ENGLISH */
-/**************************************************************************************************************************************************************************************/
-function checkLanguage() {
-   if (localStorage.getItem('language')===null) { // if it doesn't exist 
-       let lang='en'; // set it to English
-       localStorage.setItem('language', lang); // save it
-        console.log("Default language was null. Default language is now set to: "+lang);
-    }
-   else { // otherwise...
-        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
-        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
-    }
-};
-/**************************************************************************************************************************************************************************************/
-/* LANGUAGE SETTINGS */
-/* Content switching according to */
-/**************************************************************************************************************************************************************************************/
-let languageContent = { //hash table-map like structure
-    "en": {
-        "nav-home": "Homepage",
-        "nav-retro": "Retrospective",
-        "nav-sett": "Settings",
-        "nav-copy": "Copyright",
-        "nav-exit": "Exit",
-        "col-leftMenu-text": "MENU",
-        "create-project": "Create Project",
-        "select-project": "Select Project",
-        "manage-backlog": "Backlog Manager",
-        "select-sprint": "Sprint Selector",
-        "project-settings": "Project Settings",
-        "col-todo-text": "TO DO",
-        "add-task-btn": "Add Task",
-        "col-doing-text": "DOING",   
-        "col-done-text": "DONE",
-    },
-    "pt": {
-        "nav-home": "Início",
-        "nav-retro": "Retrospetiva",
-        "nav-sett": "Definições",
-        "nav-copy": "Direitos de autor",
-        "nav-exit": "Sair",
-        "col-leftMenu-text": "MENU",
-        "create-project": "Criar projeto",
-        "select-project": "Selecionar projeto",
-        "manage-backlog": "Gestor de Tarefas Pendentes",
-        "select-sprint": "Seletor de Sprint",
-        "project-settings": "Definições do projeto",
-        "col-todo-text": "PARA FAZER",
-        "add-task-btn": "Adicionar Tarefa",
-        "col-doing-text": "EM CURSO",
-        "col-done-text": "FEITO",
-    }
-};
-/**************************************************************************************************************************************************************************************/
-/* function changeLanguage(lang) */
-/**************************************************************************************************************************************************************************************/
-function changeLanguage(lang) {
-    if (lang) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('language', lang); // saves data into localStorage
-    }
-    for (let key in languageContent[lang]) {
-        if (document.getElementById(key) === null) 
-            continue;
-        else {
-            document.getElementById(key).innerHTML = languageContent[lang][key];
-        }
-    }
-    activeLangFlag();
-};
 /**************************************************************************************************************************************************************************************/
 /* function countTODOTasks() --- /*Contagem de tarefas da COLUNA TODO */
 /**************************************************************************************************************************************************************************************/

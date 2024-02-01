@@ -9,6 +9,7 @@
     <script defer src="homepage.js" type="module"></script>
     <script defer src="username.js" type="module"></script>
     <script defer src="theme.js" type="module"></script>
+    <script defer src="language.js" type="module"></script>
     <title>Homepage - AntNest</title>
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
 </head>
@@ -27,8 +28,8 @@
         <!------------------ Language Flags ------------------------------------>
         <div class="top-right-flags" id="langFlag">
             <ul>
-                <li><a id="langIndexPT" onclick = "changeLanguage('pt')">PT</a></li>
-                <li><a id="langIndexEN" onclick = "changeLanguage('en')">EN</a></li>
+                <li><a id="langIndexPT">PT</a></li>
+                <li><a id="langIndexEN">EN</a></li>
             </ul>
         </div> 
         <!------------------ Username ------------------------------------>
@@ -49,9 +50,9 @@
             <div class="right-container">
                 <!------------------ Row with statistics/ Progression Bar -------------------------------->
                 <div class="horizontal-section">
-                    <h3>Project: Name</h3>
-                    <h4>Sprint: Name</h4>
-                    <h4>Sprint Progress:</h4>
+                    <h3 id="project-name">Project: Name</h3>
+                    <h4 id="sprint-name">Sprint: Name</h4>
+                    <h4 id="sprint-progress">Sprint Progress:</h4>
                     <div id="task-bar-chart"></div>
                 </div>
                 <!------------------ Columns TODO - Content added by .js  -------------------------------->
