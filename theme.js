@@ -56,12 +56,21 @@ export function changeTheme(theme) {
 /**************************************************************************************************************************************************************************************/
 export function loadTheme() {
     let theme= localStorage.getItem('theme');
+
+    if (theme===null) { // if it doesn't exist
+        let theme = 'theme-light'; // set it to theme-light
+        localStorage.setItem('theme', theme); // save it
+        console.log("Default theme was null. Default language is now set to: " + theme);
+    }
+
     if (theme) {
         // set no local storage.............. gravar lá
         localStorage.setItem('theme',theme); // saves data into localStorage
     }
     toggleTheme();
 };
+
+
 
 
 /*

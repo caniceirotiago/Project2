@@ -77,6 +77,9 @@ export function changeLanguage(lang) {
         else if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input
             document.getElementById(key).value = languageContent[lang][key];
         }
+        else if (isInputDeleteAccount(key)) {
+            document.getElementById(key).value = languageContent[lang][key];
+        }
         else if (document.getElementById(key).tagName.toLowerCase() === 'input') {
             document.getElementById(key).placeholder = languageContent[lang][key];
         }
@@ -96,6 +99,16 @@ function isTextAreaElement(key) {
 }
 
 
+/**************************************************************************************************************************************************************************************/ 
+/* function isInputSaveTaskAnyLang(key) - very specific case for input element in edittask.html
+/**************************************************************************************************************************************************************************************/
+export function isInputDeleteAccount(key){
+    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Delete')
+        return true;
+    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Eliminar')
+            return true;
+    return false;
+};
 /**************************************************************************************************************************************************************************************/ 
 /* function isInputSaveTaskAnyLang(key) - very specific case for input element in edittask.html
 /**************************************************************************************************************************************************************************************/
@@ -138,6 +151,11 @@ export let languageContent = {
         "light-theme": "Light",
         "langEN": "English",
         "langPT": "Portuguese",
+        "delete-text": "Account Deletion",
+        "message-request": "Please enter password to confirm deletion:",
+        "passwordInput": "Password",
+        "deleteBtn": "Delete",
+        
         // edittask.html
         "task-viewer":"Task Viewer",
         "edit-btn":"Edit",
@@ -196,6 +214,10 @@ export let languageContent = {
         "lang":"Língua",
         "langEN": "Inglês",
         "langPT": "Português",
+        "delete-text": "Eliminar a conta",
+        "message-request": "Por favor, introduza a palavra-passe para confirmar a eliminação:",
+        "passwordInput": "Palavra-passe",
+        "deleteBtn": "Eliminar",
         // edittask.html
         "task-viewer":"Visualizador de Tarefas",
         "edit-btn":"Editar",

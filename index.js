@@ -4,6 +4,7 @@
 'use strict';
 
 import * as language from "./language.js";
+import * as theme from "./theme.js";
 
 language.listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
@@ -11,6 +12,7 @@ language.listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
     language.underlineLangFlag();
+    theme.loadTheme();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN LISTENER */ // index.html // <form id="loginForm" action="homepage.html">
@@ -21,17 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // adds an EventListener to the form, on click, triggers the function that follows
     form.addEventListener('submit', function(event) { 
         let username = document.getElementById('username').value; // obtains username inserted text
+        let password = document.getElementById('password').value;
         let errorElement = document.getElementById('errorLogin'); // obtains the error element for later message insertion
         let errorMsg = 'Mandatory field. Min. 6 letters.';
         if (localStorage.getItem('language')==='pt')
             errorMsg='Campo obrigatório. Min. 6 letras.';
 
         if (isUsernameInvalid(username) || isUsernameSmall(username)) {
-            console.log("here is problem");
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
             errorElement.innerText = errorMsg; // sets the error message
         } else {
             localStorage.setItem('username', username); // saves data into localStorage
+            localStorage.setItem('password', password); // saves data into localStorage
+            
             console.log("The user "+username+" has been added.");
             errorElement.innerText=""; // clear the error message 
         }
