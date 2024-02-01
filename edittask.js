@@ -3,19 +3,20 @@
  when you make mistakes. */
 'use strict';
 
-import { setUsername } from "./username.js";
-import { loadTheme} from "./theme.js";
-import { listenerLanguageBtns, underlineLangFlag } from "./language.js";
+import * as language from "./language.js";
+import * as username from "./username.js";
+import * as theme from "./theme.js";
 
 
-listenerLanguageBtns(); // adds listener to the language buttons
+
+language.listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
 /* DOMcl sets username, changes theme *** */
 /**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
-    setUsername(); // set username on loading
-    loadTheme(); // loads up the previously set theme
-    underlineLangFlag();
+    username.setUsername(); // set username on loading
+    theme.loadTheme(); // loads up the previously set theme
+    language.underlineLangFlag();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it */
