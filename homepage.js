@@ -146,13 +146,13 @@ function moveTaskToColumnOnDragDrop(taskId, newStatus){
          // Atualizar as tarefas no armazenamento local
         localStorage.setItem('tasks', JSON.stringify(tasks));
          // Mover a representação visual da tarefa para a coluna correta
-        moveTaskElement(task);
+        moveTaskElementOnDropVisualy(task);
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskElement(task) ---- handles movint a task to another collumn on drag and drop visual*/
+/* function moveTaskElementOnDropVisualy(task) ---- handles movint a task to another collumn on drag and drop visual*/
 /**************************************************************************************************************************************************************************************/
-function moveTaskElement(task) {
+function moveTaskElementOnDropVisualy(task) {
     // Remover a tarefa da sua coluna atual
     const existingElement = document.querySelector(`[data-task-id="${task.id}"]`);
     if (existingElement) {
