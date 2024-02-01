@@ -110,7 +110,6 @@ function createPrevButton() {
 /**************************************************************************************************************************************************************************************/ 
 /* function createDragDropListener --- 'e',aka, event object -> `dataTransfer` property -> sets the data, of the element being dragged, as the `id` of the `task` object
 /**************************************************************************************************************************************************************************************/
-/* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
 function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
