@@ -66,16 +66,19 @@ export function changeLanguage(lang) {
     }
 
     for (let key in languageContent[lang]) {
-        console.log(" key: "+key);
+        //console.log(" key: "+key);
         if (document.getElementById(key) === null) {
             continue;
         }
-        if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input
+        else if (isTextAreaElement(key)) {
+            document.getElementById(key).placeholder=languageContent[lang][key];
+            document.getElementById(key).textContent="";
+        }
+        else if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input
             document.getElementById(key).value = languageContent[lang][key];
         }
-        if (document.getElementById(key).tagName.toLowerCase() === 'input') {
-
-            document.getElementById(key).value = languageContent[lang][key];
+        else if (document.getElementById(key).tagName.toLowerCase() === 'input') {
+            document.getElementById(key).placeholder = languageContent[lang][key];
         }
         else {
             document.getElementById(key).innerHTML = languageContent[lang][key];
@@ -83,6 +86,16 @@ export function changeLanguage(lang) {
     }
     activeLangFlag();
 };
+/**************************************************************************************************************************************************************************************/ 
+/* function isTextAreaElement(key) - specific case
+/**************************************************************************************************************************************************************************************/
+function isTextAreaElement(key) {
+    if (document.getElementById(key).tagName.toLowerCase() === 'textarea')
+        return true;
+    return false;
+}
+
+
 /**************************************************************************************************************************************************************************************/ 
 /* function isInputSaveTaskAnyLang(key) - very specific case for input element in edittask.html
 /**************************************************************************************************************************************************************************************/
@@ -138,7 +151,9 @@ export let languageContent = {
         "add-retro":"Add Retrospective",
         "label-date-retro":"Date",
         "label-pres-retro":"Present Members",
+        "pres-TA-retro":"Insert present members",
         "label-comment-retro":"Comments",
+        "comment-retro":"Insert positive aspects, chalanges and suggestions for improvement",
         "input-save-retro":"Save Retrospective",
         // homepage.html
         "create-project": "Create Project",
@@ -194,7 +209,9 @@ export let languageContent = {
         "add-retro":"Adicionar Retrospetiva",
         "label-date-retro":"Data",
         "label-pres-retro":"Membros presentes",
+        "pres-TA-retro":"Inserir membros presentes",
         "label-comment-retro":"Comentários",
+        "comment-retro":"Inserir aspectos positivos, alterações e sugestões de melhoria",
         "input-save-retro":"Guardar Retrospetiva",
         // homepage.html
         "create-project": "Criar projeto",
