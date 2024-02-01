@@ -29,6 +29,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 /**************************************************************************************************************************************************************************************/ 
+/*  PlaceHolder desapear */
+/**************************************************************************************************************************************************************************************/
+document.getElementById('title').addEventListener('click', function() {
+ 
+});
+
+document.getElementById('description').addEventListener('click', function() {
+    this.value = '';
+});
+
+/**************************************************************************************************************************************************************************************/ 
 /* TASK CREATION */
 /**************************************************************************************************************************************************************************************/
 function addTask(title, description) { // adiciona uma task com o titulo e a descrição
@@ -98,9 +109,7 @@ let languageContent = {
         "nav-exit": "Exit",
         "add-task": "Add Task",
         "label-title":"Title",
-        "title":"Insert Title",
         "label-description":"Description",
-        "description":"Insert Task Description",
         "save-task":"Save Task",
     },
     "pt": {
@@ -109,11 +118,8 @@ let languageContent = {
         "nav-sett": "Definições",
         "nav-copy": "Direitos de autor",
         "nav-exit": "Sair",
-        "add-task": "Adicionar Tarefa",
         "label-title":"Título",
-        "title":"Inserir título",
         "label-description":"Descrição",
-        "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
     }
 };
