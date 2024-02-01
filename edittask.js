@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-btn');
-    const inputs = document.querySelectorAll('#taskForm input, #taskForm textarea');
+    const inputs = document.querySelectorAll('#taskForm-viewer-edition input, #taskForm-viewer-edition textarea');
 
     editButton.addEventListener('click', function() {
         inputs.forEach(function(input) {
