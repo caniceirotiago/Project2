@@ -15,28 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     username.setUsername(); // set username on loading
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
-});
-/**************************************************************************************************************************************************************************************/ 
-/* LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
-/**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
-        const status = column.id;
-        column.addEventListener('dragover', function(e) {
-            e.preventDefault(); // Permite o drop
-        });
-    
-        column.addEventListener('drop', function(e) {
-            e.preventDefault();
-            const taskId = e.dataTransfer.getData('text/plain');
-            // Lógica para mover a tarefa para a coluna atual
-            moveTaskToColumn(taskId, status);
-        });
-    });
+    createDropListnerForTasks();
     loadTasks();
     saveTasks(); 
     updateTaskCountView();
+    clickOnTaskListner();
 });
+
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
 /**************************************************************************************************************************************************************************************/
@@ -125,16 +110,30 @@ function createPrevButton() {
 /**************************************************************************************************************************************************************************************/ 
 /* function createDragDropListener --- 'e',aka, event object -> `dataTransfer` property -> sets the data, of the element being dragged, as the `id` of the `task` object
 /**************************************************************************************************************************************************************************************/
-/* *** Este código tem de ser revisto e estudado. Adiciona o action listner ao elemento evitando os botões */
 function createDragDropListener(itemList, task){
     itemList.addEventListener('dragstart', function(e) {
         e.dataTransfer.setData('text/plain', task.id);
     });
 };
+function createDropListnerForTasks(){
+    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
+    const status = column.id;
+    column.addEventListener('dragover', function(e) {
+        e.preventDefault(); // Permite o drop
+    });
+
+    column.addEventListener('drop', function(e) {
+        e.preventDefault();
+        const taskId = e.dataTransfer.getData('text/plain');
+        // Lógica para mover a tarefa para a coluna atual
+        moveTaskToColumnOnDragDrop(taskId, status);
+    });
+});
+}
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskToColumn - handles movint a task to another collumn on drag and drop*/
+/* function moveTaskToColumnOnDragDrop - handles movint a task to another collumn on drag and drop*/
 /**************************************************************************************************************************************************************************************/
-function moveTaskToColumn(taskId, newStatus){
+function moveTaskToColumnOnDragDrop(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
@@ -146,13 +145,13 @@ function moveTaskToColumn(taskId, newStatus){
          // Atualizar as tarefas no armazenamento local
         localStorage.setItem('tasks', JSON.stringify(tasks));
          // Mover a representação visual da tarefa para a coluna correta
-        moveTaskElement(task);
+        moveTaskElementOnDropVisualy(task);
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskElement(task) ---- handles movint a task to another collumn on drag and drop visual*/
+/* function moveTaskElementOnDropVisualy(task) ---- handles movint a task to another collumn on drag and drop visual*/
 /**************************************************************************************************************************************************************************************/
-function moveTaskElement(task) {
+function moveTaskElementOnDropVisualy(task) {
     // Remover a tarefa da sua coluna atual
     const existingElement = document.querySelector(`[data-task-id="${task.id}"]`);
     if (existingElement) {
@@ -165,8 +164,8 @@ function moveTaskElement(task) {
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Only on the task-item excluding buttons 
 /**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    const tasksContainer = document.querySelector('.mainBoard-tasks-container');
+function clickOnTaskListner(){
+      const tasksContainer = document.querySelector('.mainBoard-tasks-container');
 
     tasksContainer.addEventListener('click', function(event) {
         // Verificar se o clique foi diretamente num botão
@@ -186,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = `edittask.html?taskId=${taskId}`;
         }
     });
-});
+}
 /**************************************************************************************************************************************************************************************/ 
 /* function createNextBtnListener - CREATES NEXT BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to NEXT column and saving/updating the display
 /**************************************************************************************************************************************************************************************/
@@ -201,7 +200,7 @@ function createNextBtnListener(nextButton, task) {
         else if (task.status === 'done') {
             nextStatus = 'done';
         }
-        moveTask(task, nextStatus);
+        moveTaskOnCLick(task, nextStatus);
     });
 };
 /**************************************************************************************************************************************************************************************/ 
@@ -240,7 +239,7 @@ function createPrevBtnListener(nextButton, task) {
         else if (task.status === 'todo') {
             nextStatus = 'todo';
         }
-        moveTask(task, nextStatus);
+        moveTaskOnCLick(task, nextStatus);
     });
 };
 /**************************************************************************************************************************************************************************************/ 
@@ -255,9 +254,9 @@ function delTask(task) {
     updateTaskCountView();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTask(task, nextStatus) - 
+/* function moveTaskOnCLick(task, nextStatus) - 
 /**************************************************************************************************************************************************************************************/
-function moveTask(task, nextStatus) {
+function moveTaskOnCLick(task, nextStatus) {
     const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
     if (oldTaskElement) {
         oldTaskElement.remove();
@@ -295,7 +294,7 @@ function saveTasks() {
 /**************************************************************************************************************************************************************************************/
 function countTODOTasks(){
     const taskList = document.getElementById("todo");
-    let nOfTasks = taskList.childElementCount
+    let nOfTasks = taskList.childElementCount;
     return nOfTasks;
 };
 /**************************************************************************************************************************************************************************************/
@@ -303,7 +302,7 @@ function countTODOTasks(){
 /**************************************************************************************************************************************************************************************/
 function countDOINGTasks(){
     const taskList = document.getElementById("doing");
-    let nOfTasks = taskList.childElementCount
+    let nOfTasks = taskList.childElementCount;
     return nOfTasks;
 };
 /**************************************************************************************************************************************************************************************/
@@ -311,7 +310,7 @@ function countDOINGTasks(){
 /**************************************************************************************************************************************************************************************/
 function countDONETasks(){
     const taskList = document.getElementById("done");
-    let nOfTasks = taskList.childElementCount
+    let nOfTasks = taskList.childElementCount;
     return nOfTasks;
 };
 /**************************************************************************************************************************************************************************************/
@@ -351,7 +350,6 @@ function createBarElement(className, widthPercent) {
     bar.id = `${className}-bar`;
     bar.style.width = `${widthPercent}px`;
     bar.style.height = `${20}px`;
-    bar.title = className; // título para teste
     return bar;
 };
 /**************************************************************************************************************************************************************************************/
