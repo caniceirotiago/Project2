@@ -453,6 +453,10 @@ button#cancel-edit {
     color: white;
     cursor: pointer;
 }
+#title-Task-Viwer, #description-Task-Viwer{
+    border: none;
+    background-color: #007aff;
+}
 
 /* Animações e foco nos inputs */
 input[type="text"]:focus, input[type="password"]:focus {
