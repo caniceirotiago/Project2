@@ -66,12 +66,15 @@ export function changeLanguage(lang) {
     }
 
     for (let key in languageContent[lang]) {
-        if (document.getElementById(key) === null) 
+        console.log(" key: "+key);
+        if (document.getElementById(key) === null) {
             continue;
-        else if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input>
+        }
+        if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input
             document.getElementById(key).value = languageContent[lang][key];
         }
-        else if (document.getElementById(key).tagName.toLowerCase() === 'input') {
+        if (document.getElementById(key).tagName.toLowerCase() === 'input') {
+
             document.getElementById(key).value = languageContent[lang][key];
         }
         else {
@@ -128,19 +131,14 @@ export let languageContent = {
         "add-task":"Edit Task",
         "label-title":"Title",
         "label-description":"Description",
-        "description":"Insert Task Description",
         "save-task":"Save Task",
         "cancel-edit":"Back",
-        // task.html
-        "title":"Insert title",
         // retrospective.html
         "hist-retro":"Historic Retrospectives",
         "add-retro":"Add Retrospective",
         "label-date-retro":"Date",
         "label-pres-retro":"Present Members",
-        "pres-TA-retro":"Insert Present Members",
         "label-comment-retro":"Comments",
-        "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
         "input-save-retro":"Save Retrospective",
         // homepage.html
         "create-project": "Create Project",
@@ -189,9 +187,28 @@ export let languageContent = {
         "add-task":"Editar Tarefa",
         "label-title":"Título",
         "label-description":"Descrição",
-        "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
         "cancel-edit":"Retroceder",
+        // retrospective.html
+        "hist-retro":"Retrospectivas históricas",
+        "add-retro":"Adicionar Retrospetiva",
+        "label-date-retro":"Data",
+        "label-pres-retro":"Membros presentes",
+        "label-comment-retro":"Comentários",
+        "input-save-retro":"Guardar Retrospetiva",
+        // homepage.html
+        "create-project": "Criar projeto",
+        "select-project": "Selecionar projeto",
+        "manage-backlog": "Gestor de tarefas pendentes",
+        "select-sprint": "Seletor de Sprint",
+        "project-settings": "Definições do projeto",
+        "col-todo-text": "PARA FAZER",
+        "add-task-btn": "Adicionar tarefa",
+        "col-doing-text": "EM CURSO",   
+        "col-done-text": "FEITO",
+        "project-name": "Projeto: Nome",
+        "sprint-name": "Sprint: Nome",
+        "sprint-progress": "Progresso do Sprint:",
     }
 };
 /**************************************************************************************************************************************************************************************/ 
