@@ -377,7 +377,7 @@ ul {
     background-color: #e0e0e0; /* Cor de fundo ao passar o mouse */
 }
 .task-item button img {
-    width: 12px; /* Ou qualquer tamanho que se adeque ao seu design */
+    width: 14px; /* Ou qualquer tamanho que se adeque ao seu design */
     height: auto;
 }
 
