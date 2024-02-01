@@ -350,7 +350,6 @@ function createBarElement(className, widthPercent) {
     bar.id = `${className}-bar`;
     bar.style.width = `${widthPercent}px`;
     bar.style.height = `${20}px`;
-    bar.title = className; // título para teste
     return bar;
 };
 /**************************************************************************************************************************************************************************************/
