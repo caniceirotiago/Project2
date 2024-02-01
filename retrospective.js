@@ -5,13 +5,16 @@
 
 import { setUsername } from "./username.js";
 import { loadTheme} from "./theme.js";
+import { listenerLanguageBtns, underlineLangFlag } from "./language.js";
 
+listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
 /* DOMcl sets username, changes theme *** */
 /**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
     setUsername(); // set username on loading
     loadTheme(); // loads up the previously set theme
+    underlineLangFlag(); 
 });
 /**************************************************************************************************************************************************************************************/ 
 /* TASK SUBMISSION LISTENER  - For the ADD RETROSPECTIVE FORM*/
@@ -93,98 +96,6 @@ function clearRetrospectivesList() {
     const list = document.getElementById("historic-retrospectives-list");
     while (list.firstChild) {
         list.removeChild(list.firstChild);
-    }
-};
-/**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE IS SET ON DOMcl
-/**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
-    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-});
-/**************************************************************************************************************************************************************************************/ 
-/* activeLangFlag() = Toggle of active under the FlagElement */
-/**************************************************************************************************************************************************************************************/
-function activeLangFlag() {
-    // 
-    if(localStorage.getItem('language')==='en') {
-        document.getElementById("langIndexEN").classList.add("active");
-        document.getElementById("langIndexPT").classList.remove("active");
-    }
-    if(localStorage.getItem('language')==='pt') {
-        document.getElementById("langIndexPT").classList.add("active");
-        document.getElementById("langIndexEN").classList.remove("active");
-    }
-};
-/**************************************************************************************************************************************************************************************/ 
-/* DEFAULT LANGUAGE = ENGLISH */
-/**************************************************************************************************************************************************************************************/
-function checkLanguage() {
-    if (localStorage.getItem('language')===null) { // if it doesn't exist 
-        let lang='en'; // set it to English
-        localStorage.setItem('language', lang); // save it
-        console.log("Default language was null. Default language is now set to: "+lang);
-    }
-    else { // otherwise...
-        changeLanguage(localStorage.getItem('language')); // call function to changeLanguage (and all the elements which of change)
-        console.log("Default language was previously set to: "+localStorage.getItem('language')+".");
-    }
-};
-/**************************************************************************************************************************************************************************************/
- /* LANGUAGE SETTINGS */
- /* Content switching according to */
-/**************************************************************************************************************************************************************************************/
-let languageContent = {
-    "en": {
-        "nav-home": "Homepage",
-        "nav-retro": "Retrospective",
-        "nav-sett": "Settings",
-        "nav-copy": "Copyright",
-        "nav-exit": "Exit",
-        "hist-retro":"Historic Retrospectives",
-        "add-retro":"Add Retrospective",
-        "label-date-retro":"Date",
-        "label-pres-retro":"Present Members",
-        "pres-TA-retro":"Insert Present Members",
-        "label-comment-retro":"Comments",
-        "comment-retro":"Insert positive aspects, challenges or suggestions for improvement",
-        "input-save-retro":"Save Retrospective",
-    },
-    "pt": {
-        "nav-home": "Início",
-        "nav-retro": "Retrospetiva",
-        "nav-sett": "Definições",
-        "nav-copy": "Direitos de autor",
-        "nav-exit": "Sair",
-        "hist-retro":"Retrospectivas históricas",
-        "add-retro":"Adicionar Retrospetiva",
-        "label-date-retro":"Data",
-        "label-pres-retro":"Membros presentes",
-        "pres-TA-retro":"Inserir membros presentes",
-        "label-comment-retro":"Comentários",
-        "comment-retro":"Inserir aspectos positivos, desafios ou sugestões de melhoria",
-        "input-save-retro":"Guardar Retrospetiva",
-    }
-};
-/**************************************************************************************************************************************************************************************/ 
-/* function changeLanguage(lang) - applies to each element {key : string} the corresponding language from the languageContet[en/pt] above */
-/**************************************************************************************************************************************************************************************/
-function changeLanguage(lang) {
-    if (lang) {
-        localStorage.setItem('language', lang); // saves data into localStorage
-    }
-    for (let key in languageContent[lang]) {
-        // conditional: extra special case <input> element for the 'Save Retrospective' button
-        if (document.getElementById(key) === null) {
-            continue;
-        }
-        if (document.getElementById(key).tagName.toLowerCase() === 'input') {
-            document.getElementById(key).value = languageContent[lang][key];
-        }
-        else {
-        document.getElementById(key).innerHTML = languageContent[lang][key];
-    }
-    activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
     }
 };
 /**************************************************************************************************************************************************************************************/
