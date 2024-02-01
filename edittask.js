@@ -3,14 +3,15 @@
  when you make mistakes. */
 'use strict';
 
+import { setUsername } from "./username.js";
+import { loadTheme} from "./theme.js";
+
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER */
-/**************************************************************************************************************************************************************************************/
+/* DOMcl sets username, changes theme *** */
+/**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
-    var storedUsername = localStorage.getItem('username');
-    if (storedUsername) {
-        document.getElementById('usernameDisplay').textContent = storedUsername;
-    }
+    setUsername(); // set username on loading
+    loadTheme(); // loads up the previously set theme
 });
 /**************************************************************************************************************************************************************************************/ 
 /* DISPLAY TASK PART I - Finds task by ID - EDITTASK.HTML - fetches the Task that was passed through URL, finds it in localStorage JSON, and displays it */
@@ -92,12 +93,11 @@ function checkLanguage() {
     }
 };
 /**************************************************************************************************************************************************************************************/ 
-/* CHECK LANGUAGE, activeLangFlag, checkTheme IS SET ON DOMcl - on document/page loading checks the language that was set, the language flag that needs to be underlined and the theme/color scheme */
+/* CHECK LANGUAGE, activeLangFlag IS SET ON DOMcl - on document/page loading checks the language that was set, the language flag that needs to be underlined 
 /**************************************************************************************************************************************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-    checkTheme(); // on load checks which theme dark/light was predefined
 });
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
@@ -159,32 +159,6 @@ function changeLanguage(lang) {
             document.getElementById(key).innerHTML = languageContent[lang][key];
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-};
-/**************************************************************************************************************************************************************************************/ 
-/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
-/**************************************************************************************************************************************************************************************/
-function changeTheme(theme) {
-    if (theme) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('theme', theme); // saves data into localStorage
-    }
-    checkTheme();
-};
-/**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
-/**************************************************************************************************************************************************************************************/
-function checkTheme() {
-    let theme = localStorage.getItem('theme');
-    if (theme==='theme-dark') {
-        console.log("now dark");
-        document.body.classList.add('theme-dark');
-        document.body.classList.remove('theme-light');
-    }
-    if (theme==='theme-light') {
-        console.log("now light");
-        document.body.classList.add('theme-light');
-        document.body.classList.remove('theme-dark');
-    }
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/

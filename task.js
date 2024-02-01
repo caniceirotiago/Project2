@@ -4,11 +4,15 @@
 'use strict';
 
 import { setUsername } from "./username.js";
+import { loadTheme} from "./theme.js";
 
 /**************************************************************************************************************************************************************************************/ 
-/* SET USERNAME INTO HEADER  */
+/* DOMcl sets username, changes theme *** */
 /**************************************************************************************************************************************************************************************/ 
-setUsername();
+document.addEventListener('DOMContentLoaded', function() {
+    setUsername(); // set username on loading
+    loadTheme(); // loads up the previously set theme
+});
 /**************************************************************************************************************************************************************************************/ 
 /*  TASK SUBMISSION */
 /**************************************************************************************************************************************************************************************/
@@ -66,7 +70,6 @@ function checkLanguage() {
 document.addEventListener('DOMContentLoaded', function() {
     checkLanguage(); // checks the language setting - needs to be inside a DOMcl to trigger when loaded
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-    checkTheme(); // on load checks which theme dark/light was predefined
 });
 /**************************************************************************************************************************************************************************************/ 
 /* activeLangFlag() = Toggle of active under the FlagElement */
@@ -133,35 +136,6 @@ function changeLanguage(lang) {
             document.getElementById(key).innerHTML = languageContent[lang][key];
     }
     activeLangFlag(); // sets the flag element to active so it can have corresponding CSS applied
-};
-/**************************************************************************************************************************************************************************************/ 
-/* changeTheme(theme) = changes theme from on click and... calls the checkTheme
-/**************************************************************************************************************************************************************************************/
-function changeTheme(theme) {
-    if (theme) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('theme', theme); // saves data into localStorage
-    }
-    checkTheme();
-};
-/**************************************************************************************************************************************************************************************/ 
-/* check(theme) = Toggle according set of colours for ROOT element
-/**************************************************************************************************************************************************************************************/
-function checkTheme() {
-    let theme = localStorage.getItem('theme');
-
-    if (theme==='theme-dark') {
-        console.log("now dark");
-        document.body.classList.add('theme-dark');
-        document.body.classList.remove('theme-light');
-        
-    }
-    if (theme==='theme-light') {
-        console.log("now light");
-        document.body.classList.add('theme-light');
-        document.body.classList.remove('theme-dark');
-        
-    }
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
