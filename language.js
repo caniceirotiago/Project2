@@ -78,7 +78,7 @@ export let languageContent = {
         "label-description":"Description",
         "description":"Insert Task Description",
         "save-task":"Save Task",
-        "cancel-edit":"Cancel",
+        "cancel-edit":"Back",
     },
     "pt": {
         "nav-home": "Início",
@@ -98,7 +98,7 @@ export let languageContent = {
         "label-description":"Descrição",
         "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
-        "cancel-edit":"Cancelar",
+        "cancel-edit":"Retroceder",
     }
 };
 /**************************************************************************************************************************************************************************************/ 
