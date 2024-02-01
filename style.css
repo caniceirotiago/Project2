@@ -528,6 +528,11 @@ input[type="text"]:focus, input[type="password"]:focus {
     display: flex;
     justify-content: center;
 }
+.mainBoard-settings #theme,#delete-text{
+    font-weight: bold;
+}
+
+
 #dark-theme, #light-theme{
     cursor: pointer;
 }
