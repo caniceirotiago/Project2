@@ -52,13 +52,13 @@ export function changeTheme(theme) {
     toggleTheme();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* initTheme() = loads up the previously set theme
-/**************************************************************************************************************************************************************************************/
+/* initTheme() = loads up the previously set theme, if it exists, elsewise  defaults */
+/*****************************************************************************d*********************************************************************************************************/
 export function loadTheme() {
     let theme= localStorage.getItem('theme');
 
     if (theme===null) { // if it doesn't exist
-        let theme = 'theme-light'; // set it to theme-light
+        let theme = 'theme-light'; // set it to theme-light as default
         localStorage.setItem('theme', theme); // save it
         console.log("Default theme was null. Default language is now set to: " + theme);
     }
