@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let username = document.getElementById('username').value; // obtains username inserted text
         let password = document.getElementById('password').value;
         let errorElement = document.getElementById('errorLogin'); // obtains the error element for later message insertion
-        let errorMsg = 'Mandatory field. Min. 6 letters.';
+        let errorMsg = 'Mandatory field. Size 6-12, please.';
         if (localStorage.getItem('language')==='pt')
-            errorMsg='Campo obrigatório. Min. 6 letras.';
+            errorMsg='Campo obrigatório. Tamanho 6-12, por favor';
 
         if (isUsernameInvalid(username) || isUsernameSmall(username)) {
             event.preventDefault(); // prevents that the form be set/submitted without any fields filled out (just username for now)
