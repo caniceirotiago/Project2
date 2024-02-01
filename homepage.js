@@ -201,7 +201,7 @@ function createNextBtnListener(nextButton, task) {
         else if (task.status === 'done') {
             nextStatus = 'done';
         }
-        moveTask(task, nextStatus);
+        moveTaskOnCLick(task, nextStatus);
     });
 };
 /**************************************************************************************************************************************************************************************/ 
@@ -240,7 +240,7 @@ function createPrevBtnListener(nextButton, task) {
         else if (task.status === 'todo') {
             nextStatus = 'todo';
         }
-        moveTask(task, nextStatus);
+        moveTaskOnCLick(task, nextStatus);
     });
 };
 /**************************************************************************************************************************************************************************************/ 
@@ -255,9 +255,9 @@ function delTask(task) {
     updateTaskCountView();
 };
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTask(task, nextStatus) - 
+/* function moveTaskOnCLick(task, nextStatus) - 
 /**************************************************************************************************************************************************************************************/
-function moveTask(task, nextStatus) {
+function moveTaskOnCLick(task, nextStatus) {
     const oldTaskElement = document.querySelector(`[data-task-id="${task.id}"]`);
     if (oldTaskElement) {
         oldTaskElement.remove();
