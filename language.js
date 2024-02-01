@@ -128,11 +128,8 @@ export let languageContent = {
         "add-task":"Edit Task",
         "label-title":"Title",
         "label-description":"Description",
-        "description":"Insert Task Description",
         "save-task":"Save Task",
         "cancel-edit":"Back",
-        // task.html
-        "title":"Insert title",
         // retrospective.html
         "hist-retro":"Historic Retrospectives",
         "add-retro":"Add Retrospective",
@@ -189,7 +186,6 @@ export let languageContent = {
         "add-task":"Editar Tarefa",
         "label-title":"Título",
         "label-description":"Descrição",
-        "description":"Inserir descrição da tarefa",
         "save-task":"Salvar Tarefa",
         "cancel-edit":"Retroceder",
     }
