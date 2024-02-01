@@ -449,7 +449,7 @@ input[type="submit"]:hover {
     background-color: #d7e2ef;
 }
 button#cancel-edit {
-    background-color: #f44336; /* Cor vermelha para cancelar */
+    background-color: #9c9797; /* Cor vermelha para cancelar */
     color: white;
     cursor: pointer;
 }
