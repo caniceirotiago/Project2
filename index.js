@@ -3,14 +3,14 @@
  when you make mistakes. */
 'use strict';
 
-import { listenerLanguageBtns, underlineLangFlag } from "./language.js";
+import * as language from "./language.js";
 
-listenerLanguageBtns(); // adds listener to the language buttons
+language.listenerLanguageBtns(); // adds listener to the language buttons
 /**************************************************************************************************************************************************************************************/ 
 /* DOMcl sets username, changes theme *** */
 /**************************************************************************************************************************************************************************************/ 
 document.addEventListener('DOMContentLoaded', function() {
-    underlineLangFlag();
+    language.underlineLangFlag();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN LISTENER */ // index.html // <form id="loginForm" action="homepage.html">
