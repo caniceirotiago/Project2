@@ -127,14 +127,14 @@ function createDropListnerForTasks(){
         e.preventDefault();
         const taskId = e.dataTransfer.getData('text/plain');
         // Lógica para mover a tarefa para a coluna atual
-        moveTaskToColumn(taskId, status);
+        moveTaskToColumnOnDragDrop(taskId, status);
     });
 });
 }
 /**************************************************************************************************************************************************************************************/ 
-/* function moveTaskToColumn - handles movint a task to another collumn on drag and drop*/
+/* function moveTaskToColumnOnDragDrop - handles movint a task to another collumn on drag and drop*/
 /**************************************************************************************************************************************************************************************/
-function moveTaskToColumn(taskId, newStatus){
+function moveTaskToColumnOnDragDrop(taskId, newStatus){
      // Buscar as tarefas do armazenamento local
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     
