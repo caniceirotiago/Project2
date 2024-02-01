@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadTasks();
     saveTasks(); 
     updateTaskCountView();
-    clickOnTaskListner()
+    clickOnTaskListner();
 });
 
 /**************************************************************************************************************************************************************************************/ 
