@@ -28,6 +28,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }    
     });
 });
+document.getElementById('title').addEventListener('click', function() {
+    this.value = '';
+});
+
+document.getElementById('description').addEventListener('click', function() {
+    this.value = '';
+});
+
 /**************************************************************************************************************************************************************************************/ 
 /* TASK CREATION */
 /**************************************************************************************************************************************************************************************/
