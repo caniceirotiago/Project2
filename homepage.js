@@ -15,28 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     username.setUsername(); // set username on loading
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
-});
-/**************************************************************************************************************************************************************************************/ 
-/* LOAD+SAVE UPDATED TASKS +UPDATE TASK COUNTER  */
-/**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
-        const status = column.id;
-        column.addEventListener('dragover', function(e) {
-            e.preventDefault(); // Permite o drop
-        });
-    
-        column.addEventListener('drop', function(e) {
-            e.preventDefault();
-            const taskId = e.dataTransfer.getData('text/plain');
-            // Lógica para mover a tarefa para a coluna atual
-            moveTaskToColumn(taskId, status);
-        });
-    });
+    createDropListnerForTasks();
     loadTasks();
     saveTasks(); 
     updateTaskCountView();
+    clickOnTaskListner()
 });
+
 /**************************************************************************************************************************************************************************************/ 
 /* function loadTasks - LOAD ALL TASKS */
 /**************************************************************************************************************************************************************************************/
@@ -131,6 +116,21 @@ function createDragDropListener(itemList, task){
         e.dataTransfer.setData('text/plain', task.id);
     });
 };
+function createDropListnerForTasks(){
+    document.querySelectorAll(".ul-tasks").forEach(column => { //faz com que as listas recebam itens
+    const status = column.id;
+    column.addEventListener('dragover', function(e) {
+        e.preventDefault(); // Permite o drop
+    });
+
+    column.addEventListener('drop', function(e) {
+        e.preventDefault();
+        const taskId = e.dataTransfer.getData('text/plain');
+        // Lógica para mover a tarefa para a coluna atual
+        moveTaskToColumn(taskId, status);
+    });
+});
+}
 /**************************************************************************************************************************************************************************************/ 
 /* function moveTaskToColumn - handles movint a task to another collumn on drag and drop*/
 /**************************************************************************************************************************************************************************************/
@@ -165,8 +165,8 @@ function moveTaskElement(task) {
 /**************************************************************************************************************************************************************************************/ 
 /* ADD ACTION LISTENERS TO THE EACH TASK ITEM - Only on the task-item excluding buttons 
 /**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    const tasksContainer = document.querySelector('.mainBoard-tasks-container');
+function clickOnTaskListner(){
+      const tasksContainer = document.querySelector('.mainBoard-tasks-container');
 
     tasksContainer.addEventListener('click', function(event) {
         // Verificar se o clique foi diretamente num botão
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = `edittask.html?taskId=${taskId}`;
         }
     });
-});
+}
 /**************************************************************************************************************************************************************************************/ 
 /* function createNextBtnListener - CREATES NEXT BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to NEXT column and saving/updating the display
 /**************************************************************************************************************************************************************************************/
