@@ -437,6 +437,10 @@ textarea {
     border: none;
     box-shadow: none;
 }
+.row-task-viewer{
+    display: flex;
+    justify-content: space-between;
+}
 
 textarea:focus {
     outline: none;
@@ -460,9 +464,14 @@ input[type="submit"]:hover {
     background-color: #d7e2ef;
 }
 button#cancel-edit {
+    align-self: flex-end;
     background-color: #9c9797; /* Cor vermelha para cancelar */
     color: white;
     cursor: pointer;
+    
+}
+#edit-icon{
+    src: format();
 }
 
 

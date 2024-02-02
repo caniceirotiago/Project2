@@ -69,9 +69,9 @@ function addTaskToRightList(task) {
     itemList.appendChild(contentDiv);
     
     /* Append Buttons to Task - with contextual relevance logic */
-    if (!(task.status === 'done')) { itemList.appendChild(nextButton); } //this one is not added in right most column
+    if (task.status !== 'done') { itemList.appendChild(nextButton); } //this one is not added in right most column
     itemList.appendChild(delButton); // this one is always added
-    if (!(task.status === 'todo')) { itemList.appendChild(prevButton); } //this one is not added in left most column
+    if (task.status !== 'todo') { itemList.appendChild(prevButton); } //this one is not added in left most column
     
     /* Add Task to correct List */
     document.getElementById(task.status).appendChild(itemList);
@@ -219,11 +219,7 @@ function createDelBtnListener(delButton, task) {
 function delConfirmation(){
     let delConfirmMsg = 'Are you sure you want to delete this task?';
     // (alternatives would be: alert ||prompt || modal popup (but those are annoying! please never use those))
-    let result = confirm(delConfirmMsg);
-    if (result == false) {
-        return false;
-    }
-    return true;
+    return confirm(delConfirmMsg);
 };
 /**************************************************************************************************************************************************************************************/ 
 /* function createPrevBtnListener - CREATES PREV BUTTON LISTENER AND HANDLES THE LOGIC RESPONSE - moving to PREVIOUS column and saving/updating the display
