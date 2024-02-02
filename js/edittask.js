@@ -51,8 +51,11 @@ function editButtonActionListner(){
         inputs.forEach(function(input) {
             input.disabled = false;
         });
+        const savebtn = document.getElementById("save-task");
+        savebtn.hidden = false;
         this.disabled = true; // Opcional: desabilita o botão Edit após o clique
     });
+    
 }
 
 /**************************************************************************************************************************************************************************************/ 
@@ -91,6 +94,8 @@ function saveTask() {
         }
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
+    const savebtn = document.getElementById("save-task");
+    savebtn.hidden = true;
 };
 /**************************************************************************************************************************************************************************************/
 /**************************************************************************************************************************************************************************************/
