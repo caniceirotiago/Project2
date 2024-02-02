@@ -39,8 +39,11 @@
         <div class="mainBoard">
             <!------------------ Task Contents ------------------------------------>
             <form id="taskForm-viewer-edition" action="homepage.html"> <!-- Loaded page after form fetch okay -->
-                <div class="row-task">
+                <div class="row-task-viewer">
                     <h3 id="task-viewer">Task Viewer</h3>
+                    <button id="edit-btn">
+                        <img id="edit-icon"></img>
+                    </button>
                 </div>
                 <div class="row-title">
                     <label id="label-title" for="title">Title </label>
@@ -56,7 +59,6 @@
                 <div class="row-back">
                     <button id="cancel-edit" type="button" onclick="location.href='homepage.html';">Back</button>
                 </div>
-                <button id="edit-btn">Edit</button>
             </form>
         </div>
     </main>
