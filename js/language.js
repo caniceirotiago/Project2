@@ -130,8 +130,7 @@ export let languageContent = {
         "infosContact":"You can reach us at our headquarters during workdays from 09:30 to 17:30",
         "adressTitle":"Address",
         "phoneNumberTitle":"Phone Number:",
-        "text-about1":"As a proficient practitioner of Agile and Scrum methodologies, I bring extensive experience and a deep understanding of these approaches to software development and project management. My expertise encompasses a thorough knowledge of the Agile Manifesto, its principles, and practical applications in various project scenarios. I have a strong background in implementing Agile practices like pair programming, continuous integration, and test-driven development, with a focus on facilitating a rapid and flexible response to change through iterative development.",
-        "text-about2":"In the realm of Scrum, I have demonstrated expertise in understanding and applying the framework's roles, events, and artifacts. My experience as a Scrum Master has seen me guide teams in Scrum practices, adeptly removing impediments and fostering an environment conducive to high-performing team dynamics. Additionally, my role as a Product Owner involved effective management of the product backlog, task prioritization, and stakeholder engagement to ensure that projects align with business objectives.",
+        "text-about1":"AntNest is the driving force behind agile transformation in your team. Our software solutions are designed to optimize workflow processes, championing Agile and Scrum methodologies. With an intuitive interface and collaborative tools, we facilitate project management, enabling teams of any size to achieve their goals with greater efficiency and effectiveness. At the heart of AntNest lies a commitment to continuous innovation and supporting teams on their journey towards operational excellence. Join us on the path to transforming the way work is done, making each project an opportunity to learn, grow, and succeed together.",
         // pretty much "all"
         "nav-home": "Homepage",
         "nav-retro": "Retrospective",
@@ -192,8 +191,7 @@ export let languageContent = {
         "infosContact":"Pode contactar-nos na nossa sede durante os dias úteis das 09:30 às 17:30",
         "adressTitle":"Morada",
         "phoneNumberTitle":"Número de telefone:",
-        "text-about1":"Como praticante proficiente das metodologias Agile e Scrum, trago uma vasta experiência e um profundo conhecimento destas abordagens ao desenvolvimento de software e à gestão de projectos. A minha experiência engloba um conhecimento profundo do Manifesto Agile, dos seus princípios e aplicações práticas em vários cenários de projectos. Tenho uma sólida experiência na implementação de práticas Agile, como a programação em pares, a integração contínua e o desenvolvimento baseado em testes, com o objetivo de facilitar uma resposta rápida e flexível à mudança através do desenvolvimento iterativo.",
-        "text-about2":"No domínio do Scrum, demonstrei experiência na compreensão e aplicação das funções, eventos e artefactos da estrutura. A minha experiência como Scrum Master permitiu-me orientar as equipas nas práticas Scrum, removendo habilmente os impedimentos e promovendo um ambiente propício a uma dinâmica de equipa de elevado desempenho. Além disso, o meu papel como Product Owner envolveu a gestão eficaz do backlog do produto, a priorização de tarefas e o envolvimento das partes interessadas para garantir que os projectos estão alinhados com os objectivos comerciais.",
+        "text-about1":"A AntNest é a força motriz por detrás da transformação ágil na sua equipa. As nossas soluções de software são desenhadas para otimizar os processos de trabalho, fomentando as metodologias Agile e Scrum. Com uma interface intuitiva e ferramentas colaborativas, facilitamos a gestão de projetos, permitindo que equipas de qualquer dimensão alcancem os seus objetivos com maior eficiência e eficácia. No coração da AntNest, está o compromisso com a inovação contínua e o apoio à evolução das equipas rumo à excelência operacional. Junte-se a nós na jornada para transformar a forma como o trabalho é realizado, tornando cada projeto uma oportunidade para aprender, crescer e ter sucesso em conjunto.",
         // pretty much "all"
         "nav-home": "Início",
         "nav-retro": "Retrospetiva",
@@ -243,28 +241,3 @@ export let languageContent = {
         "sprint-progress": "Progresso do Sprint:",
     }
 };
-/**************************************************************************************************************************************************************************************/ 
-/* changeLanguage(lang) = Toggle of underline under the FlagElement */
-/**************************************************************************************************************************************************************************************/
-
-/*export function changeLanguage(lang) {
-    if (lang) {
-        // set no local storage.............. gravar lá
-        localStorage.setItem('language', lang); // saves data into localStorage
-    }
-
-    for (let key in languageContent[lang]) {
-        if (document.getElementById(key) === null) 
-            continue;
-        }
-        if (document.getElementById(key).tagName.toLowerCase() === 'input')
-            document.getElementById(key).placeholder = languageContentIndex[lang][key];
-        // conditional: extra special case <input> element for the Login button
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Login')
-            document.getElementById(key).value = languageContentIndex[lang][key];
-        if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Entrar')
-            document.getElementById(key).value = languageContentIndex[lang][key];
-        // default : all the remaining elements
-    
-
-*/
