@@ -429,6 +429,7 @@ textarea {
     border: 1px solid #ddd; /* Borda */
     border-radius: 4px; /* Bordas arredondadas */
     resize: none; /* Impede o usuário de redimensionar a textarea */
+    min-height: 100px; 
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Sombra interna para um efeito sutil */
     transition: border-color 0.3s, box-shadow 0.3s; /* Transição suave para foco e interações */
 }
