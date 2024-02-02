@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     username.setUsername(); // set username on loading
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
+    submitActionLisnter();
 });
 /**************************************************************************************************************************************************************************************/ 
 /*  TASK SUBMISSION */
 /**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('taskForm'); // obtem o forumulário de criação de uma task!
+function submitActionLisnter(){
+     var form = document.getElementById('taskForm'); // obtem o forumulário de criação de uma task!
     form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
         event.preventDefault(); // previne que o formulário seja enviado da forma default
         var title = document.getElementById('title').value; //obtem o titulo da task
@@ -30,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'homepage.html'; // redireciona para a página principal
         }    
     });
-});
-
+}
 /**************************************************************************************************************************************************************************************/ 
 /* TASK CREATION */
 /**************************************************************************************************************************************************************************************/
