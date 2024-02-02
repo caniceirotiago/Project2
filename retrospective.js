@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     username.setUsername(); // set username on loading
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
+    submitActionListner();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* TASK SUBMISSION LISTENER  - For the ADD RETROSPECTIVE FORM*/
 /**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
-     var form = document.getElementById('retrospectiveForm'); // obtem o forumulário de criação de uma task!
+function submitActionListner(){
+    var form = document.getElementById('retrospectiveForm'); // obtem o forumulário de criação de uma task!
      form.addEventListener('submit', function(event) { //Adiciona actionListner em caso de submissão
          event.preventDefault(); // previne que o formulário seja enviado da forma default
          var date = document.getElementById('date').value; //obtem o titulo da task
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }   
     });
     loadRetrospectives();
-});
+}
 /**************************************************************************************************************************************************************************************/ 
 /* function addRetrospective(date, presentMembers, comments) - // adiciona uma task com o titulo e a descrição */
 /**************************************************************************************************************************************************************************************/
