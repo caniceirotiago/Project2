@@ -70,18 +70,18 @@ export function changeLanguage(lang) {
         if (document.getElementById(key) === null) {
             continue;
         }
-        else if (isTextAreaElement(key)) {
+        else if (isTextAreaElement(key)) { // for textArea in retrospective and input fields in login/settings, etc
             document.getElementById(key).placeholder=languageContent[lang][key];
             document.getElementById(key).textContent="";
         }
-        else if(isInputSaveTaskAnyLang(key)) { // very specific case of edittask.html and task.html <input
-            document.getElementById(key).value = languageContent[lang][key];
-        }
-        else if (isInputDeleteAccount(key)) {
-            document.getElementById(key).value = languageContent[lang][key];
-        }
-        else if (document.getElementById(key).tagName.toLowerCase() === 'input') {
-            document.getElementById(key).placeholder = languageContent[lang][key];
+        else if(isInputAndDotValue(key)) { 
+            if (isInputButton(key)) { // inputs buttons
+                document.getElementById(key).value = languageContent[lang][key];
+            }
+            else { // inputs other fields
+                document.getElementById(key).placeholder=languageContent[lang][key];
+                document.getElementById(key).textContent="";
+            }
         }
         else {
             document.getElementById(key).innerHTML = languageContent[lang][key];
@@ -92,34 +92,27 @@ export function changeLanguage(lang) {
 /**************************************************************************************************************************************************************************************/ 
 /* function isTextAreaElement(key) - specific case
 /**************************************************************************************************************************************************************************************/
-function isTextAreaElement(key) {
+export function isTextAreaElement(key) {
     if (document.getElementById(key).tagName.toLowerCase() === 'textarea')
         return true;
     return false;
 }
-
-
 /**************************************************************************************************************************************************************************************/ 
-/* function isInputSaveTaskAnyLang(key) - very specific case for input element in edittask.html
+/* function isInputButton(key) - true/false verification here: specific case buttons, listed here
 /**************************************************************************************************************************************************************************************/
-export function isInputDeleteAccount(key){
-    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Delete')
+export function isInputButton(key) { // buttons
+    if (key==='login' || key==='input-save-retro' || key=== 'deleteBtn' || key==='save-task')
         return true;
-    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Eliminar')
-            return true;
+    return false;
+}
+/**************************************************************************************************************************************************************************************/ 
+/* function isInputAndDotValue(key) - very specific case for input element in edittask.html
+/**************************************************************************************************************************************************************************************/
+export function isInputAndDotValue(key){
+    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value!== null)
+        return true;
     return false;
 };
-/**************************************************************************************************************************************************************************************/ 
-/* function isInputSaveTaskAnyLang(key) - very specific case for input element in edittask.html
-/**************************************************************************************************************************************************************************************/
-export function isInputSaveTaskAnyLang(key){
-    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Save Task')
-        return true;
-    if(document.getElementById(key).tagName.toLowerCase() === 'input' && document.getElementById(key).value === 'Salvar Tarefa')
-            return true;
-    return false;
-};
-
 /**************************************************************************************************************************************************************************************/
 /* LANGUAGE SETTINGS */
 /* Content switching according to */
