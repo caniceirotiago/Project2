@@ -13,11 +13,12 @@ language.listenerLanguageBtns(); // adds listener to the language buttons
 document.addEventListener('DOMContentLoaded', function() {
     language.underlineLangFlag();
     theme.loadTheme();
+    loginActionListners();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* FORM FOR LOGIN LISTENER */ // index.html // <form id="loginForm" action="homepage.html">
 /**************************************************************************************************************************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
+function loginActionListners(){
     // declare variable: var nextStatus is not recommended after IE6, best practice is let keyword
     let form = document.getElementById('loginForm'); // obtains the loginForm
     // adds an EventListener to the form, on click, triggers the function that follows
@@ -39,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("The user "+username+" has been added.");
             errorElement.innerText=""; // clear the error message 
         }
-    });
-});
+    });    
+}
 /**************************************************************************************************************************************************************************************/ 
 /* FUNCTION isUsernameInvalid(username) - checks if username is empty or null
 /**************************************************************************************************************************************************************************************/
