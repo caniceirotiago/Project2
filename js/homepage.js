@@ -133,10 +133,7 @@ function createDropListnerForTasks(){
 /* function moveTaskToColumnOnDragDrop - handles movint a task to another collumn on drag and drop*/
 /**************************************************************************************************************************************************************************************/
 function moveTaskToColumnOnDragDrop(taskId, newStatus){
-     // Buscar as tarefas do armazenamento local
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    
-    // Encontrar a tarefa pelo taskId
     let task = tasks.find(t => t.id === taskId);
     if (task) {
          // Atualizar o status da tarefa
