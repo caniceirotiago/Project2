@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
     submitActionListner();
+    loadRetrospectives();
 });
 /**************************************************************************************************************************************************************************************/ 
 /* TASK SUBMISSION LISTENER  - For the ADD RETROSPECTIVE FORM*/
@@ -33,7 +34,7 @@ function submitActionListner(){
             loadRetrospectives();
         }   
     });
-    loadRetrospectives();
+   
 }
 /**************************************************************************************************************************************************************************************/ 
 /* function addRetrospective(date, presentMembers, comments) - // adiciona uma task com o titulo e a descrição */
