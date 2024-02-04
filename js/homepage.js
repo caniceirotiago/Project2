@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     theme.loadTheme(); // loads up the previously set theme
     language.underlineLangFlag();
     createDropListnerForTasks();
-    loadTasks();
-    saveTasks(); 
+    loadTasks();     
     updateTaskCountView();
     clickOnTaskListner();
 });
