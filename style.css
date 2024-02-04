@@ -1,5 +1,3 @@
-/* Estilo geral com melhorias */
-/* Estilo geral com melhorias */
 
 body, html {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -102,7 +100,7 @@ header h1{
 
 .topnav a {
     color: var(--text-color2); /* Cor do texto dos links */
-    padding: 5px 5px; /* Espa2çamento interno dos links */
+    padding: 5px 5px; /* Espaçamento interno dos links */
     text-decoration: none; /* Remove o sublinhado */
     font-size: 16px; /* Tamanho da fonte */
     transition: background-color 0.1s; /* Transição suave para o hover */
@@ -145,7 +143,7 @@ FLAGS
 main {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 90px); /* Ajuste para ocupar a altura total disponÃ­vel */
+    height: calc(100% - 90px); /* Ajuste para ocupar a altura */
     width: 99%;
     align-self: center;
     margin: 5px 0px;
@@ -162,7 +160,7 @@ main {
 .right-container {
     display: flex;
     flex-direction: column;
-    flex-grow: 3; /* Faz este contêiner ocupar o espaço restante */
+    flex-grow: 3; /* Faz ocupar o espaço restante */
     max-height: 100%;
     width: 30%;
 }
@@ -329,13 +327,13 @@ ul {
 }
 .task-item {
     border-radius: 10px;
-    list-style-type: none; /* Remove o ponto padrÃ£o */
-    background-color: var(--quinary-color); /* Fundo branco com transparÃªncia */
-    padding: 0px; /* EspaÃ§amento interno */
-    overflow: hidden; /* Previne que o conteÃºdo ultrapasse os limites */
-    margin: 8px auto; /* Margem automÃ¡tica para centralizaÃ§Ã£o horizontal */
-    width: 90%; /* Largura ajustÃ¡vel */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza a transiÃ§Ã£o da transformaÃ§Ã£o e da sombra */
+    list-style-type: none; /* Remove o ponto */
+    background-color: var(--quinary-color); 
+    padding: 0px; 
+    overflow: hidden; 
+    margin: 8px auto; 
+    width: 90%; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 #todo .banner {
     background-color: var(--todo-color);
@@ -350,27 +348,27 @@ ul {
 .task-item:hover {
     cursor: pointer;
     transform: translate(-2px, -2px); /* Move o elemento 5px para a direita e 5px para cima */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevaÃ§Ã£o */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Adiciona uma sombra para efeito de elevação*/
 }
 .task-item:hover button {
-    opacity: 1; /* Torna o botÃ£o totalmente opaco (visÃ­vel) quando o mouse estÃ¡ sobre o task-item */
+    opacity: 1; /* Torna o botão totalmente opaco quando o mouse sobre o task-item */
 }
 
 .task-item h3, .task-item p {
-    margin: 2px 5px; /* EspaÃ§amento entre tÃ­tulo, descriÃ§Ã£o e botÃ£o */
-    word-wrap: break-word; /* Quebra palavras longas para nÃ£o ultrapassar a largura */
+    margin: 2px 5px; /* Espaçamento entre titulo*/
+    word-wrap: break-word; /* Quebra palavras longas para não ultrapassar a largura */
 }
 
 .task-item button {
     opacity: 0;
-    transition: opacity 0.3s; /* Adiciona uma transiÃ§Ã£o suave para a opacidade */
-    float:right; /* Posiciona o botÃ£o Ã  direita */
-    margin-left: 0px; /* EspaÃ§o Ã  esquerda do botÃ£o */
-    padding: 3px 8px; /* EspaÃ§amento interno do botÃ£o */
+    transition: opacity 0.3s; /* Adiciona uma transição suave para a opacidade */
+    float:right; 
+    margin-left: 0px; 
+    padding: 3px 8px; 
     border-radius: 2px;
     border: none;
-    background-color: var(--quinary-color); /* Cor de fundo do botÃ£o */
-    cursor: pointer; /* Muda o cursor para indicar que Ã© clicÃ¡vel */
+    background-color: var(--quinary-color);
+    cursor: pointer; 
 }
 
 .task-item button:hover {
