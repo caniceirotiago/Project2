@@ -33,10 +33,8 @@ function loadTaskId(){
         const taskToEdit = tasks.find(task => task.id === taskId);
 
         if (taskToEdit) {
-            // Aqui  pode preencher os campos de edição com os dados da tarefa
             document.getElementById('title').value = taskToEdit.title;
             document.getElementById('description').value = taskToEdit.description;
-            // ... outros campos conforme necessário
         }
     }
 };
@@ -53,7 +51,7 @@ function editButtonActionListner(){
         });
         const savebtn = document.getElementById("save-task");
         savebtn.hidden = false;
-        this.disabled = true; // Opcional: desabilita o botão Edit após o clique
+        this.disabled = true; 
     });
     
 }
@@ -87,10 +85,8 @@ function saveTask() {
         const taskToEdit = tasks.find(task => task.id === taskId);
 
         if (taskToEdit) {
-            // Aqui você pode preencher os campos de edição com os dados da tarefa
             taskToEdit.title = document.getElementById('title').value;
             taskToEdit.description = document.getElementById('description').value;
-            // ... outros campos conforme necessário
         }
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
