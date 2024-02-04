@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     language.underlineLangFlag();
     createDropListnerForTasks();
     loadTasks();   
-    saveTasks();  
+    saveTasks(); //necessita de gravar  
     updateTaskCountView();
     clickOnTaskListner();
 });
