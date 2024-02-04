@@ -35,8 +35,8 @@ function loadTasks() {
 /**************************************************************************************************************************************************************************************/
 function addTaskToRightList(task) {
     /* <li> list items */
-    const itemList = document.createElement('li');
-    itemList.setAttribute('data-task-id', task.id); // Creates a new <li> element
+    const itemList = document.createElement('li');// Creates a new <li> element
+    itemList.setAttribute('data-task-id', task.id); 
     itemList.classList.add('task-item');
     itemList.setAttribute('draggable','true');
     const itemTitle = document.createElement('h3');
